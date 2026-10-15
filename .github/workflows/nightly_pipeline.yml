@@ -41,7 +41,7 @@ jobs:
         run: |
           git config --global user.name "NKD Dashboard Bot"
           git config --global user.email "bot@nkd-dashboard.com"
-          git add data/
+          git add -f data/
           git diff --staged --quiet || git commit -m "📊 Données mises à jour — $(date +'%Y-%m-%d %H:%M')"
           git push
 
