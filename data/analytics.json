@@ -1,16 +1,16 @@
 {
-  "last_updated": "2026-10-15T11:48:03.120771+00:00",
+  "last_updated": "2026-10-15T14:16:20.545642+00:00",
   "kpis": {
-    "total_ca_eur": 180473.32,
-    "total_transactions": 6130,
-    "avg_ticket_eur": 29.44,
-    "total_tva_marge_eur": 10527.59,
+    "total_ca_eur": 180502.31,
+    "total_transactions": 6133,
+    "avg_ticket_eur": 29.43,
+    "total_tva_marge_eur": 10529.28,
     "tva_match_rate_pct": 0.0,
     "target_annual_eur": 300000,
-    "gap_eur": 119526.68,
+    "gap_eur": 119497.69,
     "progress_pct": 60.2,
-    "current_month_projection_eur": 17377.81,
-    "needed_monthly_eur": 119526.68,
+    "current_month_projection_eur": 17437.73,
+    "needed_monthly_eur": 119497.69,
     "months_analyzed": 11
   },
   "monthly": [
@@ -116,12 +116,12 @@
     },
     {
       "month": "2026-10",
-      "ca_eur": 8408.62,
-      "transactions": 329,
-      "avg_ticket": 25.56,
+      "ca_eur": 8437.61,
+      "transactions": 332,
+      "avg_ticket": 25.41,
       "tva_marge_real_eur": 0.0,
-      "tva_marge_estimated_eur": 490.5,
-      "tva_marge_total_eur": 490.5,
+      "tva_marge_estimated_eur": 492.19,
+      "tva_marge_total_eur": 492.19,
       "tva_match_rate": 0.0
     }
   ],
@@ -146,9 +146,9 @@
     },
     {
       "day": "Jeudi",
-      "ca_eur": 22564.08,
-      "transactions": 756,
-      "avg_ticket": 29.85
+      "ca_eur": 22593.07,
+      "transactions": 759,
+      "avg_ticket": 29.77
     },
     {
       "day": "Vendredi",
@@ -172,7 +172,7 @@
   "by_method": [
     {
       "method": "CARD",
-      "ca_eur": 150074.92,
+      "ca_eur": 150103.91,
       "pct": 83.2
     },
     {
@@ -184,13 +184,13 @@
   "ticket_distribution": [
     {
       "range": "< 10€",
-      "count": 566,
-      "ca_eur": 2945.51
+      "count": 568,
+      "ca_eur": 2955.51
     },
     {
       "range": "10-25€",
-      "count": 3545,
-      "ca_eur": 54692.11
+      "count": 3546,
+      "ca_eur": 54711.1
     },
     {
       "range": "25-50€",
