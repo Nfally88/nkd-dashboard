@@ -394,6 +394,7 @@ body {
   align-items: center; justify-content: center;
   gap: 16px;
 }
+#loading[hidden] { display: none; }
 .loading-logo { font-size: 36px; font-weight: 900; letter-spacing: -2px; }
 .loading-spinner {
   width: 32px; height: 32px;
@@ -673,7 +674,7 @@ footer {
 <section class="tab-pane" id="tab-catalogue">
   <div class="grid-2-1" style="margin-bottom:20px">
     <div class="card">
-      <div class="card-header"><span class="card-title">CA estimé par catégorie</span><span class="chip yellow">Estimation par prix</span></div>
+      <div class="card-header"><span class="card-title">CA par tranche de prix</span><span class="chip yellow">En attendant les catégories</span></div>
       <div class="chart-container" style="height:260px">
         <canvas id="chart-categories"></canvas>
       </div>
@@ -710,7 +711,7 @@ footer {
 <!-- ===================== TAB 4: TVA ===================== -->
 <section class="tab-pane" id="tab-tva">
   <div style="background:var(--warning-light);border:1px solid var(--warning);border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13px;color:var(--fg2)">
-    ⚠️ <strong>Note importante :</strong> La répartition TVA sur marge / TVA normale est estimée par seuil de prix (>150€ = occasion, ≤150€ = neuf/réparation). Pour une déclaration CA3 exacte, les factures Drive constituent la référence officielle.
+    ⚠️ <strong>Note importante :</strong> Ces montants sont des estimations : la TVA sur marge est calculée sur toutes les ventes avec une marge supposée de 35 % tant que les prix d'achat ne sont pas rapprochés, et la TVA normale (neuf, réparations) n'est pas encore séparée. Pour une déclaration CA3 exacte, les factures Drive constituent la référence officielle.
   </div>
 
   <!-- Totaux TVA -->
@@ -759,7 +760,7 @@ footer {
             <th>Mois</th>
             <th class="num">CA TTC (€)</th>
             <th class="num">TVA marge est. (€)</th>
-            <th class="num">TVA normale est. (€)</th>
+            <th class="num">TVA marge réelle (€)</th>
             <th class="num">TVA collectée tot.</th>
             <th class="num">Statut</th>
           </tr>
@@ -838,6 +839,20 @@ Chart.defaults.font.size = 12;
 const MONTH_FR = ['Jan','Fév','Mar','Avr','Mai','Jun','Jul','Aoû','Sep','Oct','Nov','Déc'];
 const DAY_FR = ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
 
+// Objectif annuel de CA (fixé par Nfally)
+const TARGET = 250000;
+const MONTHLY_TARGET = TARGET / 12;
+
+// Le pipeline produit des listes ; ces helpers les remettent dans l'ordre attendu
+const WEEK_DAYS = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+function dayCAList(d) {
+  const bd = Array.isArray(d.by_day) ? d.by_day : [];
+  return WEEK_DAYS.map(day => (bd.find(x => x.day === day) || {}).ca_eur || 0);
+}
+const METHOD_FR = { CARD: 'Carte bancaire', CASH: 'Espèces', WALLET: 'Portefeuille mobile', BANK_ACCOUNT: 'Virement', EXTERNAL: 'Externe', OTHER: 'Autre' };
+const methodList = d => Array.isArray(d.by_method) ? d.by_method : [];
+const ticketList = d => Array.isArray(d.ticket_distribution) ? d.ticket_distribution : [];
+
 // ============================================================
 // TABS
 // ============================================================
@@ -851,7 +866,11 @@ tabs.forEach(btn => {
     panes.forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
     const pane = document.getElementById('tab-' + tab);
-    if (pane) pane.classList.add('active');
+    if (pane) {
+      pane.classList.add('active');
+      // Les graphiques créés dans un onglet caché ont une taille nulle : on les ajuste dès l'affichage
+      pane.querySelectorAll('canvas').forEach(cv => { const ch = Chart.getChart(cv); if (ch) ch.resize(); });
+    }
   });
 });
 
@@ -896,8 +915,6 @@ function updateHeader(d) {
 // ============================================================
 function renderPilotage(d) {
   const k = d.kpis;
-  const TARGET = 250000;
-  const MONTHLY_TARGET = TARGET / 12;
 
   // CA YTD
   const ca = k.total_ca_eur || 0;
@@ -924,13 +941,19 @@ function renderPilotage(d) {
   // Transactions
   const tx = k.total_transactions || 0;
   document.getElementById('kpi-tx').textContent = fmt(tx);
-  document.getElementById('kpi-tx-sub').textContent = fmt(tx / 12, 0) + ' / mois en moyenne';
+  const nbMonths = Math.max(1, k.months_analyzed || (d.monthly || []).length);
+  document.getElementById('kpi-tx-sub').textContent = fmt(tx / nbMonths, 0) + ' / mois en moyenne';
 
-  // Marge
-  const margin = k.total_margin_eur || 0;
-  const marginRate = ca > 0 ? (margin / ca * 100) : 0;
-  document.getElementById('kpi-margin').textContent = fmtEur(margin);
-  document.getElementById('kpi-margin-rate').textContent = 'Taux de marge : ' + fmt(marginRate, 1) + '%';
+  // Marge : calculable uniquement si les factures d'achat sont chargées
+  if (k.total_margin_eur != null && d.purchase_costs_loaded) {
+    const margin = k.total_margin_eur;
+    const marginRate = ca > 0 ? (margin / ca * 100) : 0;
+    document.getElementById('kpi-margin').textContent = fmtEur(margin);
+    document.getElementById('kpi-margin-rate').textContent = 'Taux de marge : ' + fmt(marginRate, 1) + '%';
+  } else {
+    document.getElementById('kpi-margin').textContent = '—';
+    document.getElementById('kpi-margin-rate').textContent = 'Factures d\'achat non chargées';
+  }
 
   // Mois courant et précédent
   const months = d.monthly || [];
@@ -970,9 +993,9 @@ function renderPilotage(d) {
   const projEl = document.getElementById('projection-vs-target');
   const delta = projection - TARGET;
   if (delta >= 0) {
-    projEl.innerHTML = `<span class="chip green">+${fmtEur(delta)} vs objectif 250 000 €</span>`;
+    projEl.innerHTML = `<span class="chip green">+${fmtEur(delta)} vs objectif ${fmtEur(TARGET)}</span>`;
   } else {
-    projEl.innerHTML = `<span class="chip red">${fmtEur(delta)} vs objectif 250 000 €</span>`;
+    projEl.innerHTML = `<span class="chip red">${fmtEur(delta)} vs objectif ${fmtEur(TARGET)}</span>`;
   }
 
   // Alertes
@@ -1001,9 +1024,8 @@ function buildAlerts(d, ca, ticket, projection, TARGET, currentM, prevM, monthsC
   }
 
   if (projection > TARGET * 1.1) alerts.push({type:'success', msg:'🚀 Projection fin d\'année : ' + fmtEur(projection) + ' — dépassement de l\'objectif prévu'});
-  else if (projection < TARGET * 0.8) alerts.push({type:'danger', msg:'⚠️ Projection fin d\'année : ' + fmtEur(projection) + ' — loin de l\'objectif 250 000 €'});
+  else if (projection < TARGET * 0.8) alerts.push({type:'danger', msg:'⚠️ Projection fin d\'année : ' + fmtEur(projection) + ' — loin de l\'objectif ' + fmtEur(TARGET)});
 
-  const MONTHLY_TARGET = TARGET / 12;
   if (currentM && currentM.ca_eur < MONTHLY_TARGET * 0.7) {
     alerts.push({type:'danger', msg:'📅 CA du mois en cours (' + fmtEur(currentM.ca_eur) + ') très en dessous de la mensualité cible (' + fmtEur(MONTHLY_TARGET) + ')'});
   }
@@ -1057,7 +1079,6 @@ function buildPilotageChart(months, monthlyTarget) {
 function renderCA(d) {
   const c = chartColors();
   const months = [...(d.monthly||[])].sort((a,b)=>a.month.localeCompare(b.month));
-  const MONTHLY_TARGET = 250000 / 12;
 
   // Monthly bar chart
   const ctx1 = document.getElementById('chart-monthly-bar').getContext('2d');
@@ -1095,9 +1116,9 @@ function renderCA(d) {
   });
 
   // Payment methods
-  const bm = d.by_method || {};
-  const methodLabels = Object.keys(bm);
-  const methodVals = methodLabels.map(k => bm[k].ca_eur || 0);
+  const bm = methodList(d);
+  const methodLabels = bm.map(x => METHOD_FR[x.method] || x.method);
+  const methodVals = bm.map(x => x.ca_eur || 0);
   const methodColors = [c.accent, c.accent2, c.success, c.warning, c.danger, '#a78bfa'];
   const ctx2 = document.getElementById('chart-payment-methods').getContext('2d');
   new Chart(ctx2, {
@@ -1116,10 +1137,8 @@ function renderCA(d) {
   });
 
   // Weekday
-  const bd = d.by_day || {};
-  const dayKeys = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
   const dayLabels = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
-  const dayVals = dayKeys.map(k => (bd[k]||{}).ca_eur || 0);
+  const dayVals = dayCAList(d);
   const maxDay = Math.max(...dayVals);
   const ctx3 = document.getElementById('chart-weekday').getContext('2d');
   new Chart(ctx3, {
@@ -1144,9 +1163,9 @@ function renderCA(d) {
   });
 
   // Ticket distribution
-  const td = d.ticket_distribution || {};
-  const tdLabels = Object.keys(td);
-  const tdVals = tdLabels.map(k => td[k] || 0);
+  const td = ticketList(d);
+  const tdLabels = td.map(x => x.range);
+  const tdVals = td.map(x => x.count || 0);
   const ctx4 = document.getElementById('chart-ticket-dist').getContext('2d');
   new Chart(ctx4, {
     type: 'bar',
@@ -1194,21 +1213,10 @@ function renderCA(d) {
 function renderCatalogue(d) {
   const c = chartColors();
 
-  // Category estimation by price range
-  const td = d.ticket_distribution || {};
-  const categories = [
-    { label: 'Smartphones occasion (>300€)', key: '>300€', color: c.accent, type: 'marge' },
-    { label: 'Téléphones/tablettes (150-300€)', key: '150-300€', color: '#a78bfa', type: 'marge' },
-    { label: 'Accessoires moyens (50-150€)', key: '50-150€', color: c.accent2, type: 'normale' },
-    { label: 'Petits accessoires (<50€)', key: '<50€', color: c.success, type: 'normale' },
-  ];
-
-  // Map from actual ticket_distribution keys
-  const keys = Object.keys(td);
-  const catData = categories.map(cat => {
-    const k = keys.find(k2 => k2.includes(cat.key.replace('>', '>').replace('<', '<'))) || cat.key;
-    return { label: cat.label, value: td[k] || 0, color: cat.color };
-  });
+  // CA par tranche de prix (tranches réelles du pipeline)
+  const td = ticketList(d);
+  const rangeColors = [c.success, c.success, c.accent2, c.accent2, '#a78bfa', c.accent];
+  const catData = td.map((x, i) => ({ label: x.range, value: x.ca_eur || 0, color: rangeColors[i % rangeColors.length] }));
 
   const ctx1 = document.getElementById('chart-categories').getContext('2d');
   new Chart(ctx1, {
@@ -1224,9 +1232,9 @@ function renderCatalogue(d) {
     },
     options: {
       responsive: true, maintainAspectRatio: false, indexAxis: 'y',
-      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => fmt(ctx.raw) + ' transactions' } } },
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => fmtEur(ctx.raw) + ' de CA' } } },
       scales: {
-        x: { grid: { color: c.border }, ticks: { color: c.fg3 } },
+        x: { grid: { color: c.border }, ticks: { color: c.fg3, callback: v => fmtEur(v) } },
         y: { grid: { display: false }, ticks: { color: c.fg3, font: { size: 11 } } }
       }
     }
@@ -1236,15 +1244,15 @@ function renderCatalogue(d) {
   buildGauge(0);
   document.getElementById('cleanliness-label').innerHTML = `
     <strong style="color:var(--danger)">0% — Aucune catégorie</strong><br>
-    <span style="color:var(--fg3)">Les 6 130 transactions n'ont pas de données produit dans Square (API Payments).
+    <span style="color:var(--fg3)">Les ${fmt(d.kpis ? d.kpis.total_transactions : 0)} transactions n'ont pas de données produit dans Square (API Payments).
     Activez l'API Orders dans Square pour obtenir les catégories réelles.</span>`;
 
   // Top prices
   const topPrices = document.getElementById('top-prices-list');
-  const maxVal = Math.max(...Object.values(td));
-  topPrices.innerHTML = Object.entries(td)
-    .sort((a,b)=>b[1]-a[1])
-    .map(([range, count]) => {
+  const maxVal = Math.max(0, ...td.map(x => x.count || 0));
+  topPrices.innerHTML = [...td]
+    .sort((a,b)=>(b.count||0)-(a.count||0))
+    .map(({range, count}) => {
       const w = maxVal > 0 ? (count/maxVal*100) : 0;
       return `<div class="month-rank">
         <div style="font-size:13px;font-weight:600;min-width:80px">${range}</div>
@@ -1253,7 +1261,12 @@ function renderCatalogue(d) {
       </div>`;
     }).join('');
 
-  // Hourly chart (placeholder from existing data if available)
+  // Hourly chart — le pipeline ne fournit pas encore by_hour : message plutôt qu'un graphique vide
+  const hourlyCanvas = document.getElementById('chart-hourly');
+  if (!d.by_hour || !hourlyCanvas) {
+    if (hourlyCanvas) hourlyCanvas.parentElement.innerHTML =
+      '<div style="height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--fg3);font-size:13px;padding:0 16px">Données horaires pas encore produites par la mise à jour automatique.</div>';
+  } else {
   const hourlyLabels = Array.from({length: 24}, (_, i) => i + 'h');
   const hourlyData = Array(24).fill(0);
   // fill from analytics if available
@@ -1282,6 +1295,7 @@ function renderCatalogue(d) {
       }
     }
   });
+  }
 
   // No categories chip
   const total = d.kpis ? (d.kpis.total_transactions || 0) : 0;
@@ -1338,39 +1352,27 @@ function renderTVA(d) {
   const months = [...(d.monthly||[])].sort((a,b)=>a.month.localeCompare(b.month));
 
   // TVA computations
-  // TVA sur marge (occasion, prix > 150€): already in analytics
+  // Le pipeline calcule la TVA sur marge sur TOUTES les ventes (marge estimée à 35 % faute de factures).
+  // Il ne sépare pas encore occasion / neuf : on n'ajoute donc pas de TVA normale, qui compterait deux fois les mêmes ventes.
   const tvaMarge = k.total_tva_marge_eur || 0;
-  const ca = k.total_ca_eur || 0;
+  const matchRate = k.tva_match_rate_pct || 0;
 
-  // Estimate TVA normale: transactions with ticket ≤ 150€
-  // From ticket_distribution, estimate CA normale
-  const td = d.ticket_distribution || {};
-  let txNormale = 0, txMarge = 0;
-  Object.entries(td).forEach(([range, count]) => {
-    if (range.includes('<50') || range.includes('50-') || range.includes('100-150')) txNormale += count;
-    else txMarge += count;
-  });
-  const totalTx = (k.total_transactions || 1);
-  const ratioNormale = txNormale / totalTx;
-  const caNormale = ca * ratioNormale;
-  const tvaNormaleCollectee = caNormale / 1.2 * 0.2; // PV HT × 20%
-
-  // TVA déductible from purchase costs
+  // TVA déductible : uniquement si le pipeline la fournit
   const tvaDed = k.total_tva_deductible_eur || (k.total_cost_eur ? k.total_cost_eur / 1.2 * 0.2 : 0);
-  const tvaTotale = tvaMarge + tvaNormaleCollectee;
+  const tvaTotale = tvaMarge;
   const tvaNet = tvaTotale - tvaDed;
 
   // Render synthèse
   document.getElementById('tva-synthese').innerHTML = `
     <div class="tva-regime-block marge">
-      <div class="tva-regime-title" style="color:var(--accent)">TVA sur marge — Produits occasion</div>
+      <div class="tva-regime-title" style="color:var(--accent)">TVA sur marge — Estimation toutes ventes</div>
       <div class="tva-regime-amount" style="color:var(--accent)">${fmtEur(tvaMarge, 2)}</div>
-      <div class="tva-regime-sub">Smartphones, tablettes, ordinateurs d'occasion (estimation >150€)</div>
+      <div class="tva-regime-sub">${matchRate > 0 ? fmt(matchRate, 1) + '% des ventes calculées avec le prix d\'achat réel, le reste estimé' : 'Marge estimée à 35 % du prix de vente (aucun prix d\'achat rapproché)'}</div>
     </div>
     <div class="tva-regime-block normale">
       <div class="tva-regime-title" style="color:var(--accent2)">TVA normale collectée — Neuf & réparations</div>
-      <div class="tva-regime-amount" style="color:var(--accent2)">${fmtEur(tvaNormaleCollectee, 2)}</div>
-      <div class="tva-regime-sub">Accessoires, câbles, coques, réparations (estimation ≤150€)</div>
+      <div class="tva-regime-amount" style="color:var(--fg3)">Non calculée</div>
+      <div class="tva-regime-sub">Les données ne séparent pas encore occasion et neuf : toutes les ventes sont comptées en TVA sur marge ci-dessus</div>
     </div>
     <div class="tva-regime-block deductible">
       <div class="tva-regime-title" style="color:var(--success)">TVA déductible — Achats fournisseurs</div>
@@ -1378,7 +1380,7 @@ function renderTVA(d) {
       <div class="tva-regime-sub">Sur vos factures d'achat (Drive) — ${d.purchase_costs_loaded ? '✓ Factures chargées' : '⚠ Factures non chargées'}</div>
     </div>
     <div class="tva-regime-block net" style="margin-bottom:0">
-      <div class="tva-regime-title" style="color:var(--warning)">Net TVA à déclarer (CA3)</div>
+      <div class="tva-regime-title" style="color:var(--warning)">Net TVA à déclarer (CA3) — estimation</div>
       <div class="tva-regime-amount" style="color:var(--warning)">${fmtEur(Math.max(0, tvaNet), 2)}</div>
       <div class="tva-regime-sub">TVA collectée (${fmtEur(tvaTotale, 2)}) − TVA déductible (${fmtEur(tvaDed, 2)})</div>
     </div>`;
@@ -1397,10 +1399,10 @@ function renderTVA(d) {
           borderColor: getCSS('--accent'), borderWidth: 1, borderRadius: 3,
         },
         {
-          label: 'TVA normale estimée',
-          data: months.map(m => (m.tva_normale_estimated_eur || ((m.ca_eur * ratioNormale) / 1.2 * 0.2))),
-          backgroundColor: getCSS('--accent2') + '99',
-          borderColor: getCSS('--accent2'), borderWidth: 1, borderRadius: 3,
+          label: 'TVA marge réelle',
+          data: months.map(m => m.tva_marge_real_eur || 0),
+          backgroundColor: getCSS('--success') + '99',
+          borderColor: getCSS('--success'), borderWidth: 1, borderRadius: 3,
         }
       ]
     },
@@ -1422,17 +1424,16 @@ function renderTVA(d) {
   tbody.innerHTML = [...months].reverse().map(m => {
     const [y,mo] = m.month.split('-');
     const tvaMgMonth = m.tva_marge_estimated_eur || 0;
-    const tvaNormMonth = m.tva_normale_estimated_eur || (m.ca_eur * ratioNormale / 1.2 * 0.2);
-    const tvaTotMonth = tvaMgMonth + tvaNormMonth;
-    const target = 250000 / 12;
-    const chip = m.ca_eur >= target
+    const tvaRealMonth = m.tva_marge_real_eur || 0;
+    const tvaTotMonth = m.tva_marge_total_eur != null ? m.tva_marge_total_eur : tvaMgMonth + tvaRealMonth;
+    const chip = m.ca_eur >= MONTHLY_TARGET
       ? '<span class="chip green">✓ Objectif</span>'
       : '<span class="chip red">En dessous</span>';
     return `<tr>
       <td><strong>${MONTH_FR[parseInt(mo)-1]} ${y}</strong></td>
       <td class="num">${fmtEur(m.ca_eur)}</td>
       <td class="num">${fmtEur(tvaMgMonth, 2)}</td>
-      <td class="num">${fmtEur(tvaNormMonth, 2)}</td>
+      <td class="num">${fmtEur(tvaRealMonth, 2)}</td>
       <td class="num" style="font-weight:700">${fmtEur(tvaTotMonth, 2)}</td>
       <td class="num">${chip}</td>
     </tr>`;
@@ -1447,7 +1448,6 @@ function renderInsights(d) {
   const months = [...(d.monthly||[])].sort((a,b)=>a.month.localeCompare(b.month));
   const ca = k.total_ca_eur || 0;
   const ticket = k.avg_ticket_eur || 0;
-  const TARGET = 250000;
   const pct = ca / TARGET * 100;
 
   // Sort months by CA
@@ -1456,16 +1456,13 @@ function renderInsights(d) {
   const worstMonth = sortedByCA[sortedByCA.length-1];
 
   // By day
-  const bd = d.by_day || {};
-  const dayKeys = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
-  const dayLabels = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
-  const dayCA = dayKeys.map(k2 => (bd[k2]||{}).ca_eur || 0);
+  const dayLabels = WEEK_DAYS;
+  const dayCA = dayCAList(d);
   const maxDayIdx = dayCA.indexOf(Math.max(...dayCA));
   const minDayIdx = dayCA.indexOf(Math.min(...dayCA));
 
   // Weekend vs weekday
-  const weekendCA = (bd.saturday?.ca_eur||0) + (bd.sunday?.ca_eur||0);
-  const weekdayCA = ca - weekendCA;
+  const weekendCA = dayCA[5] + dayCA[6];
   const weekendPct = ca > 0 ? (weekendCA / ca * 100) : 0;
 
   // Build strengths
@@ -1489,7 +1486,7 @@ function renderInsights(d) {
     strengths.push({
       icon: '🎯', type: 'green',
       title: fmt(pct,1) + '% de l\'objectif annuel atteint',
-      body: 'Vous êtes sur le chemin vers les 250 000 €. Maintenir ce rythme et optimiser les mois creux pour dépasser l\'objectif.',
+      body: 'Vous êtes sur le chemin vers les ' + fmtEur(TARGET) + '. Maintenir ce rythme et optimiser les mois creux pour dépasser l\'objectif.',
       action: 'Maintenir le rythme'
     });
   }
@@ -1515,7 +1512,7 @@ function renderInsights(d) {
     },
     {
       icon: '📅', type: 'yellow',
-      title: `${dayLabels[minDayIdx]} : jour le plus faible (${fmtEur(dayCA[minDayIdx])}/semaine)`,
+      title: `${dayLabels[minDayIdx]} : jour le plus faible (${fmtEur(dayCA[minDayIdx])} de CA cumulé)`,
       body: `Le ${dayLabels[minDayIdx]} génère le moins de CA. Action : promotions flash le matin, pack "reprise + accessoire" pour le déjeuner, communication sur réseaux sociaux la veille.`,
       action: 'Activer les journées creuses'
     },
@@ -1591,9 +1588,9 @@ function renderInsights(d) {
   const statsCards = [
     { title: 'Projection annuelle', value: fmtEur(projection), sub: 'Sur base du rythme actuel', color: 'var(--accent)' },
     { title: 'Meilleur jour de la semaine', value: dayLabels[maxDayIdx], sub: fmtEur(dayCA[maxDayIdx]) + ' de CA total', color: 'var(--success)' },
-    { title: 'CA mensuel moyen', value: fmtEur(avgMonthly), sub: 'Objectif : ' + fmtEur(250000/12) + '/mois', color: 'var(--accent2)' },
+    { title: 'CA mensuel moyen', value: fmtEur(avgMonthly), sub: 'Objectif : ' + fmtEur(MONTHLY_TARGET) + '/mois', color: 'var(--accent2)' },
     { title: 'Tx/mois moyenne', value: fmt(k.total_transactions / Math.max(1, months.length), 0), sub: fmt(k.total_transactions / Math.max(1, months.length) / 22, 1) + ' par jour ouvré', color: 'var(--warning)' },
-    { title: 'TVA totale estimée', value: fmtEur(k.total_tva_marge_eur), sub: 'TVA sur marge (données réelles)', color: 'var(--danger)' },
+    { title: 'TVA totale estimée', value: fmtEur(k.total_tva_marge_eur), sub: 'TVA sur marge (estimation)', color: 'var(--danger)' },
     { title: 'Boutique(s) active(s)', value: '1', sub: 'MGP — Multi-boutique prêt', color: 'var(--success)' },
   ];
 

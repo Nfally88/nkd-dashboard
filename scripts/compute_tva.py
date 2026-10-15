@@ -216,7 +216,7 @@ def compute_analytics(transactions, purchase_costs):
     else:
         projection = 0
 
-    target_annual = 300000
+    target_annual = 250000
     months_remaining = 12 - len(months_sorted)
     needed_monthly = round((target_annual - total_ca) / max(months_remaining, 1), 2)
 
