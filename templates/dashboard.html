@@ -3,432 +3,1612 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>NKD TECH Dashboard</title>
+<title>NKD Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
 <style>
-  :root {
-    --bg:#0d0f14; --bg2:#13161e; --bg3:#1a1e2a; --bg4:#232839;
-    --fg:#e8ecf4; --fg2:#9aa3b8; --fg3:#5c6478;
-    --accent:#6366f1; --accent2:#818cf8;
-    --green:#22c55e; --red:#ef4444; --amber:#f59e0b; --blue:#3b82f6;
-    --border:rgba(255,255,255,0.07);
+/* ===================== TOKENS ===================== */
+:root {
+  --bg: #f4f6fa;
+  --surface: #ffffff;
+  --surface2: #f8f9fb;
+  --border: #e2e8f0;
+  --fg: #0f172a;
+  --fg2: #475569;
+  --fg3: #94a3b8;
+  --accent: #6366f1;
+  --accent-light: #ede9fe;
+  --accent2: #06b6d4;
+  --accent2-light: #cffafe;
+  --success: #10b981;
+  --success-light: #d1fae5;
+  --warning: #f59e0b;
+  --warning-light: #fef3c7;
+  --danger: #ef4444;
+  --danger-light: #fee2e2;
+  --gold: #f59e0b;
+  --shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.08);
+  --radius: 12px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2128;
+    --border: #30363d;
+    --fg: #e6edf3;
+    --fg2: #8b949e;
+    --fg3: #484f58;
+    --accent: #818cf8;
+    --accent-light: #1e1b4b;
+    --accent2: #22d3ee;
+    --accent2-light: #0a2339;
+    --success: #34d399;
+    --success-light: #052e16;
+    --warning: #fbbf24;
+    --warning-light: #1c1a07;
+    --danger: #f87171;
+    --danger-light: #1f0606;
     color-scheme: dark;
   }
-  * { box-sizing:border-box; margin:0; padding:0 }
-  body {
-    background:var(--bg); color:var(--fg);
-    font-family:'Inter',system-ui,sans-serif; font-size:14px; line-height:1.5;
-    padding: env(safe-area-inset-top,0px) max(16px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(16px,env(safe-area-inset-left,0px));
-  }
-  .header { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; padding:18px 20px; background:var(--bg2); border-radius:14px; border:1px solid var(--border); margin:16px 0 18px; }
-  .logo { width:40px; height:40px; background:linear-gradient(135deg,var(--accent),#a855f7); border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14px; color:#fff; flex-shrink:0 }
-  .header h1 { font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:700 }
-  .header p { font-size:11px; color:var(--fg2); margin-top:2px }
-  .live-badge { display:flex; align-items:center; gap:6px; background:rgba(34,197,94,0.12); border:1px solid rgba(34,197,94,0.3); padding:5px 12px; border-radius:20px; font-size:11px; font-weight:600; color:var(--green) }
-  .live-dot { width:7px; height:7px; background:var(--green); border-radius:50%; animation:pulse 2s infinite }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-  .tabs { display:flex; gap:5px; background:var(--bg2); padding:5px; border-radius:10px; margin-bottom:18px; overflow-x:auto; border:1px solid var(--border); scrollbar-width:none }
-  .tabs::-webkit-scrollbar { display:none }
-  .tab { flex-shrink:0; padding:7px 14px; border-radius:7px; font-size:12px; font-weight:500; color:var(--fg2); cursor:pointer; border:none; background:transparent; transition:all .15s; white-space:nowrap }
-  .tab:hover { color:var(--fg); background:var(--bg3) }
-  .tab.active { background:var(--accent); color:#fff; font-weight:600 }
-  .panel { display:none }
-  .panel.active { display:block }
-  .kpi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-bottom:16px }
-  .kpi { background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:16px 18px; position:relative; overflow:hidden }
-  .kpi::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--kpi-color,var(--accent)); border-radius:12px 12px 0 0 }
-  .kpi-label { font-size:10px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--fg3); margin-bottom:6px }
-  .kpi-value { font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:var(--fg); line-height:1; margin-bottom:4px }
-  .kpi-sub { font-size:11px; color:var(--fg2) }
-  .card { background:var(--bg2); border:1px solid var(--border); border-radius:14px; padding:20px; margin-bottom:14px }
-  .card-title { font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; margin-bottom:3px }
-  .card-sub { font-size:11px; color:var(--fg2); margin-bottom:16px }
-  .chart-wrap { position:relative; width:100%; min-width:0 }
-  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px }
-  @media(max-width:600px) { .two-col { grid-template-columns:1fr } }
-  .tva-row { display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--border); font-size:13px }
-  .tva-row:last-child { border-bottom:none }
-  .tva-row .lbl { color:var(--fg2) }
-  .tva-row .val { font-weight:600; font-family:'Space Grotesk',sans-serif }
-  .obj-track { height:12px; background:var(--bg4); border-radius:6px; overflow:hidden; margin:10px 0 4px }
-  .obj-fill { height:100%; border-radius:6px; background:linear-gradient(90deg,var(--accent),#a855f7,#ec4899); transition:width 1s cubic-bezier(.4,0,.2,1) }
-  .obj-pct { font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:800; background:linear-gradient(135deg,var(--accent2),#a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text }
-  .last-update { font-size:11px; color:var(--fg3); text-align:center; padding:12px 0 4px }
-  .day-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:6px }
-  @media(max-width:480px) { .day-grid { grid-template-columns:repeat(4,1fr) } }
-  .day-cell { padding:10px 6px; border-radius:8px; text-align:center; background:var(--bg3); border:1px solid var(--border) }
-  .day-cell.hot { background:rgba(99,102,241,.12); border-color:rgba(99,102,241,.3) }
-  .day-name { font-size:9px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--fg3); margin-bottom:5px }
-  .day-val { font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:700 }
-  .day-cell.hot .day-val { color:var(--accent2) }
-  .day-pct { font-size:9px; color:var(--fg2); margin-top:2px }
-  .loading { display:flex; align-items:center; justify-content:center; padding:40px; color:var(--fg3); font-size:13px; gap:10px }
-  .spinner { width:18px; height:18px; border:2px solid var(--border); border-top-color:var(--accent); border-radius:50%; animation:spin .7s linear infinite }
-  @keyframes spin { to { transform:rotate(360deg) } }
-  .warn-box { background:rgba(245,158,11,.08); border:1px solid rgba(245,158,11,.25); border-radius:10px; padding:12px 14px; font-size:12px; color:var(--fg2); margin-bottom:14px }
-  .warn-box strong { color:var(--amber) }
-  table { width:100%; border-collapse:collapse }
-  th { font-size:10px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--fg3); padding:7px 8px; text-align:left; border-bottom:1px solid var(--border) }
-  td { padding:9px 8px; font-size:12px; border-bottom:1px solid rgba(255,255,255,.03) }
-  tr:last-child td { border-bottom:none }
-  .pill { display:inline-block; padding:2px 7px; border-radius:5px; font-size:10px; font-weight:600 }
-  .pg { background:rgba(34,197,94,.12); color:var(--green) }
-  .pa { background:rgba(245,158,11,.12); color:var(--amber) }
-  .pb { background:rgba(59,130,246,.12); color:var(--blue) }
-  .pp { background:rgba(168,85,247,.12); color:#c084fc }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1117; --surface: #161b22; --surface2: #1c2128;
+  --border: #30363d; --fg: #e6edf3; --fg2: #8b949e; --fg3: #484f58;
+  --accent: #818cf8; --accent-light: #1e1b4b; --accent2: #22d3ee; --accent2-light: #0a2339;
+  --success: #34d399; --success-light: #052e16;
+  --warning: #fbbf24; --warning-light: #1c1a07;
+  --danger: #f87171; --danger-light: #1f0606;
+  color-scheme: dark;
+}
+
+/* ===================== RESET & BASE ===================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-left: max(0px, env(safe-area-inset-left, 0px));
+  padding-right: max(0px, env(safe-area-inset-right, 0px));
+}
+
+/* ===================== HEADER ===================== */
+.app-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0 max(16px, env(safe-area-inset-left, 0px));
+}
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  gap: 16px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+  color: var(--fg);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.logo-badge {
+  background: var(--accent);
+  color: #fff;
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800;
+}
+.header-meta {
+  font-size: 12px;
+  color: var(--fg3);
+  display: flex; align-items: center; gap: 8px;
+}
+.status-dot {
+  width: 7px; height: 7px;
+  background: var(--success);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .4; }
+}
+.header-right { display: flex; align-items: center; gap: 12px; }
+#last-update { font-size: 12px; color: var(--fg3); }
+
+/* ===================== NAV ===================== */
+.tab-nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 max(16px, env(safe-area-inset-left, 0px));
+  position: sticky;
+  top: 60px;
+  z-index: 99;
+}
+.tab-nav::-webkit-scrollbar { display: none; }
+.tab-nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+}
+.tab-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 14px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg2);
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color .15s, border-color .15s;
+  display: flex; align-items: center; gap: 6px;
+}
+.tab-btn:hover { color: var(--accent); }
+.tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+.tab-icon { font-size: 15px; }
+
+/* ===================== CONTENT ===================== */
+.main-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px max(16px, env(safe-area-inset-left, 0px)) 48px;
+}
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* ===================== GRID & CARDS ===================== */
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+.grid-1-2 { display: grid; grid-template-columns: 1fr 2fr; gap: 16px; }
+@media (max-width: 1100px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
+  .grid-4, .grid-3, .grid-2, .grid-2-1, .grid-1-2 { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg2);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.card-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+/* ===================== KPI CARDS ===================== */
+.kpi-value {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.kpi-label {
+  font-size: 12px;
+  color: var(--fg2);
+  font-weight: 500;
+}
+.kpi-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 8px;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+.kpi-trend.up { background: var(--success-light); color: var(--success); }
+.kpi-trend.down { background: var(--danger-light); color: var(--danger); }
+.kpi-trend.neutral { background: var(--accent-light); color: var(--accent); }
+.kpi-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+/* ===================== PROGRESS ===================== */
+.progress-wrap { margin-top: 12px; }
+.progress-bar-bg {
+  height: 8px;
+  background: var(--bg);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transition: width .6s ease;
+}
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--fg3);
+  margin-top: 4px;
+}
+
+/* ===================== ALERTS ===================== */
+.alert-list { display: flex; flex-direction: column; gap: 8px; }
+.alert-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+.alert-item.success { background: var(--success-light); color: var(--success); }
+.alert-item.warning { background: var(--warning-light); color: var(--warning); }
+.alert-item.danger { background: var(--danger-light); color: var(--danger); }
+.alert-item.info { background: var(--accent-light); color: var(--accent); }
+.alert-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex-shrink: 0; margin-top: 5px; }
+
+/* ===================== CHARTS ===================== */
+.chart-container { position: relative; width: 100%; }
+.chart-container canvas { max-width: 100%; }
+
+/* ===================== TVA SECTION ===================== */
+.tva-regime-block {
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+.tva-regime-block.marge { background: var(--accent-light); border-left: 3px solid var(--accent); }
+.tva-regime-block.normale { background: var(--accent2-light); border-left: 3px solid var(--accent2); }
+.tva-regime-block.deductible { background: var(--success-light); border-left: 3px solid var(--success); }
+.tva-regime-block.net { background: var(--warning-light); border-left: 3px solid var(--warning); }
+.tva-regime-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+.tva-regime-amount { font-size: 24px; font-weight: 800; letter-spacing: -1px; }
+.tva-regime-sub { font-size: 11px; margin-top: 2px; opacity: .75; }
+
+/* ===================== TABLE ===================== */
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--fg3);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface2);
+}
+.data-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--fg2);
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: var(--surface2); }
+.data-table td.num { text-align: right; font-weight: 600; color: var(--fg); font-variant-numeric: tabular-nums; }
+.data-table th.num { text-align: right; }
+.table-scroll { overflow-x: auto; }
+
+/* ===================== GAUGE ===================== */
+.gauge-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+}
+.gauge-svg { max-width: 200px; }
+.gauge-pct { font-size: 32px; font-weight: 800; letter-spacing: -1px; text-anchor: middle; }
+.gauge-label { font-size: 12px; text-anchor: middle; }
+
+/* ===================== SECTION TITLES ===================== */
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--fg);
+  margin: 24px 0 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-title:first-child { margin-top: 0; }
+
+/* ===================== INSIGHTS ===================== */
+.insight-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex; gap: 16px;
+  align-items: flex-start;
+}
+.insight-icon {
+  width: 42px; height: 42px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.insight-icon.green { background: var(--success-light); }
+.insight-icon.red { background: var(--danger-light); }
+.insight-icon.yellow { background: var(--warning-light); }
+.insight-icon.blue { background: var(--accent-light); }
+.insight-icon.cyan { background: var(--accent2-light); }
+.insight-body h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.insight-body p { font-size: 13px; color: var(--fg2); line-height: 1.5; }
+.insight-body .action {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-top: 8px;
+  font-size: 12px; font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 4px 10px; border-radius: 6px;
+}
+.insights-grid { display: flex; flex-direction: column; gap: 12px; }
+
+/* ===================== LOADING ===================== */
+#loading {
+  position: fixed; inset: 0; z-index: 999;
+  background: var(--bg);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 16px;
+}
+.loading-logo { font-size: 36px; font-weight: 900; letter-spacing: -2px; }
+.loading-spinner {
+  width: 32px; height: 32px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin .6s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text { font-size: 13px; color: var(--fg3); }
+
+/* ===================== MISC ===================== */
+.number { font-variant-numeric: tabular-nums; }
+.chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11px; font-weight: 600;
+  padding: 3px 8px; border-radius: 20px;
+}
+.chip.green { background: var(--success-light); color: var(--success); }
+.chip.yellow { background: var(--warning-light); color: var(--warning); }
+.chip.red { background: var(--danger-light); color: var(--danger); }
+.chip.blue { background: var(--accent-light); color: var(--accent); }
+
+.spacer { height: 20px; }
+
+.month-rank {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.month-rank:last-child { border-bottom: none; }
+.rank-bar-wrap { flex: 1; margin: 0 12px; }
+.rank-bar {
+  height: 6px; border-radius: 99px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+
+.two-col-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+@media (max-width: 600px) { .two-col-list { grid-template-columns: 1fr; } }
+
+.stat-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.stat-row:last-child { border-bottom: none; }
+.stat-label { font-size: 13px; color: var(--fg2); }
+.stat-value { font-size: 13px; font-weight: 700; color: var(--fg); }
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 11px;
+  color: var(--fg3);
+  border-top: 1px solid var(--border);
+  margin-top: 24px;
+}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div style="display:flex;align-items:center;gap:12px">
-    <div class="logo">NKD</div>
-    <div>
-      <h1>NKD TECH — Dashboard Exécutif</h1>
-      <p id="subtitle">Chargement des données...</p>
+<div id="loading">
+  <div class="loading-logo" style="color:var(--accent)">NKD</div>
+  <div class="loading-spinner"></div>
+  <div class="loading-text">Chargement du tableau de bord…</div>
+</div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="app-header">
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <div class="logo-badge">N</div>
+      NKD Dashboard
+    </a>
+    <div class="header-meta">
+      <span class="status-dot"></span>
+      <span>Live</span>
+    </div>
+    <div class="header-right">
+      <span id="last-update">—</span>
     </div>
   </div>
-  <div class="live-badge"><div class="live-dot"></div>LIVE</div>
-</div>
+</header>
 
-<div class="tabs">
-  <button class="tab active" onclick="showTab('vue',this)">📊 Vue Générale</button>
-  <button class="tab" onclick="showTab('ca',this)">📈 CA & Projection</button>
-  <button class="tab" onclick="showTab('tva',this)">🧾 TVA sur Marge</button>
-  <button class="tab" onclick="showTab('ops',this)">⚡ Ops</button>
-</div>
+<!-- ===================== TAB NAV ===================== -->
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="pilotage">
+      <span class="tab-icon">🎯</span> Pilotage
+    </button>
+    <button class="tab-btn" data-tab="ca">
+      <span class="tab-icon">📈</span> CA & Projection
+    </button>
+    <button class="tab-btn" data-tab="catalogue">
+      <span class="tab-icon">🛍️</span> Catalogue
+    </button>
+    <button class="tab-btn" data-tab="tva">
+      <span class="tab-icon">🧾</span> TVA
+    </button>
+    <button class="tab-btn" data-tab="insights">
+      <span class="tab-icon">💡</span> Insights
+    </button>
+  </div>
+</nav>
 
-<!-- VUE GÉNÉRALE -->
-<div class="panel active" id="panel-vue">
-  <div class="loading" id="loading-vue"><div class="spinner"></div>Chargement...</div>
-  <div id="content-vue" style="display:none"></div>
-</div>
+<main class="main-content">
 
-<!-- CA -->
-<div class="panel" id="panel-ca">
-  <div class="loading" id="loading-ca" style="display:none"><div class="spinner"></div>Chargement...</div>
-  <div id="content-ca"></div>
-</div>
+<!-- ===================== TAB 1: PILOTAGE ===================== -->
+<section class="tab-pane active" id="tab-pilotage">
 
-<!-- TVA -->
-<div class="panel" id="panel-tva">
-  <div id="content-tva"></div>
-</div>
+  <!-- KPI Row -->
+  <div class="grid-4" style="margin-bottom:20px">
+    <div class="card" style="border-top:3px solid var(--accent)">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between">
+        <div>
+          <div class="kpi-label">CA Annuel (YTD)</div>
+          <div class="kpi-value" id="kpi-ca">—</div>
+          <div class="kpi-trend neutral" id="kpi-ca-pct">—</div>
+        </div>
+        <div class="kpi-icon" style="background:var(--accent-light);color:var(--accent)">💶</div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="kpi-progress" style="width:0%"></div>
+        </div>
+        <div class="progress-labels">
+          <span>0 €</span>
+          <span id="kpi-target-label">Objectif 250 000 €</span>
+        </div>
+      </div>
+    </div>
 
-<!-- OPS -->
-<div class="panel" id="panel-ops">
-  <div id="content-ops"></div>
-</div>
+    <div class="card" style="border-top:3px solid var(--accent2)">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between">
+        <div>
+          <div class="kpi-label">Ticket Moyen</div>
+          <div class="kpi-value" id="kpi-ticket">—</div>
+          <div class="kpi-trend down" id="kpi-ticket-sub" style="font-size:11px;color:var(--fg3);background:none;padding:0;margin-top:4px">Objectif 45 €</div>
+        </div>
+        <div class="kpi-icon" style="background:var(--accent2-light);color:var(--accent2)">🎫</div>
+      </div>
+    </div>
+
+    <div class="card" style="border-top:3px solid var(--success)">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between">
+        <div>
+          <div class="kpi-label">Transactions</div>
+          <div class="kpi-value" id="kpi-tx">—</div>
+          <div style="font-size:11px;color:var(--fg3);margin-top:4px" id="kpi-tx-sub">—</div>
+        </div>
+        <div class="kpi-icon" style="background:var(--success-light);color:var(--success)">🔁</div>
+      </div>
+    </div>
+
+    <div class="card" style="border-top:3px solid var(--warning)">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between">
+        <div>
+          <div class="kpi-label">Marge Estimée</div>
+          <div class="kpi-value" id="kpi-margin">—</div>
+          <div style="font-size:11px;color:var(--fg3);margin-top:4px" id="kpi-margin-rate">—</div>
+        </div>
+        <div class="kpi-icon" style="background:var(--warning-light);color:var(--warning)">📊</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="grid-3" style="margin-bottom:20px">
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Mois en cours</span>
+        <span class="card-badge chip blue" id="current-month-chip">—</span>
+      </div>
+      <div style="font-size:26px;font-weight:800;letter-spacing:-1px" id="current-month-ca">—</div>
+      <div style="font-size:12px;color:var(--fg3);margin:4px 0 12px" id="current-month-sub">—</div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="month-progress" style="width:0%"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--fg3);margin-top:4px">
+        <span>0 €</span>
+        <span>Objectif 20 833 €/mois</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Mois précédent</span>
+        <span class="card-badge chip" id="prev-month-chip" style="background:var(--surface2);color:var(--fg2)">—</span>
+      </div>
+      <div style="font-size:26px;font-weight:800;letter-spacing:-1px" id="prev-month-ca">—</div>
+      <div style="font-size:12px;color:var(--fg3);margin:4px 0 12px" id="prev-month-sub">—</div>
+      <div id="month-vs-prev" style="font-size:13px;font-weight:600"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Projection fin d'année</span>
+      </div>
+      <div style="font-size:26px;font-weight:800;letter-spacing:-1px" id="projection">—</div>
+      <div style="font-size:12px;color:var(--fg3);margin:4px 0 12px">Sur la base du rythme actuel</div>
+      <div id="projection-vs-target"></div>
+    </div>
+  </div>
+
+  <!-- Alertes -->
+  <div class="section-title">🚦 Alertes & Statut</div>
+  <div class="alert-list" id="alerts-list"></div>
+
+  <!-- Mini chart mois récents -->
+  <div class="spacer"></div>
+  <div class="card">
+    <div class="card-header"><span class="card-title">CA mensuel — 12 derniers mois</span></div>
+    <div class="chart-container" style="height:180px">
+      <canvas id="chart-pilotage-monthly"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TAB 2: CA & PROJECTION ===================== -->
+<section class="tab-pane" id="tab-ca">
+  <div class="grid-2" style="margin-bottom:20px">
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">CA par mois vs Objectif</span>
+        <span class="chip blue">20 833 € / mois</span>
+      </div>
+      <div class="chart-container" style="height:260px">
+        <canvas id="chart-monthly-bar"></canvas>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Répartition par moyen de paiement</span>
+      </div>
+      <div class="chart-container" style="height:260px">
+        <canvas id="chart-payment-methods"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:20px">
+    <div class="card">
+      <div class="card-header"><span class="card-title">CA par jour de la semaine</span></div>
+      <div class="chart-container" style="height:220px">
+        <canvas id="chart-weekday"></canvas>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><span class="card-title">Distribution des tickets</span></div>
+      <div class="chart-container" style="height:220px">
+        <canvas id="chart-ticket-dist"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-title">Détail mensuel</span></div>
+    <div class="table-scroll">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Mois</th>
+            <th class="num">CA (€)</th>
+            <th class="num">Transactions</th>
+            <th class="num">Ticket moyen (€)</th>
+            <th class="num">vs Objectif</th>
+            <th class="num">TVA marge est.</th>
+          </tr>
+        </thead>
+        <tbody id="monthly-table-body"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TAB 3: CATALOGUE ===================== -->
+<section class="tab-pane" id="tab-catalogue">
+  <div class="grid-2-1" style="margin-bottom:20px">
+    <div class="card">
+      <div class="card-header"><span class="card-title">CA estimé par catégorie</span><span class="chip yellow">Estimation par prix</span></div>
+      <div class="chart-container" style="height:260px">
+        <canvas id="chart-categories"></canvas>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><span class="card-title">Propreté du catalogue</span></div>
+      <div class="gauge-wrap" id="gauge-cleanliness-wrap"></div>
+      <div style="font-size:12px;color:var(--fg2);text-align:center;margin-top:8px" id="cleanliness-label"></div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:20px">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Top ventes par tranche de prix</span></div>
+      <div id="top-prices-list"></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><span class="card-title">Transactions par tranche horaire</span></div>
+      <div class="chart-container" style="height:220px">
+        <canvas id="chart-hourly"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">⚠️ Données catalogue manquantes</span>
+      <span class="chip red" id="no-cat-chip">—</span>
+    </div>
+    <div id="no-cat-message"></div>
+  </div>
+</section>
+
+<!-- ===================== TAB 4: TVA ===================== -->
+<section class="tab-pane" id="tab-tva">
+  <div style="background:var(--warning-light);border:1px solid var(--warning);border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13px;color:var(--fg2)">
+    ⚠️ <strong>Note importante :</strong> La répartition TVA sur marge / TVA normale est estimée par seuil de prix (>150€ = occasion, ≤150€ = neuf/réparation). Pour une déclaration CA3 exacte, les factures Drive constituent la référence officielle.
+  </div>
+
+  <!-- Totaux TVA -->
+  <div class="grid-2-1" style="margin-bottom:20px">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Synthèse TVA annuelle (YTD)</span></div>
+      <div id="tva-synthese"></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><span class="card-title">Régimes applicables</span></div>
+      <div style="font-size:13px;color:var(--fg2);line-height:1.7">
+        <div style="padding:8px 0;border-bottom:1px solid var(--border)">
+          <strong style="color:var(--accent)">TVA sur marge</strong><br>
+          Téléphones, tablettes, ordinateurs <em>d'occasion</em><br>
+          <small>Formule : (PV TTC – PA TTC) × 20/120</small>
+        </div>
+        <div style="padding:8px 0;border-bottom:1px solid var(--border)">
+          <strong style="color:var(--accent2)">TVA normale 20%</strong><br>
+          Accessoires neufs, câbles, coques, réparations<br>
+          <small>Formule : PV HT × 20%</small>
+        </div>
+        <div style="padding:8px 0">
+          <strong style="color:var(--success)">TVA déductible</strong><br>
+          Sur vos achats (factures fournisseurs Drive)<br>
+          <small>Récupérée sur vos factures d'achat</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Graphe TVA mensuelle -->
+  <div class="card" style="margin-bottom:20px">
+    <div class="card-header"><span class="card-title">TVA collectée par mois</span></div>
+    <div class="chart-container" style="height:220px">
+      <canvas id="chart-tva-monthly"></canvas>
+    </div>
+  </div>
+
+  <!-- Table mensuelle TVA -->
+  <div class="card">
+    <div class="card-header"><span class="card-title">Tableau mensuel pour CA3</span></div>
+    <div class="table-scroll">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Mois</th>
+            <th class="num">CA TTC (€)</th>
+            <th class="num">TVA marge est. (€)</th>
+            <th class="num">TVA normale est. (€)</th>
+            <th class="num">TVA collectée tot.</th>
+            <th class="num">Statut</th>
+          </tr>
+        </thead>
+        <tbody id="tva-table-body"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TAB 5: INSIGHTS ===================== -->
+<section class="tab-pane" id="tab-insights">
+
+  <div class="section-title">🏆 Forces — Ce qui fonctionne bien</div>
+  <div class="insights-grid" id="insights-strengths"></div>
+
+  <div class="section-title" style="margin-top:24px">⚡ Opportunités — Actions prioritaires</div>
+  <div class="insights-grid" id="insights-actions"></div>
+
+  <div class="section-title" style="margin-top:24px">🔮 Vision Multi-boutique</div>
+  <div class="insights-grid" id="insights-multi"></div>
+
+  <div class="section-title" style="margin-top:24px">📊 Statistiques clés</div>
+  <div class="grid-3" id="insights-stats-grid"></div>
+
+</section>
+
+</main>
+
+<footer>
+  NKD Dashboard · D-TECH Solutions · Données Square + Google Drive · Mise à jour automatique chaque nuit
+</footer>
 
 <script>
-let DATA = null;
-const MONTHS_FR = {
-  '01':'Jan','02':'Fév','03':'Mar','04':'Avr','05':'Mai','06':'Juin',
-  '07':'Juil','08':'Aoû','09':'Sep','10':'Oct','11':'Nov','12':'Déc'
+// ============================================================
+// UTILS
+// ============================================================
+const fmt = (n, dec=0) => {
+  if (n == null || isNaN(n)) return '—';
+  return new Intl.NumberFormat('fr-FR', {minimumFractionDigits: dec, maximumFractionDigits: dec}).format(n);
 };
-function mfr(m) { // "2026-03" → "Mar 26"
-  const [y,mo] = m.split('-');
-  return (MONTHS_FR[mo]||mo)+' '+y.slice(2);
-}
-function eur(n) { return n.toLocaleString('fr-FR',{minimumFractionDigits:0,maximumFractionDigits:0})+'€' }
-function eurc(n) { return n.toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2})+'€' }
+const fmtEur = (n, dec=0) => {
+  if (n == null || isNaN(n)) return '—';
+  return new Intl.NumberFormat('fr-FR', {style:'currency', currency:'EUR', minimumFractionDigits: dec, maximumFractionDigits: dec}).format(n);
+};
+const fmtPct = (n, dec=1) => {
+  if (n == null || isNaN(n)) return '—';
+  return (n >= 0 ? '+' : '') + n.toFixed(dec) + '%';
+};
 
-function showTab(name, btn) {
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('panel-'+name).classList.add('active');
-  if (DATA) renderTab(name);
+const isDark = () => document.documentElement.dataset.theme === 'dark'
+  || (!document.documentElement.dataset.theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+function getCSS(varName) {
+  return getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
 }
+
+function chartColors() {
+  return {
+    fg: getCSS('--fg'),
+    fg2: getCSS('--fg2'),
+    fg3: getCSS('--fg3'),
+    border: getCSS('--border'),
+    accent: getCSS('--accent'),
+    accent2: getCSS('--accent2'),
+    success: getCSS('--success'),
+    warning: getCSS('--warning'),
+    danger: getCSS('--danger'),
+    surface: getCSS('--surface'),
+  };
+}
+
+Chart.defaults.font.family = "'Inter', -apple-system, sans-serif";
+Chart.defaults.font.size = 12;
+
+const MONTH_FR = ['Jan','Fév','Mar','Avr','Mai','Jun','Jul','Aoû','Sep','Oct','Nov','Déc'];
+const DAY_FR = ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
+
+// ============================================================
+// TABS
+// ============================================================
+const tabs = document.querySelectorAll('.tab-btn');
+const panes = document.querySelectorAll('.tab-pane');
+
+tabs.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tab = btn.dataset.tab;
+    tabs.forEach(b => b.classList.remove('active'));
+    panes.forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const pane = document.getElementById('tab-' + tab);
+    if (pane) pane.classList.add('active');
+  });
+});
+
+// ============================================================
+// MAIN DATA FETCH
+// ============================================================
+let D = null; // global data
 
 async function loadData() {
   try {
     const r = await fetch('/api/analytics');
-    DATA = await r.json();
-    if (DATA.error) throw new Error(DATA.error);
-    const k = DATA.kpis;
-    document.getElementById('subtitle').textContent =
-      `${k.total_transactions.toLocaleString()} transactions • Mis à jour : ${new Date(DATA.last_updated).toLocaleString('fr-FR')}`;
-    renderTab('vue');
+    D = await r.json();
+    render(D);
+    document.getElementById('loading').hidden = true;
   } catch(e) {
-    document.getElementById('loading-vue').innerHTML =
-      `<div style="color:var(--red);text-align:center">❌ Erreur : ${e.message}<br><small style="color:var(--fg3)">Le pipeline doit être exécuté une première fois.</small></div>`;
+    document.getElementById('loading').innerHTML = '<div style="color:var(--danger);font-size:16px;font-weight:700">Erreur de chargement</div><div style="color:var(--fg3);margin-top:8px;font-size:13px">' + e.message + '</div>';
   }
 }
 
-function renderTab(name) {
-  if (name==='vue') renderVue();
-  if (name==='ca') renderCA();
-  if (name==='tva') renderTVA();
-  if (name==='ops') renderOps();
+function render(d) {
+  try { updateHeader(d); } catch(e){}
+  try { renderPilotage(d); } catch(e){}
+  try { renderCA(d); } catch(e){}
+  try { renderCatalogue(d); } catch(e){}
+  try { renderTVA(d); } catch(e){}
+  try { renderInsights(d); } catch(e){}
 }
 
-function renderVue() {
-  const k = DATA.kpis;
-  document.getElementById('loading-vue').style.display='none';
-  const el = document.getElementById('content-vue');
-  el.style.display='block';
-
-  el.innerHTML = `
-    <div class="kpi-grid">
-      <div class="kpi" style="--kpi-color:#6366f1">
-        <div class="kpi-label">CA Total</div>
-        <div class="kpi-value">${eur(k.total_ca_eur)}</div>
-        <div class="kpi-sub">${k.total_transactions.toLocaleString()} transactions</div>
-      </div>
-      <div class="kpi" style="--kpi-color:#22c55e">
-        <div class="kpi-label">Ticket Moyen</div>
-        <div class="kpi-value">${eurc(k.avg_ticket_eur)}</div>
-        <div class="kpi-sub">Cible : 45–50€</div>
-      </div>
-      <div class="kpi" style="--kpi-color:#f59e0b">
-        <div class="kpi-label">TVA sur Marge</div>
-        <div class="kpi-value">${eur(k.total_tva_marge_eur)}</div>
-        <div class="kpi-sub">Taux match : ${k.tva_match_rate_pct}%</div>
-      </div>
-      <div class="kpi" style="--kpi-color:#ef4444">
-        <div class="kpi-label">Écart Objectif 300K</div>
-        <div class="kpi-value">–${eur(k.gap_eur)}</div>
-        <div class="kpi-sub">Besoin : ${eur(k.needed_monthly_eur)}/mois</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Progression vers 300 000 €</div>
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px">
-        <div>
-          <div style="font-size:13px;color:var(--fg2)">CA réalisé : <strong style="color:var(--fg)">${eur(k.total_ca_eur)}</strong> sur 300 000 €</div>
-          <div style="font-size:12px;color:var(--fg3);margin-top:2px">Projection octobre : <strong style="color:var(--accent2)">${eur(k.current_month_projection_eur)}</strong></div>
-        </div>
-        <div class="obj-pct">${k.progress_pct}%</div>
-      </div>
-      <div class="obj-track"><div class="obj-fill" id="objbar" style="width:0%"></div></div>
-      <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--fg3)">
-        <span>0</span><span>150 000€</span><span style="color:var(--amber)">🎯 300 000€</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Performance par Jour</div>
-      <div class="card-sub">CA cumulé • Samedi = jour roi</div>
-      <div class="day-grid" id="dayGrid"></div>
-    </div>
-  `;
-
-  // Barre objectif
-  setTimeout(() => {
-    const bar = document.getElementById('objbar');
-    if (bar) bar.style.width = Math.min(k.progress_pct, 100) + '%';
-  }, 200);
-
-  // Grille jours
-  const total = DATA.by_day.reduce((s,d)=>s+d.ca_eur,0);
-  const grid = document.getElementById('dayGrid');
-  if (grid) {
-    grid.innerHTML = DATA.by_day.map(d => {
-      const pct = total>0 ? (d.ca_eur/total*100).toFixed(0) : 0;
-      const hot = d.ca_eur === Math.max(...DATA.by_day.map(x=>x.ca_eur));
-      return `<div class="day-cell ${hot?'hot':''}">
-        <div class="day-name">${d.day.slice(0,3)}</div>
-        <div class="day-val">${eur(d.ca_eur)}</div>
-        <div class="day-pct">${pct}%${hot?' 🔥':''}</div>
-      </div>`;
-    }).join('');
+// ============================================================
+// HEADER
+// ============================================================
+function updateHeader(d) {
+  const el = document.getElementById('last-update');
+  if (d.last_updated) {
+    const dt = new Date(d.last_updated);
+    el.textContent = 'MàJ ' + dt.toLocaleDateString('fr-FR') + ' ' + dt.toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
   }
 }
 
-function renderCA() {
-  const el = document.getElementById('content-ca');
-  const months = DATA.monthly;
+// ============================================================
+// TAB 1: PILOTAGE
+// ============================================================
+function renderPilotage(d) {
+  const k = d.kpis;
+  const TARGET = 250000;
+  const MONTHLY_TARGET = TARGET / 12;
 
-  el.innerHTML = `
-    <div class="card">
-      <div class="card-title">Évolution CA Mensuel</div>
-      <div class="card-sub">NKD TECH MGP • Ligne rouge = cible 25 000€/mois</div>
-      <div class="chart-wrap"><canvas id="caChart" height="260"></canvas></div>
-    </div>
-    <div class="two-col">
-      <div class="card" style="margin-bottom:0">
-        <div class="card-title">Détail Mensuel</div>
-        <div class="card-sub" style="margin-bottom:12px">CA + TVA estimée</div>
-        <div style="overflow-x:auto">
-          <table>
-            <thead><tr><th>Mois</th><th>CA</th><th>Tx</th><th>Moy.</th></tr></thead>
-            <tbody>${months.map(m=>`
-              <tr>
-                <td>${mfr(m.month)}</td>
-                <td style="font-weight:600">${eur(m.ca_eur)}</td>
-                <td style="color:var(--fg2)">${m.transactions}</td>
-                <td style="color:var(--fg2)">${eurc(m.avg_ticket)}</td>
-              </tr>`).join('')}
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="card" style="margin-bottom:0">
-        <div class="card-title">Indicateurs Clés</div>
-        <div class="card-sub" style="margin-bottom:12px">Levers vers 300K€</div>
-        <div>${[
-          ['Moy. mensuelle actuelle', eur(DATA.kpis.total_ca_eur / DATA.kpis.months_analyzed)],
-          ['Cible mensuelle requise', eur(DATA.kpis.needed_monthly_eur)],
-          ['Ticket moyen actuel', eurc(DATA.kpis.avg_ticket_eur)],
-          ['Ticket cible (×1.7)', '45 – 50€'],
-          ['Transactions/jour', Math.round(DATA.kpis.total_transactions / (DATA.kpis.months_analyzed * 30))],
-          ['Transactions/jour cibles', '~34'],
-        ].map(([l,v])=>`<div class="tva-row"><span class="lbl">${l}</span><span class="val">${v}</span></div>`).join('')}</div>
-      </div>
-    </div>
-  `;
+  // CA YTD
+  const ca = k.total_ca_eur || 0;
+  document.getElementById('kpi-ca').textContent = fmtEur(ca);
+  const pct = (ca / TARGET * 100);
+  document.getElementById('kpi-ca-pct').textContent = fmt(pct, 1) + '% de l\'objectif';
+  document.getElementById('kpi-progress').style.width = Math.min(100, pct) + '%';
 
-  // Chart
-  new Chart(document.getElementById('caChart'), {
+  // Ticket moyen
+  const ticket = k.avg_ticket_eur || 0;
+  document.getElementById('kpi-ticket').textContent = fmtEur(ticket, 2);
+  const ticketEl = document.getElementById('kpi-ticket-sub');
+  if (ticket < 35) {
+    ticketEl.style.color = 'var(--danger)';
+    ticketEl.textContent = '⚠ En dessous de l\'objectif 45 €';
+  } else if (ticket < 45) {
+    ticketEl.style.color = 'var(--warning)';
+    ticketEl.textContent = '→ Proche de l\'objectif 45 €';
+  } else {
+    ticketEl.style.color = 'var(--success)';
+    ticketEl.textContent = '✓ Objectif 45 € atteint';
+  }
+
+  // Transactions
+  const tx = k.total_transactions || 0;
+  document.getElementById('kpi-tx').textContent = fmt(tx);
+  document.getElementById('kpi-tx-sub').textContent = fmt(tx / 12, 0) + ' / mois en moyenne';
+
+  // Marge
+  const margin = k.total_margin_eur || 0;
+  const marginRate = ca > 0 ? (margin / ca * 100) : 0;
+  document.getElementById('kpi-margin').textContent = fmtEur(margin);
+  document.getElementById('kpi-margin-rate').textContent = 'Taux de marge : ' + fmt(marginRate, 1) + '%';
+
+  // Mois courant et précédent
+  const months = d.monthly || [];
+  const sortedMonths = [...months].sort((a,b) => a.month.localeCompare(b.month));
+  const currentM = sortedMonths[sortedMonths.length - 1];
+  const prevM = sortedMonths[sortedMonths.length - 2];
+
+  if (currentM) {
+    const [y, m] = currentM.month.split('-');
+    const label = MONTH_FR[parseInt(m)-1] + ' ' + y;
+    document.getElementById('current-month-chip').textContent = label;
+    document.getElementById('current-month-ca').textContent = fmtEur(currentM.ca_eur);
+    document.getElementById('current-month-sub').textContent = fmt(currentM.transactions) + ' transactions · ticket moy. ' + fmtEur(currentM.avg_ticket, 2);
+    const mp = Math.min(100, currentM.ca_eur / MONTHLY_TARGET * 100);
+    document.getElementById('month-progress').style.width = mp + '%';
+  }
+  if (prevM) {
+    const [y, m] = prevM.month.split('-');
+    document.getElementById('prev-month-chip').textContent = MONTH_FR[parseInt(m)-1] + ' ' + y;
+    document.getElementById('prev-month-ca').textContent = fmtEur(prevM.ca_eur);
+    document.getElementById('prev-month-sub').textContent = fmt(prevM.transactions) + ' transactions';
+    if (currentM) {
+      const delta = currentM.ca_eur - prevM.ca_eur;
+      const deltaPct = prevM.ca_eur > 0 ? delta / prevM.ca_eur * 100 : 0;
+      const mvEl = document.getElementById('month-vs-prev');
+      const color = delta >= 0 ? 'var(--success)' : 'var(--danger)';
+      const sign = delta >= 0 ? '+' : '';
+      mvEl.innerHTML = `<span style="color:${color};font-size:14px;font-weight:700">${sign}${fmtEur(delta)}</span> <span style="color:var(--fg3);font-size:12px">vs mois précédent (${sign}${fmt(deltaPct,1)}%)</span>`;
+    }
+  }
+
+  // Projection
+  const monthsWithData = sortedMonths.length;
+  const avgMonthly = ca / Math.max(1, monthsWithData);
+  const projection = avgMonthly * 12;
+  document.getElementById('projection').textContent = fmtEur(projection);
+  const projEl = document.getElementById('projection-vs-target');
+  const delta = projection - TARGET;
+  if (delta >= 0) {
+    projEl.innerHTML = `<span class="chip green">+${fmtEur(delta)} vs objectif 250 000 €</span>`;
+  } else {
+    projEl.innerHTML = `<span class="chip red">${fmtEur(delta)} vs objectif 250 000 €</span>`;
+  }
+
+  // Alertes
+  buildAlerts(d, ca, ticket, projection, TARGET, currentM, prevM, monthsWithData);
+
+  // Mini chart
+  buildPilotageChart(sortedMonths, MONTHLY_TARGET);
+}
+
+function buildAlerts(d, ca, ticket, projection, TARGET, currentM, prevM, monthsCount) {
+  const alerts = [];
+  const pct = ca / TARGET * 100;
+
+  if (pct >= 80) alerts.push({type:'success', msg:'✅ ' + fmt(pct,1) + '% de l\'objectif annuel atteint — excellent rythme !'});
+  else if (pct >= 50) alerts.push({type:'warning', msg:'🟡 ' + fmt(pct,1) + '% de l\'objectif annuel — maintenir le rythme'});
+  else alerts.push({type:'danger', msg:'🔴 Seulement ' + fmt(pct,1) + '% de l\'objectif — accélération requise'});
+
+  if (ticket < 30) alerts.push({type:'danger', msg:'🎫 Ticket moyen très bas (' + fmtEur(ticket,2) + ') — cible 45 €. Upsell & bundles urgents'});
+  else if (ticket < 45) alerts.push({type:'warning', msg:'🎫 Ticket moyen ' + fmtEur(ticket,2) + ' — cible 45 €. Travailler les ventes complémentaires'});
+  else alerts.push({type:'success', msg:'🎫 Ticket moyen ' + fmtEur(ticket,2) + ' — objectif 45 € atteint !'});
+
+  if (currentM && prevM) {
+    const delta = (currentM.ca_eur - prevM.ca_eur) / prevM.ca_eur * 100;
+    if (delta >= 15) alerts.push({type:'success', msg:'📈 Forte croissance ce mois : +' + fmt(delta,1) + '% vs mois précédent'});
+    else if (delta < -15) alerts.push({type:'danger', msg:'📉 Baisse de ' + fmt(delta,1) + '% vs mois précédent — analyser les causes'});
+  }
+
+  if (projection > TARGET * 1.1) alerts.push({type:'success', msg:'🚀 Projection fin d\'année : ' + fmtEur(projection) + ' — dépassement de l\'objectif prévu'});
+  else if (projection < TARGET * 0.8) alerts.push({type:'danger', msg:'⚠️ Projection fin d\'année : ' + fmtEur(projection) + ' — loin de l\'objectif 250 000 €'});
+
+  const MONTHLY_TARGET = TARGET / 12;
+  if (currentM && currentM.ca_eur < MONTHLY_TARGET * 0.7) {
+    alerts.push({type:'danger', msg:'📅 CA du mois en cours (' + fmtEur(currentM.ca_eur) + ') très en dessous de la mensualité cible (' + fmtEur(MONTHLY_TARGET) + ')'});
+  }
+
+  const container = document.getElementById('alerts-list');
+  container.innerHTML = alerts.map(a =>
+    `<div class="alert-item ${a.type}"><div class="alert-dot"></div><div>${a.msg}</div></div>`
+  ).join('');
+}
+
+function buildPilotageChart(months, monthlyTarget) {
+  const c = chartColors();
+  const ctx = document.getElementById('chart-pilotage-monthly').getContext('2d');
+  const last12 = months.slice(-12);
+  new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: months.map(m=>mfr(m.month)),
+      labels: last12.map(m => { const [y,mo] = m.month.split('-'); return MONTH_FR[parseInt(mo)-1]; }),
       datasets: [
         {
-          label: 'CA (€)',
-          data: months.map(m=>m.ca_eur),
-          backgroundColor: months.map(m=>m.ca_eur>=20000?'rgba(34,197,94,.85)':m.ca_eur>=15000?'rgba(99,102,241,.85)':'rgba(245,158,11,.85)'),
-          borderRadius:5, borderSkipped:false
+          label: 'CA mensuel',
+          data: last12.map(m => m.ca_eur),
+          backgroundColor: last12.map(m => m.ca_eur >= monthlyTarget ? c.success + '99' : c.accent + '99'),
+          borderColor: last12.map(m => m.ca_eur >= monthlyTarget ? c.success : c.accent),
+          borderWidth: 1, borderRadius: 4,
         },
         {
-          label: 'Cible 25 000€',
-          data: months.map(()=>25000),
-          type:'line', borderColor:'rgba(239,68,68,.6)', borderDash:[5,4],
-          borderWidth:2, pointRadius:0, fill:false
+          label: 'Objectif mensuel',
+          data: last12.map(() => monthlyTarget),
+          type: 'line', borderColor: c.warning, borderWidth: 2, borderDash: [5,4],
+          pointRadius: 0, fill: false,
         }
       ]
     },
     options: {
-      responsive:true, maintainAspectRatio:true,
-      plugins:{
-        legend:{labels:{color:'#9aa3b8',font:{size:11}}},
-        tooltip:{callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.raw.toLocaleString('fr-FR')}€`}}
-      },
-      scales:{
-        x:{ticks:{color:'#5c6478',font:{size:10}},grid:{color:'rgba(255,255,255,.04)'}},
-        y:{ticks:{color:'#5c6478',callback:v=>v.toLocaleString('fr-FR')+'€'},grid:{color:'rgba(255,255,255,.04)'}}
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: {
+        callbacks: { label: ctx => fmtEur(ctx.raw) }
+      }},
+      scales: {
+        x: { grid: { display: false }, ticks: { color: c.fg3 } },
+        y: { grid: { color: c.border }, ticks: { color: c.fg3, callback: v => fmtEur(v) } }
       }
     }
   });
 }
 
-function renderTVA() {
-  const el = document.getElementById('content-tva');
-  const k = DATA.kpis;
-  const months = DATA.monthly;
+// ============================================================
+// TAB 2: CA & PROJECTION
+// ============================================================
+function renderCA(d) {
+  const c = chartColors();
+  const months = [...(d.monthly||[])].sort((a,b)=>a.month.localeCompare(b.month));
+  const MONTHLY_TARGET = 250000 / 12;
 
-  el.innerHTML = `
-    <div class="warn-box">
-      ⚠️ <strong>Régime TVA sur Marge</strong> — Square affiche 0€ de TVA.
-      La TVA est calculée sur (Prix vente – Prix achat) × 20/120.
-      Taux de matching avec vos factures Drive : <strong style="color:var(--accent2)">${k.tva_match_rate_pct}%</strong>
-      — les non-matchés utilisent une marge estimée de 35%.
-    </div>
-    <div class="two-col">
-      <div class="card" style="margin-bottom:0">
-        <div class="card-title">TVA sur Marge — Synthèse</div>
-        <div class="card-sub" style="margin-bottom:12px">Sur ${k.months_analyzed} mois</div>
-        <div>${[
-          ['CA Total TTC', eur(k.total_ca_eur)],
-          ['TVA sur marge calculée', eurc(k.total_tva_marge_eur)],
-          ['Taux effectif moyen', ((k.total_tva_marge_eur/k.total_ca_eur)*100).toFixed(2)+'%'],
-          ['Match Drive/Square', k.tva_match_rate_pct+'%'],
-          ['À provisionner/mois', eurc(k.total_tva_marge_eur/k.months_analyzed)],
-        ].map(([l,v])=>`<div class="tva-row"><span class="lbl">${l}</span><span class="val">${v}</span></div>`).join('')}</div>
-      </div>
-      <div class="card" style="margin-bottom:0">
-        <div class="card-title">Formule TVA sur Marge</div>
-        <div class="card-sub" style="margin-bottom:12px">Rappel réglementaire</div>
-        <div style="background:var(--bg3);border-radius:8px;padding:14px;font-size:12px;color:var(--fg2);line-height:1.7">
-          <code style="background:var(--bg4);padding:3px 8px;border-radius:4px;font-size:11px;display:block;margin-bottom:10px">TVA = (PV TTC – PA TTC) × 20/120</code>
-          PV = Prix vente TTC<br>
-          PA = Prix achat TTC<br><br>
-          <strong style="color:var(--amber)">⚠️ Déclaration CA3</strong> : reporter sur la ligne "Opérations imposables — TVA sur marge", pas sur les ventes ordinaires.
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">TVA Mensuelle Estimée</div>
-      <div class="card-sub">Matchée (factures Drive) + Estimée (35% marge)</div>
-      <div style="overflow-x:auto">
-        <table>
-          <thead><tr><th>Mois</th><th>CA</th><th>TVA réelle</th><th>TVA estimée</th><th>Total TVA</th></tr></thead>
-          <tbody>${months.map(m=>`
-            <tr>
-              <td>${mfr(m.month)}</td>
-              <td>${eur(m.ca_eur)}</td>
-              <td style="color:var(--green)">${eurc(m.tva_marge_real_eur)}</td>
-              <td style="color:var(--amber)">${eurc(m.tva_marge_estimated_eur)}</td>
-              <td style="font-weight:600">${eurc(m.tva_marge_total_eur)}</td>
-            </tr>`).join('')}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  `;
-}
-
-function renderOps() {
-  const el = document.getElementById('content-ops');
-  const k = DATA.kpis;
-
-  el.innerHTML = `
-    <div class="kpi-grid">
-      <div class="kpi" style="--kpi-color:#3b82f6">
-        <div class="kpi-label">Transactions</div>
-        <div class="kpi-value">${k.total_transactions.toLocaleString()}</div>
-        <div class="kpi-sub">Complétées</div>
-      </div>
-      ${DATA.by_method.slice(0,3).map((m,i)=>`
-        <div class="kpi" style="--kpi-color:${['#6366f1','#22c55e','#f59e0b'][i]}">
-          <div class="kpi-label">${m.method}</div>
-          <div class="kpi-value">${m.pct}%</div>
-          <div class="kpi-sub">${eur(m.ca_eur)}</div>
-        </div>`).join('')}
-    </div>
-    <div class="two-col">
-      <div class="card" style="margin-bottom:0">
-        <div class="card-title">Moyens de Paiement</div>
-        <div class="card-sub" style="margin-bottom:12px">En % du CA</div>
-        <div class="chart-wrap"><canvas id="payChart" height="200"></canvas></div>
-      </div>
-      <div class="card" style="margin-bottom:0">
-        <div class="card-title">Distribution des Tickets</div>
-        <div class="card-sub" style="margin-bottom:12px">Nombre de transactions</div>
-        <div class="chart-wrap"><canvas id="tickChart" height="200"></canvas></div>
-      </div>
-    </div>
-    <div class="last-update">Dernière mise à jour : ${new Date(DATA.last_updated).toLocaleString('fr-FR')}</div>
-  `;
-
-  new Chart(document.getElementById('payChart'), {
-    type:'doughnut',
-    data:{
-      labels: DATA.by_method.map(m=>m.method),
-      datasets:[{data:DATA.by_method.map(m=>m.pct),backgroundColor:['#6366f1','#22c55e','#3b82f6','#f59e0b','#a855f7'],borderWidth:0,hoverOffset:6}]
+  // Monthly bar chart
+  const ctx1 = document.getElementById('chart-monthly-bar').getContext('2d');
+  new Chart(ctx1, {
+    type: 'bar',
+    data: {
+      labels: months.map(m => { const [y,mo] = m.month.split('-'); return MONTH_FR[parseInt(mo)-1]+' '+y.slice(2); }),
+      datasets: [
+        {
+          label: 'CA (€)',
+          data: months.map(m => m.ca_eur),
+          backgroundColor: months.map(m => m.ca_eur >= MONTHLY_TARGET ? c.success+'bb' : c.accent+'bb'),
+          borderColor: months.map(m => m.ca_eur >= MONTHLY_TARGET ? c.success : c.accent),
+          borderWidth: 1, borderRadius: 4,
+        },
+        {
+          label: 'Objectif',
+          data: months.map(() => MONTHLY_TARGET),
+          type: 'line', borderColor: c.warning, borderWidth: 2, borderDash: [6,4],
+          pointRadius: 0, fill: false,
+        }
+      ]
     },
-    options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:'#9aa3b8',font:{size:11},padding:10}},tooltip:{callbacks:{label:ctx=>` ${ctx.label}: ${ctx.raw}%`}}},cutout:'62%'}
-  });
-
-  const td = DATA.ticket_distribution;
-  new Chart(document.getElementById('tickChart'), {
-    type:'bar',
-    data:{
-      labels:td.map(t=>t.range),
-      datasets:[{label:'Transactions',data:td.map(t=>t.count),backgroundColor:['#5c6478','#6366f1','#818cf8','#22c55e','#f59e0b','#a855f7'],borderRadius:5,borderSkipped:false}]
-    },
-    options:{
-      indexAxis:'y',responsive:true,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.raw.toLocaleString()} tx`}}},
-      scales:{x:{ticks:{color:'#5c6478',font:{size:10}},grid:{color:'rgba(255,255,255,.04)'}},y:{ticks:{color:'#9aa3b8',font:{size:11}},grid:{display:false}}}
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: c.fg2, boxWidth: 12 } },
+        tooltip: { callbacks: { label: ctx => fmtEur(ctx.raw) } }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { color: c.fg3 } },
+        y: { grid: { color: c.border }, ticks: { color: c.fg3, callback: v => fmtEur(v) } }
+      }
     }
   });
+
+  // Payment methods
+  const bm = d.by_method || {};
+  const methodLabels = Object.keys(bm);
+  const methodVals = methodLabels.map(k => bm[k].ca_eur || 0);
+  const methodColors = [c.accent, c.accent2, c.success, c.warning, c.danger, '#a78bfa'];
+  const ctx2 = document.getElementById('chart-payment-methods').getContext('2d');
+  new Chart(ctx2, {
+    type: 'doughnut',
+    data: {
+      labels: methodLabels,
+      datasets: [{ data: methodVals, backgroundColor: methodColors.slice(0,methodLabels.length), borderWidth: 2, borderColor: c.surface }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { color: c.fg2, boxWidth: 12, padding: 12 } },
+        tooltip: { callbacks: { label: ctx => ctx.label + ': ' + fmtEur(ctx.raw) } }
+      }
+    }
+  });
+
+  // Weekday
+  const bd = d.by_day || {};
+  const dayKeys = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+  const dayLabels = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+  const dayVals = dayKeys.map(k => (bd[k]||{}).ca_eur || 0);
+  const maxDay = Math.max(...dayVals);
+  const ctx3 = document.getElementById('chart-weekday').getContext('2d');
+  new Chart(ctx3, {
+    type: 'bar',
+    data: {
+      labels: dayLabels,
+      datasets: [{
+        label: 'CA (€)',
+        data: dayVals,
+        backgroundColor: dayVals.map(v => v === maxDay ? c.success+'cc' : c.accent+'88'),
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => fmtEur(ctx.raw) } } },
+      scales: {
+        x: { grid: { color: c.border }, ticks: { color: c.fg3, callback: v => fmtEur(v) } },
+        y: { grid: { display: false }, ticks: { color: c.fg3 } }
+      }
+    }
+  });
+
+  // Ticket distribution
+  const td = d.ticket_distribution || {};
+  const tdLabels = Object.keys(td);
+  const tdVals = tdLabels.map(k => td[k] || 0);
+  const ctx4 = document.getElementById('chart-ticket-dist').getContext('2d');
+  new Chart(ctx4, {
+    type: 'bar',
+    data: {
+      labels: tdLabels,
+      datasets: [{
+        label: 'Nombre de transactions',
+        data: tdVals,
+        backgroundColor: c.accent2 + 'aa',
+        borderColor: c.accent2, borderWidth: 1, borderRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { color: c.fg3 } },
+        y: { grid: { color: c.border }, ticks: { color: c.fg3 } }
+      }
+    }
+  });
+
+  // Monthly table
+  const tbody = document.getElementById('monthly-table-body');
+  tbody.innerHTML = [...months].reverse().map(m => {
+    const [y,mo] = m.month.split('-');
+    const label = MONTH_FR[parseInt(mo)-1] + ' ' + y;
+    const vsTarget = m.ca_eur - MONTHLY_TARGET;
+    const vsColor = vsTarget >= 0 ? 'var(--success)' : 'var(--danger)';
+    const vsSign = vsTarget >= 0 ? '+' : '';
+    return `<tr>
+      <td><strong>${label}</strong></td>
+      <td class="num">${fmtEur(m.ca_eur)}</td>
+      <td class="num">${fmt(m.transactions)}</td>
+      <td class="num">${fmtEur(m.avg_ticket, 2)}</td>
+      <td class="num" style="color:${vsColor};font-weight:700">${vsSign}${fmtEur(vsTarget)}</td>
+      <td class="num">${fmtEur(m.tva_marge_estimated_eur, 2)}</td>
+    </tr>`;
+  }).join('');
 }
 
-// Démarrage
+// ============================================================
+// TAB 3: CATALOGUE
+// ============================================================
+function renderCatalogue(d) {
+  const c = chartColors();
+
+  // Category estimation by price range
+  const td = d.ticket_distribution || {};
+  const categories = [
+    { label: 'Smartphones occasion (>300€)', key: '>300€', color: c.accent, type: 'marge' },
+    { label: 'Téléphones/tablettes (150-300€)', key: '150-300€', color: '#a78bfa', type: 'marge' },
+    { label: 'Accessoires moyens (50-150€)', key: '50-150€', color: c.accent2, type: 'normale' },
+    { label: 'Petits accessoires (<50€)', key: '<50€', color: c.success, type: 'normale' },
+  ];
+
+  // Map from actual ticket_distribution keys
+  const keys = Object.keys(td);
+  const catData = categories.map(cat => {
+    const k = keys.find(k2 => k2.includes(cat.key.replace('>', '>').replace('<', '<'))) || cat.key;
+    return { label: cat.label, value: td[k] || 0, color: cat.color };
+  });
+
+  const ctx1 = document.getElementById('chart-categories').getContext('2d');
+  new Chart(ctx1, {
+    type: 'bar',
+    data: {
+      labels: catData.map(x => x.label),
+      datasets: [{
+        data: catData.map(x => x.value),
+        backgroundColor: catData.map(x => x.color + 'bb'),
+        borderColor: catData.map(x => x.color),
+        borderWidth: 1, borderRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => fmt(ctx.raw) + ' transactions' } } },
+      scales: {
+        x: { grid: { color: c.border }, ticks: { color: c.fg3 } },
+        y: { grid: { display: false }, ticks: { color: c.fg3, font: { size: 11 } } }
+      }
+    }
+  });
+
+  // Gauge cleanliness — items are empty → 0%
+  buildGauge(0);
+  document.getElementById('cleanliness-label').innerHTML = `
+    <strong style="color:var(--danger)">0% — Aucune catégorie</strong><br>
+    <span style="color:var(--fg3)">Les 6 130 transactions n'ont pas de données produit dans Square (API Payments).
+    Activez l'API Orders dans Square pour obtenir les catégories réelles.</span>`;
+
+  // Top prices
+  const topPrices = document.getElementById('top-prices-list');
+  const maxVal = Math.max(...Object.values(td));
+  topPrices.innerHTML = Object.entries(td)
+    .sort((a,b)=>b[1]-a[1])
+    .map(([range, count]) => {
+      const w = maxVal > 0 ? (count/maxVal*100) : 0;
+      return `<div class="month-rank">
+        <div style="font-size:13px;font-weight:600;min-width:80px">${range}</div>
+        <div class="rank-bar-wrap"><div class="rank-bar" style="width:${w}%"></div></div>
+        <div style="font-size:13px;font-weight:700;color:var(--fg);min-width:60px;text-align:right">${fmt(count)} ventes</div>
+      </div>`;
+    }).join('');
+
+  // Hourly chart (placeholder from existing data if available)
+  const hourlyLabels = Array.from({length: 24}, (_, i) => i + 'h');
+  const hourlyData = Array(24).fill(0);
+  // fill from analytics if available
+  if (d.by_hour) {
+    Object.entries(d.by_hour).forEach(([h, val]) => {
+      hourlyData[parseInt(h)] = val.transactions || val || 0;
+    });
+  }
+  const ctx2 = document.getElementById('chart-hourly').getContext('2d');
+  new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: hourlyLabels,
+      datasets: [{
+        data: hourlyData,
+        backgroundColor: c.accent2 + '88',
+        borderColor: c.accent2, borderWidth: 1, borderRadius: 2,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { color: c.fg3, maxTicksLimit: 12 } },
+        y: { grid: { color: c.border }, ticks: { color: c.fg3 } }
+      }
+    }
+  });
+
+  // No categories chip
+  const total = d.kpis ? (d.kpis.total_transactions || 0) : 0;
+  document.getElementById('no-cat-chip').textContent = fmt(total) + ' transactions sans catégorie';
+  document.getElementById('no-cat-message').innerHTML = `
+    <div style="font-size:13px;color:var(--fg2);line-height:1.8;padding:8px 0">
+      <p style="margin-bottom:12px">Square Payment API ne retourne pas les données produits (<code>items: []</code> sur toutes les transactions).
+      Pour obtenir les catégories réelles, il faut migrer vers l'<strong>Orders API</strong>.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div style="padding:12px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">
+          <div style="font-weight:700;margin-bottom:6px;color:var(--fg)">📋 Étape 1 — Square Dashboard</div>
+          <div>Allez dans Square → Catalogue → Assigner une catégorie à chaque produit</div>
+        </div>
+        <div style="padding:12px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">
+          <div style="font-weight:700;margin-bottom:6px;color:var(--fg)">⚙️ Étape 2 — Pipeline</div>
+          <div>Migrer <code>fetch_square.py</code> vers Orders API pour récupérer les line items</div>
+        </div>
+        <div style="padding:12px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">
+          <div style="font-weight:700;margin-bottom:6px;color:var(--fg)">🏷️ Catégories suggérées</div>
+          <div>Occasions, Accessoires Neufs, Réparations, Câbles, Coques, Chargeurs</div>
+        </div>
+        <div style="padding:12px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">
+          <div style="font-weight:700;margin-bottom:6px;color:var(--fg)">📈 Impact business</div>
+          <div>Analyser quel type de produit génère le plus de CA et de marge</div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function buildGauge(pct) {
+  const R = 80;
+  const cx = 110, cy = 100;
+  const total = 251.3; // semi-circle circumference
+  const filled = total * Math.min(1, pct / 100);
+  const color = pct < 30 ? 'var(--danger)' : pct < 70 ? 'var(--warning)' : 'var(--success)';
+  const label = pct < 30 ? 'À améliorer' : pct < 70 ? 'En progrès' : 'Bonne qualité';
+
+  const svg = `<svg viewBox="0 0 220 120" class="gauge-svg">
+    <path d="M 30 100 A 80 80 0 0 1 190 100" fill="none" stroke="var(--border)" stroke-width="16" stroke-linecap="round"/>
+    <path d="M 30 100 A 80 80 0 0 1 190 100" fill="none" stroke="${color}" stroke-width="16" stroke-linecap="round"
+      stroke-dasharray="${filled} ${total}" pathLength="${total}"/>
+    <text x="${cx}" y="${cy - 8}" text-anchor="middle" font-size="26" font-weight="800" font-family="Inter,sans-serif" fill="var(--fg)">${pct}%</text>
+    <text x="${cx}" y="${cy + 14}" text-anchor="middle" font-size="11" font-family="Inter,sans-serif" fill="var(--fg3)">${label}</text>
+  </svg>`;
+  document.getElementById('gauge-cleanliness-wrap').innerHTML = svg;
+}
+
+// ============================================================
+// TAB 4: TVA
+// ============================================================
+function renderTVA(d) {
+  const c = chartColors();
+  const k = d.kpis;
+  const months = [...(d.monthly||[])].sort((a,b)=>a.month.localeCompare(b.month));
+
+  // TVA computations
+  // TVA sur marge (occasion, prix > 150€): already in analytics
+  const tvaMarge = k.total_tva_marge_eur || 0;
+  const ca = k.total_ca_eur || 0;
+
+  // Estimate TVA normale: transactions with ticket ≤ 150€
+  // From ticket_distribution, estimate CA normale
+  const td = d.ticket_distribution || {};
+  let txNormale = 0, txMarge = 0;
+  Object.entries(td).forEach(([range, count]) => {
+    if (range.includes('<50') || range.includes('50-') || range.includes('100-150')) txNormale += count;
+    else txMarge += count;
+  });
+  const totalTx = (k.total_transactions || 1);
+  const ratioNormale = txNormale / totalTx;
+  const caNormale = ca * ratioNormale;
+  const tvaNormaleCollectee = caNormale / 1.2 * 0.2; // PV HT × 20%
+
+  // TVA déductible from purchase costs
+  const tvaDed = k.total_tva_deductible_eur || (k.total_cost_eur ? k.total_cost_eur / 1.2 * 0.2 : 0);
+  const tvaTotale = tvaMarge + tvaNormaleCollectee;
+  const tvaNet = tvaTotale - tvaDed;
+
+  // Render synthèse
+  document.getElementById('tva-synthese').innerHTML = `
+    <div class="tva-regime-block marge">
+      <div class="tva-regime-title" style="color:var(--accent)">TVA sur marge — Produits occasion</div>
+      <div class="tva-regime-amount" style="color:var(--accent)">${fmtEur(tvaMarge, 2)}</div>
+      <div class="tva-regime-sub">Smartphones, tablettes, ordinateurs d'occasion (estimation >150€)</div>
+    </div>
+    <div class="tva-regime-block normale">
+      <div class="tva-regime-title" style="color:var(--accent2)">TVA normale collectée — Neuf & réparations</div>
+      <div class="tva-regime-amount" style="color:var(--accent2)">${fmtEur(tvaNormaleCollectee, 2)}</div>
+      <div class="tva-regime-sub">Accessoires, câbles, coques, réparations (estimation ≤150€)</div>
+    </div>
+    <div class="tva-regime-block deductible">
+      <div class="tva-regime-title" style="color:var(--success)">TVA déductible — Achats fournisseurs</div>
+      <div class="tva-regime-amount" style="color:var(--success)">${fmtEur(tvaDed, 2)}</div>
+      <div class="tva-regime-sub">Sur vos factures d'achat (Drive) — ${d.purchase_costs_loaded ? '✓ Factures chargées' : '⚠ Factures non chargées'}</div>
+    </div>
+    <div class="tva-regime-block net" style="margin-bottom:0">
+      <div class="tva-regime-title" style="color:var(--warning)">Net TVA à déclarer (CA3)</div>
+      <div class="tva-regime-amount" style="color:var(--warning)">${fmtEur(Math.max(0, tvaNet), 2)}</div>
+      <div class="tva-regime-sub">TVA collectée (${fmtEur(tvaTotale, 2)}) − TVA déductible (${fmtEur(tvaDed, 2)})</div>
+    </div>`;
+
+  // TVA mensuelle chart
+  const ctx = document.getElementById('chart-tva-monthly').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: months.map(m => { const [y,mo] = m.month.split('-'); return MONTH_FR[parseInt(mo)-1]+' '+y.slice(2); }),
+      datasets: [
+        {
+          label: 'TVA marge estimée',
+          data: months.map(m => m.tva_marge_estimated_eur || 0),
+          backgroundColor: getCSS('--accent') + '99',
+          borderColor: getCSS('--accent'), borderWidth: 1, borderRadius: 3,
+        },
+        {
+          label: 'TVA normale estimée',
+          data: months.map(m => (m.tva_normale_estimated_eur || ((m.ca_eur * ratioNormale) / 1.2 * 0.2))),
+          backgroundColor: getCSS('--accent2') + '99',
+          borderColor: getCSS('--accent2'), borderWidth: 1, borderRadius: 3,
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: c.fg2, boxWidth: 12 } },
+        tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + fmtEur(ctx.raw, 2) } }
+      },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { color: c.fg3 } },
+        y: { stacked: true, grid: { color: c.border }, ticks: { color: c.fg3, callback: v => fmtEur(v) } }
+      }
+    }
+  });
+
+  // TVA table mensuelle
+  const tbody = document.getElementById('tva-table-body');
+  tbody.innerHTML = [...months].reverse().map(m => {
+    const [y,mo] = m.month.split('-');
+    const tvaMgMonth = m.tva_marge_estimated_eur || 0;
+    const tvaNormMonth = m.tva_normale_estimated_eur || (m.ca_eur * ratioNormale / 1.2 * 0.2);
+    const tvaTotMonth = tvaMgMonth + tvaNormMonth;
+    const target = 250000 / 12;
+    const chip = m.ca_eur >= target
+      ? '<span class="chip green">✓ Objectif</span>'
+      : '<span class="chip red">En dessous</span>';
+    return `<tr>
+      <td><strong>${MONTH_FR[parseInt(mo)-1]} ${y}</strong></td>
+      <td class="num">${fmtEur(m.ca_eur)}</td>
+      <td class="num">${fmtEur(tvaMgMonth, 2)}</td>
+      <td class="num">${fmtEur(tvaNormMonth, 2)}</td>
+      <td class="num" style="font-weight:700">${fmtEur(tvaTotMonth, 2)}</td>
+      <td class="num">${chip}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ============================================================
+// TAB 5: INSIGHTS
+// ============================================================
+function renderInsights(d) {
+  const k = d.kpis;
+  const months = [...(d.monthly||[])].sort((a,b)=>a.month.localeCompare(b.month));
+  const ca = k.total_ca_eur || 0;
+  const ticket = k.avg_ticket_eur || 0;
+  const TARGET = 250000;
+  const pct = ca / TARGET * 100;
+
+  // Sort months by CA
+  const sortedByCA = [...months].sort((a,b)=>b.ca_eur - a.ca_eur);
+  const bestMonth = sortedByCA[0];
+  const worstMonth = sortedByCA[sortedByCA.length-1];
+
+  // By day
+  const bd = d.by_day || {};
+  const dayKeys = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+  const dayLabels = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+  const dayCA = dayKeys.map(k2 => (bd[k2]||{}).ca_eur || 0);
+  const maxDayIdx = dayCA.indexOf(Math.max(...dayCA));
+  const minDayIdx = dayCA.indexOf(Math.min(...dayCA));
+
+  // Weekend vs weekday
+  const weekendCA = (bd.saturday?.ca_eur||0) + (bd.sunday?.ca_eur||0);
+  const weekdayCA = ca - weekendCA;
+  const weekendPct = ca > 0 ? (weekendCA / ca * 100) : 0;
+
+  // Build strengths
+  const strengths = [];
+  if (bestMonth) {
+    const [y,mo] = bestMonth.month.split('-');
+    strengths.push({
+      icon: '📈', type: 'green',
+      title: 'Meilleur mois : ' + MONTH_FR[parseInt(mo)-1] + ' ' + y,
+      body: fmtEur(bestMonth.ca_eur) + ' de CA — soit ' + fmt(bestMonth.transactions) + ' transactions. C\'est votre référence : comprendre ce qui a marché ce mois-là et le reproduire systématiquement.',
+      action: 'Analyser les facteurs de succès'
+    });
+  }
+  strengths.push({
+    icon: '🔁', type: 'green',
+    title: fmt(k.total_transactions) + ' transactions enregistrées',
+    body: 'Un volume de transactions solide montre une forte activité opérationnelle. La priorité est maintenant d\'augmenter le ticket moyen plutôt que le volume.',
+    action: 'Focus sur la valeur par client'
+  });
+  if (pct >= 50) {
+    strengths.push({
+      icon: '🎯', type: 'green',
+      title: fmt(pct,1) + '% de l\'objectif annuel atteint',
+      body: 'Vous êtes sur le chemin vers les 250 000 €. Maintenir ce rythme et optimiser les mois creux pour dépasser l\'objectif.',
+      action: 'Maintenir le rythme'
+    });
+  }
+
+  document.getElementById('insights-strengths').innerHTML = strengths.map(s =>
+    `<div class="insight-card">
+      <div class="insight-icon ${s.type}">${s.icon}</div>
+      <div class="insight-body">
+        <h4>${s.title}</h4>
+        <p>${s.body}</p>
+        <span class="action">→ ${s.action}</span>
+      </div>
+    </div>`
+  ).join('');
+
+  // Actions
+  const actions = [
+    {
+      icon: '🎫', type: 'yellow',
+      title: `Ticket moyen ${fmtEur(ticket,2)} → Objectif 45 € : +${fmtEur(45 - ticket, 2)} à gagner`,
+      body: `Chaque vente rapporte en moyenne ${fmtEur(ticket,2)}. Si vous atteignez 45€/ticket avec le même volume, CA = ${fmtEur(k.total_transactions * 45)} (+${fmtEur(k.total_transactions * (45 - ticket))}). Stratégies : étuis + protège-écran à chaque vente téléphone, offres "pack complet", réparation + accessoire.`,
+      action: 'Script de vente complémentaire'
+    },
+    {
+      icon: '📅', type: 'yellow',
+      title: `${dayLabels[minDayIdx]} : jour le plus faible (${fmtEur(dayCA[minDayIdx])}/semaine)`,
+      body: `Le ${dayLabels[minDayIdx]} génère le moins de CA. Action : promotions flash le matin, pack "reprise + accessoire" pour le déjeuner, communication sur réseaux sociaux la veille.`,
+      action: 'Activer les journées creuses'
+    },
+    {
+      icon: '🛒', type: 'blue',
+      title: 'Données catalogue à compléter — Impact majeur sur pilotage',
+      body: 'Toutes les transactions n\'ont pas de catégorie produit dans Square. Sans cette donnée, il est impossible de savoir quel type de produit est le plus rentable. Priorité : catégoriser le catalogue Square en 3h maximum.',
+      action: 'Ouvrir Square Dashboard → Catalogue'
+    },
+    {
+      icon: '💼', type: 'blue',
+      title: 'Marge : augmenter le taux ou le volume achats groupés',
+      body: 'Négocier avec les fournisseurs sur les lots de téléphones reconditionnés. Un gain de 5% sur le PA moyen = plusieurs milliers d\'euros supplémentaires de marge sur l\'année.',
+      action: 'Renégocier contrats fournisseurs'
+    },
+    {
+      icon: '📱', type: 'cyan',
+      title: `Weekend : ${fmt(weekendPct,1)}% du CA — potentiel d'activation`,
+      body: weekendPct < 25
+        ? `Seulement ${fmt(weekendPct,1)}% du CA en weekend. Ateliers réparation le samedi, offres spéciales weekend, présence sur les marchés locaux peuvent doubler ce chiffre.`
+        : `${fmt(weekendPct,1)}% du CA en weekend — bonne performance. Maintenir et renforcer la présence le samedi.`,
+      action: 'Activation weekend'
+    }
+  ];
+
+  document.getElementById('insights-actions').innerHTML = actions.map(a =>
+    `<div class="insight-card">
+      <div class="insight-icon ${a.type}">${a.icon}</div>
+      <div class="insight-body">
+        <h4>${a.title}</h4>
+        <p>${a.body}</p>
+        <span class="action">→ ${a.action}</span>
+      </div>
+    </div>`
+  ).join('');
+
+  // Multi-boutique
+  const multi = [
+    {
+      icon: '🏪', type: 'cyan',
+      title: 'Architecture multi-boutique prête',
+      body: 'Le système est déjà prévu pour plusieurs boutiques. Chaque boutique Square a un location_id différent. Dès que la 2ème boutique est ouverte sur Square, il suffira d\'ajouter son location_id dans fetch_square.py et les données apparaîtront automatiquement ventilées par boutique.',
+      action: 'Ajouter location_id boutique 2'
+    },
+    {
+      icon: '📊', type: 'blue',
+      title: 'KPI consolidés + comparaison inter-boutiques',
+      body: 'Une fois les 2 boutiques actives, le dashboard pourra afficher : CA total consolidé, comparaison de performance, meilleure boutique du mois, partage du catalogue commun vs spécifique.',
+      action: 'Planifier l\'ouverture boutique 2'
+    },
+    {
+      icon: '💡', type: 'green',
+      title: 'Objectif révisé avec 2 boutiques : 500 000 €',
+      body: '2 boutiques × 250 000 € = 500 000 € de CA annuel. Avec la même structure opérationnelle et les leçons de la boutique 1, la boutique 2 peut atteindre 250K€ plus rapidement.',
+      action: 'Business plan boutique 2'
+    }
+  ];
+
+  document.getElementById('insights-multi').innerHTML = multi.map(m =>
+    `<div class="insight-card">
+      <div class="insight-icon ${m.type}">${m.icon}</div>
+      <div class="insight-body">
+        <h4>${m.title}</h4>
+        <p>${m.body}</p>
+        <span class="action">→ ${m.action}</span>
+      </div>
+    </div>`
+  ).join('');
+
+  // Stats grid
+  const avgMonthly = ca / Math.max(1, months.length);
+  const projection = avgMonthly * 12;
+  const statsCards = [
+    { title: 'Projection annuelle', value: fmtEur(projection), sub: 'Sur base du rythme actuel', color: 'var(--accent)' },
+    { title: 'Meilleur jour de la semaine', value: dayLabels[maxDayIdx], sub: fmtEur(dayCA[maxDayIdx]) + ' de CA total', color: 'var(--success)' },
+    { title: 'CA mensuel moyen', value: fmtEur(avgMonthly), sub: 'Objectif : ' + fmtEur(250000/12) + '/mois', color: 'var(--accent2)' },
+    { title: 'Tx/mois moyenne', value: fmt(k.total_transactions / Math.max(1, months.length), 0), sub: fmt(k.total_transactions / Math.max(1, months.length) / 22, 1) + ' par jour ouvré', color: 'var(--warning)' },
+    { title: 'TVA totale estimée', value: fmtEur(k.total_tva_marge_eur), sub: 'TVA sur marge (données réelles)', color: 'var(--danger)' },
+    { title: 'Boutique(s) active(s)', value: '1', sub: 'MGP — Multi-boutique prêt', color: 'var(--success)' },
+  ];
+
+  document.getElementById('insights-stats-grid').innerHTML = statsCards.map(s =>
+    `<div class="card" style="border-top:3px solid ${s.color}">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--fg3);margin-bottom:6px">${s.title}</div>
+      <div style="font-size:22px;font-weight:800;letter-spacing:-1px;color:${s.color}">${s.value}</div>
+      <div style="font-size:11px;color:var(--fg3);margin-top:4px">${s.sub}</div>
+    </div>`
+  ).join('');
+}
+
+// ============================================================
+// BOOT
+// ============================================================
 loadData();
 </script>
 </body>
