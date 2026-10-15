@@ -1,0 +1,919 @@
+{
+  "last_updated": "2026-10-15T11:48:03.120771+00:00",
+  "kpis": {
+    "total_ca_eur": 180473.32,
+    "total_transactions": 6130,
+    "avg_ticket_eur": 29.44,
+    "total_tva_marge_eur": 10527.59,
+    "tva_match_rate_pct": 0.0,
+    "target_annual_eur": 300000,
+    "gap_eur": 119526.68,
+    "progress_pct": 60.2,
+    "current_month_projection_eur": 17377.81,
+    "needed_monthly_eur": 119526.68,
+    "months_analyzed": 11
+  },
+  "monthly": [
+    {
+      "month": "2025-12",
+      "ca_eur": 9582.59,
+      "transactions": 307,
+      "avg_ticket": 31.21,
+      "tva_marge_real_eur": 0.0,
+      "tva_marge_estimated_eur": 558.98,
+      "tva_marge_total_eur": 558.98,
+      "tva_match_rate": 0.0
+    },
+    {
+      "month": "2026-01",
+      "ca_eur": 18143.41,
+      "transactions": 502,
+      "avg_ticket": 36.14,
+      "tva_marge_real_eur": 0.0,
+      "tva_marge_estimated_eur": 1058.37,
+      "tva_marge_total_eur": 1058.37,
+      "tva_match_rate": 0.0
+    },
+    {
+      "month": "2026-02",
+      "ca_eur": 14633.9,
+      "transactions": 439,
+      "avg_ticket": 33.33,
+      "tva_marge_real_eur": 0.0,
+      "tva_marge_estimated_eur": 853.64,
+      "tva_marge_total_eur": 853.64,
+      "tva_match_rate": 0.0
+    },
+    {
+      "month": "2026-03",
+      "ca_eur": 15672.16,
+      "transactions": 498,
+      "avg_ticket": 31.47,
+      "tva_marge_real_eur": 0.0,
+      "tva_marge_estimated_eur": 914.21,
+      "tva_marge_total_eur": 914.21,
+      "tva_match_rate": 0.0
+    },
+    {
+      "month": "2026-04",
+      "ca_eur": 16093.83,
+      "transactions": 554,
+      "avg_ticket": 29.05,
+      "tva_marge_real_eur": 0.0,
+      "tva_marge_estimated_eur": 938.8,
+      "tva_marge_total_eur": 938.8,
+      "tva_match_rate": 0.0
+    },
+    {
+      "month": "2026-05",
+      "ca_eur": 16709.76,
+      "transactions": 607,
+      "avg_ticket": 27.53,
+      "tva_marge_real_eur": 0.0,
+      "tva_marge_estimated_eur": 974.73,
+      "tva_marge_total_eur": 974.73,
+      "tva_match_rate": 0.0
+    },
+    {
+      "month": "2026-06",
+      "ca_eur": 19891.18,
+      "transactions": 667,
+      "avg_ticket": 29.82,
+      "tva_marge_real_eur": 0.0,
+      "tva_marge_estimated_eur": 1160.32,
+      "tva_marge_total_eur": 1160.32,
+      "tva_match_rate": 0.0
+    },
+    {
+      "month": "2026-07",
+      "ca_eur": 19912.95,
+      "transactions": 747,
+      "avg_ticket": 26.66,
+      "tva_marge_real_eur": 0.0,
+      "tva_marge_estimated_eur": 1161.59,
+      "tva_marge_total_eur": 1161.59,
+      "tva_match_rate": 0.0
+    },
+    {
+      "month": "2026-08",
+      "ca_eur": 22408.22,
+      "transactions": 813,
+      "avg_ticket": 27.56,
+      "tva_marge_real_eur": 0.0,
+      "tva_marge_estimated_eur": 1307.14,
+      "tva_marge_total_eur": 1307.14,
+      "tva_match_rate": 0.0
+    },
+    {
+      "month": "2026-09",
+      "ca_eur": 19016.7,
+      "transactions": 667,
+      "avg_ticket": 28.51,
+      "tva_marge_real_eur": 0.0,
+      "tva_marge_estimated_eur": 1109.3,
+      "tva_marge_total_eur": 1109.3,
+      "tva_match_rate": 0.0
+    },
+    {
+      "month": "2026-10",
+      "ca_eur": 8408.62,
+      "transactions": 329,
+      "avg_ticket": 25.56,
+      "tva_marge_real_eur": 0.0,
+      "tva_marge_estimated_eur": 490.5,
+      "tva_marge_total_eur": 490.5,
+      "tva_match_rate": 0.0
+    }
+  ],
+  "by_day": [
+    {
+      "day": "Lundi",
+      "ca_eur": 22009.21,
+      "transactions": 724,
+      "avg_ticket": 30.4
+    },
+    {
+      "day": "Mardi",
+      "ca_eur": 20925.83,
+      "transactions": 727,
+      "avg_ticket": 28.78
+    },
+    {
+      "day": "Mercredi",
+      "ca_eur": 23733.96,
+      "transactions": 753,
+      "avg_ticket": 31.52
+    },
+    {
+      "day": "Jeudi",
+      "ca_eur": 22564.08,
+      "transactions": 756,
+      "avg_ticket": 29.85
+    },
+    {
+      "day": "Vendredi",
+      "ca_eur": 21877.67,
+      "transactions": 786,
+      "avg_ticket": 27.83
+    },
+    {
+      "day": "Samedi",
+      "ca_eur": 37879.63,
+      "transactions": 1320,
+      "avg_ticket": 28.7
+    },
+    {
+      "day": "Dimanche",
+      "ca_eur": 31482.94,
+      "transactions": 1064,
+      "avg_ticket": 29.59
+    }
+  ],
+  "by_method": [
+    {
+      "method": "CARD",
+      "ca_eur": 150074.92,
+      "pct": 83.2
+    },
+    {
+      "method": "CASH",
+      "ca_eur": 30398.4,
+      "pct": 16.8
+    }
+  ],
+  "ticket_distribution": [
+    {
+      "range": "< 10€",
+      "count": 566,
+      "ca_eur": 2945.51
+    },
+    {
+      "range": "10-25€",
+      "count": 3545,
+      "ca_eur": 54692.11
+    },
+    {
+      "range": "25-50€",
+      "count": 1351,
+      "ca_eur": 45455.29
+    },
+    {
+      "range": "50-100€",
+      "count": 408,
+      "ca_eur": 30276.75
+    },
+    {
+      "range": "100-200€",
+      "count": 205,
+      "ca_eur": 29239.53
+    },
+    {
+      "range": "200€+",
+      "count": 55,
+      "ca_eur": 17864.13
+    }
+  ],
+  "tva_detail": [
+    {
+      "date": "2025-12-23",
+      "payment_id": "Hv2wyjkLtsubmi4hqmNrQjwjZXKZY",
+      "amount_eur": 19.9,
+      "tva_marge_eur": 1.1608,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "NEjyC5gc0p1dlQeoVzKeOvJR9QdZY",
+      "amount_eur": 34.9,
+      "tva_marge_eur": 2.0358,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "rXTXddiWv9pEGfGSJilvUvGQrCLZY",
+      "amount_eur": 20.0,
+      "tva_marge_eur": 1.1667,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "lkFo1ImbronEjv5pyikrAHjLNaUZY",
+      "amount_eur": 15.0,
+      "tva_marge_eur": 0.875,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "3VHPXhNvWtXSjsArf2UdaEgATNWZY",
+      "amount_eur": 44.9,
+      "tva_marge_eur": 2.6192,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "bp2KPKbAFrCHs8W4ykuYonLBb9OZY",
+      "amount_eur": 18.0,
+      "tva_marge_eur": 1.05,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "Veues3WPRfPY87Tqg4ogPbqUjDIZY",
+      "amount_eur": 15.9,
+      "tva_marge_eur": 0.9275,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "hO3gm8re3VGekAw1GXTqRadSwkXZY",
+      "amount_eur": 19.9,
+      "tva_marge_eur": 1.1608,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "tw3NG90uJEgPAtYLGVwDcQzgOaHZY",
+      "amount_eur": 29.9,
+      "tva_marge_eur": 1.7442,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "7tyhGqAQ1G2AjD6bd7vMEAy6rdaZY",
+      "amount_eur": 17.0,
+      "tva_marge_eur": 0.9917,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "rfl6f1pEJwkciwwYKrcXupkSsFXZY",
+      "amount_eur": 25.9,
+      "tva_marge_eur": 1.5108,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "1GS0TAcvH9kVBayUOSJl9wYhCzEZY",
+      "amount_eur": 29.9,
+      "tva_marge_eur": 1.7442,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "j7l8EH2eInK2rH7KTuNvACSaXaVZY",
+      "amount_eur": 34.9,
+      "tva_marge_eur": 2.0358,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "v7W4fK7NYIITLVBFOn6BZfdyuoKZY",
+      "amount_eur": 19.9,
+      "tva_marge_eur": 1.1608,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "BaNW389Kb0lTRfl81SUi1cIKR9TZY",
+      "amount_eur": 19.9,
+      "tva_marge_eur": 1.1608,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "tAFy5kzRZCu6PD7yd1mKHPA7bxNZY",
+      "amount_eur": 15.9,
+      "tva_marge_eur": 0.9275,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "lyIcGfKlQCPgezJs6Rhylr5cVYdZY",
+      "amount_eur": 189.0,
+      "tva_marge_eur": 11.025,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "x2zglpdpmi8aHgckGuX4v92Em8AZY",
+      "amount_eur": 10.0,
+      "tva_marge_eur": 0.5833,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "L7HmMs2WUjV440wC291IC7U4n5JZY",
+      "amount_eur": 10.0,
+      "tva_marge_eur": 0.5833,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "VQr6rYkt0yGgxcIKAfIZvP2ntLQZY",
+      "amount_eur": 19.9,
+      "tva_marge_eur": 1.1608,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "bHxARfv7FPyrRCNUpwZ5Bi4tMxMZY",
+      "amount_eur": 15.0,
+      "tva_marge_eur": 0.875,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "zTbj2aZvR5Iu4OeHbaddp8ZfZ0RZY",
+      "amount_eur": 29.9,
+      "tva_marge_eur": 1.7442,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "vfSNbqgGSGxIK0xWBOakLs7HO7eZY",
+      "amount_eur": 10.0,
+      "tva_marge_eur": 0.5833,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-23",
+      "payment_id": "r1OhTFjjPyUZg8nrx5MqfWknUfOZY",
+      "amount_eur": 59.8,
+      "tva_marge_eur": 3.4883,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "XzCHISCIYB4UwhA25aaw13qkHrFZY",
+      "amount_eur": 19.9,
+      "tva_marge_eur": 1.1608,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "btg84zjJNW38mRI6ml7pLm8athXZY",
+      "amount_eur": 37.0,
+      "tva_marge_eur": 2.1583,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "bXlCvPXypdCRwkSDMWTC3H0LBH6YY",
+      "amount_eur": 5.0,
+      "tva_marge_eur": 0.2917,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "5M2td9rxsocGaxJo45pZ9iOLcuXZY",
+      "amount_eur": 10.0,
+      "tva_marge_eur": 0.5833,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "vLgZfqfMACoADKr3sB0xjgfJBuaZY",
+      "amount_eur": 10.0,
+      "tva_marge_eur": 0.5833,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "BsyItY8IyHO1FKMpwlqe8z5YJJ7YY",
+      "amount_eur": 5.0,
+      "tva_marge_eur": 0.2917,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "J2N6Y8astYBwmYQvJrPhFWPx0CKZY",
+      "amount_eur": 10.0,
+      "tva_marge_eur": 0.5833,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "xY2xVZ4Fa3xgQWu11hbnCj93MUDZY",
+      "amount_eur": 15.0,
+      "tva_marge_eur": 0.875,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "pqneSpG7XA0kBrVkYjsTD3QU5ZIZY",
+      "amount_eur": 10.0,
+      "tva_marge_eur": 0.5833,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "T9muYQcdApEm5Uynvu5bXzxFg5XZY",
+      "amount_eur": 19.9,
+      "tva_marge_eur": 1.1608,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "DpAOWVd7YEY1wx6a11KhK8TxpVdZY",
+      "amount_eur": 49.9,
+      "tva_marge_eur": 2.9108,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "zZUoVTX063HRmilpcN5QN39xD8UZY",
+      "amount_eur": 3.29,
+      "tva_marge_eur": 0.1919,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "LDVp1z3duUtbPc05CYOxU9B3uGMZY",
+      "amount_eur": 39.9,
+      "tva_marge_eur": 2.3275,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "7Ja4DOqowmQoFJwlibCynaO0B3NZY",
+      "amount_eur": 10.0,
+      "tva_marge_eur": 0.5833,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "BW1DvSf7jatKQzeIHrefYuZkQVCZY",
+      "amount_eur": 34.9,
+      "tva_marge_eur": 2.0358,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "1IZls9iM1DcsFKIYwhJwhRh7bubZY",
+      "amount_eur": 19.9,
+      "tva_marge_eur": 1.1608,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "V0h2qhSfQGqLQSyzrUTaJUseIjKZY",
+      "amount_eur": 19.0,
+      "tva_marge_eur": 1.1083,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "rPRayBveGzFe7oP28UdmnLCfDmQZY",
+      "amount_eur": 24.9,
+      "tva_marge_eur": 1.4525,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "B6DhRF41bsQjVpcqm5AWnJQBUIgZY",
+      "amount_eur": 29.0,
+      "tva_marge_eur": 1.6917,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "1GUJ1Q4kWEB7qcB1VKM4gmD7kF6YY",
+      "amount_eur": 15.0,
+      "tva_marge_eur": 0.875,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "PXAGZ8QlPjrfSJJhmzGlii1LF7cZY",
+      "amount_eur": 19.0,
+      "tva_marge_eur": 1.1083,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "p6bgSwbNuAzyWySPJGV4pCu61ncZY",
+      "amount_eur": 34.9,
+      "tva_marge_eur": 2.0358,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-22",
+      "payment_id": "j3hrSqKcHaEwJaL2Mevc4UE8d1NZY",
+      "amount_eur": 20.0,
+      "tva_marge_eur": 1.1667,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "PdFJGeMxIOix0jjY9ZXhiQNVR8QZY",
+      "amount_eur": 19.0,
+      "tva_marge_eur": 1.1083,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "ZanmLYSeSRpxRqCtcqEu5T1uwS9YY",
+      "amount_eur": 29.9,
+      "tva_marge_eur": 1.7442,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "HBxleMNZlxavaZODKakgavqbsBQZY",
+      "amount_eur": 29.9,
+      "tva_marge_eur": 1.7442,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "xarrvCO2hACfuEVpefUqJqCaumWZY",
+      "amount_eur": 44.9,
+      "tva_marge_eur": 2.6192,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "ztWOU2GCW8s3X87NrZqxU8DFoLSZY",
+      "amount_eur": 15.0,
+      "tva_marge_eur": 0.875,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "j5uNkUM2nPuTpnge72uVTQewMLQZY",
+      "amount_eur": 10.0,
+      "tva_marge_eur": 0.5833,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "9gNSuU29gsOFKep1ZiQb0HYvjbHZY",
+      "amount_eur": 30.0,
+      "tva_marge_eur": 1.75,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "9o7t9k3Tpx8q894a5GNkSSSrgrNZY",
+      "amount_eur": 39.8,
+      "tva_marge_eur": 2.3217,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "p2BYMQLOi2RCGsPMzrT4xIEVGZRZY",
+      "amount_eur": 24.9,
+      "tva_marge_eur": 1.4525,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "7HxYHVBYDP1t5n1InuaJe2ixr0GZY",
+      "amount_eur": 24.9,
+      "tva_marge_eur": 1.4525,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "H3oLgb3mkKfAO9DRco6B3aRFuDMZY",
+      "amount_eur": 15.0,
+      "tva_marge_eur": 0.875,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "bJCCYa8b4Z3bBo7qjfmkvDSm8BfZY",
+      "amount_eur": 24.9,
+      "tva_marge_eur": 1.4525,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "FYhz8CRnLYxquNdIXjBIBhQRP4EZY",
+      "amount_eur": 79.7,
+      "tva_marge_eur": 4.6492,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "7Tryj7vpddMkBx3W8UKUgFZzs8fZY",
+      "amount_eur": 19.0,
+      "tva_marge_eur": 1.1083,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "THNzWm4qSmMXmD1snR6qYm4tZGQZY",
+      "amount_eur": 29.9,
+      "tva_marge_eur": 1.7442,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "VUPXvbcQfor8bjE4isGlsofgkUGZY",
+      "amount_eur": 34.9,
+      "tva_marge_eur": 2.0358,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "RCXRsjD1VV8CahdfWwaMpS9xqUXZY",
+      "amount_eur": 15.0,
+      "tva_marge_eur": 0.875,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "JIgtbUNlqnNTnoF6j73RAIkDsRSZY",
+      "amount_eur": 44.8,
+      "tva_marge_eur": 2.6133,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "1qg0GZaQlbTNms6ZI796INooJpMZY",
+      "amount_eur": 24.9,
+      "tva_marge_eur": 1.4525,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "3hJZXKDbbYSBbSmQOSjTR4sCdqHZY",
+      "amount_eur": 24.9,
+      "tva_marge_eur": 1.4525,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "7HJkRkKqM5U7qe4l4BLNdorURiaZY",
+      "amount_eur": 5.0,
+      "tva_marge_eur": 0.2917,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "10Xl23aYzhkqUmnZ1bbAyTShJs6YY",
+      "amount_eur": 5.0,
+      "tva_marge_eur": 0.2917,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "RCDnsFoHQ118CKC3RSH7OzHCQHIZY",
+      "amount_eur": 20.0,
+      "tva_marge_eur": 1.1667,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "pqzeFIk34J5T7zeR71KAZ1ck3BSZY",
+      "amount_eur": 19.0,
+      "tva_marge_eur": 1.1083,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "tY9eoqxzvlYPMkFyDTJeakVE4RKZY",
+      "amount_eur": 44.85,
+      "tva_marge_eur": 2.6162,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "hKL3sS6CvyTetFR7YeXYTfiBFfOZY",
+      "amount_eur": 24.95,
+      "tva_marge_eur": 1.4554,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "JM004NOhTNJxVYcs1KxraysoQFEZY",
+      "amount_eur": 19.9,
+      "tva_marge_eur": 1.1608,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-21",
+      "payment_id": "h8eexuYHeICx0WPl1pJDJOQZTYCZY",
+      "amount_eur": 59.9,
+      "tva_marge_eur": 3.4942,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "xAoiazUSPM02qRUr9vcE8lI7wSPZY",
+      "amount_eur": 37.8,
+      "tva_marge_eur": 2.205,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "F6ORKRHuG34M18fzC3yLnMw3EAZZY",
+      "amount_eur": 19.9,
+      "tva_marge_eur": 1.1608,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "PDYRqyCDzDnWkE80aTPetW56IAVZY",
+      "amount_eur": 19.9,
+      "tva_marge_eur": 1.1608,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "n5r4SSTrEsN3H84gTWDZEc07HVaZY",
+      "amount_eur": 30.0,
+      "tva_marge_eur": 1.75,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "1ieDbsyd0jJaGfNLbvmwfWmwfS8YY",
+      "amount_eur": 29.9,
+      "tva_marge_eur": 1.7442,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "JUg2ZoPKf4if55eTDLoAf8e8I4OZY",
+      "amount_eur": 24.9,
+      "tva_marge_eur": 1.4525,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "LLBV5DVZQeXlJ5M28eP5rGy1iiLZY",
+      "amount_eur": 25.8,
+      "tva_marge_eur": 1.505,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "DvzW0qie0zKvXm8Q4wht4XCd2IWZY",
+      "amount_eur": 15.0,
+      "tva_marge_eur": 0.875,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "deWpJ0sN22tXNVzKBQXmXUO4Jx5YY",
+      "amount_eur": 39.9,
+      "tva_marge_eur": 2.3275,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "vJZmZhcCkJtZ6XDMi4pNy8egVobZY",
+      "amount_eur": 30.0,
+      "tva_marge_eur": 1.75,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "znfYcb52SHVwgQ2au1jTlJ3p3X9YY",
+      "amount_eur": 15.0,
+      "tva_marge_eur": 0.875,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "hyX7eHtgxHeulqZyTs29xIwfRxaZY",
+      "amount_eur": 39.0,
+      "tva_marge_eur": 2.275,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "Ptry7QHHjY8rCH8tPX2O0e1nAGNZY",
+      "amount_eur": 29.9,
+      "tva_marge_eur": 1.7442,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "rByEdZhGP5ahwTSr40j0DpxzhVcZY",
+      "amount_eur": 30.0,
+      "tva_marge_eur": 1.75,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "VmmulEN5DE4OFaTbtiguWjD3M1DZY",
+      "amount_eur": 19.9,
+      "tva_marge_eur": 1.1608,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "VioS8nJlhlQSgDQRlSaR2cKXl0OZY",
+      "amount_eur": 29.9,
+      "tva_marge_eur": 1.7442,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "NAjz29P3bYgkLrav8filHVk6a2QZY",
+      "amount_eur": 5.0,
+      "tva_marge_eur": 0.2917,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "1GwjBDoCdOoW1DBvLAWY2UNLvdKZY",
+      "amount_eur": 29.9,
+      "tva_marge_eur": 1.7442,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "Pns89N8XKKUkzUfqNBLpKPUuOXLZY",
+      "amount_eur": 49.8,
+      "tva_marge_eur": 2.905,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "pOVaxNyomUWE2R8GrvWZAYcGw2FZY",
+      "amount_eur": 24.9,
+      "tva_marge_eur": 1.4525,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "jjDVkcrR9j9RNfDz91An6KL3m3JZY",
+      "amount_eur": 12.9,
+      "tva_marge_eur": 0.7525,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "vtTMi5CPYkJOAWdQZBTsxDoiESZZY",
+      "amount_eur": 108.9,
+      "tva_marge_eur": 6.3525,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "T5WNBt3a4zIgib5gmT5PeeA6FKSZY",
+      "amount_eur": 5.0,
+      "tva_marge_eur": 0.2917,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-20",
+      "payment_id": "Xj2N6xAtnUR8INevfyK83c9uag7YY",
+      "amount_eur": 19.9,
+      "tva_marge_eur": 1.1608,
+      "is_estimated": true
+    },
+    {
+      "date": "2025-12-18",
+      "payment_id": "hKjTomJnPOycHDfA9GMUbwr4uaB",
+      "amount_eur": 1.0,
+      "tva_marge_eur": 0.0583,
+      "is_estimated": true
+    }
+  ],
+  "purchase_costs_loaded": 0
+}
