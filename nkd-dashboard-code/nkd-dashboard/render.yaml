@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: nkd-dashboard
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2
+    envVars:
+      - key: SQUARE_ACCESS_TOKEN
+        sync: false  # à saisir dans le dashboard Render
+      - key: GOOGLE_SERVICE_ACCOUNT_FILE
+        value: google-credentials.json
+      - key: DRIVE_FOLDER_ID
+        sync: false  # à saisir dans le dashboard Render
+    disk:
+      name: nkd-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
