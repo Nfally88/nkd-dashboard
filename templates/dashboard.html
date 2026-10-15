@@ -661,7 +661,7 @@ footer {
             <th class="num">Transactions</th>
             <th class="num">Ticket moyen (€)</th>
             <th class="num">vs Objectif</th>
-            <th class="num">TVA marge est.</th>
+            <th class="num">TVA collectée est.</th>
           </tr>
         </thead>
         <tbody id="monthly-table-body"></tbody>
@@ -674,7 +674,7 @@ footer {
 <section class="tab-pane" id="tab-catalogue">
   <div class="grid-2-1" style="margin-bottom:20px">
     <div class="card">
-      <div class="card-header"><span class="card-title">CA par tranche de prix</span><span class="chip yellow">En attendant les catégories</span></div>
+      <div class="card-header"><span class="card-title" id="cat-chart-title">CA par tranche de prix</span><span class="chip yellow" id="cat-chart-chip">En attendant les catégories</span></div>
       <div class="chart-container" style="height:260px">
         <canvas id="chart-categories"></canvas>
       </div>
@@ -688,7 +688,7 @@ footer {
 
   <div class="grid-2" style="margin-bottom:20px">
     <div class="card">
-      <div class="card-header"><span class="card-title">Top ventes par tranche de prix</span></div>
+      <div class="card-header"><span class="card-title" id="top-list-title">Top ventes par tranche de prix</span></div>
       <div id="top-prices-list"></div>
     </div>
     <div class="card">
@@ -701,7 +701,7 @@ footer {
 
   <div class="card">
     <div class="card-header">
-      <span class="card-title">⚠️ Données catalogue manquantes</span>
+      <span class="card-title" id="no-cat-title">⚠️ Données catalogue manquantes</span>
       <span class="chip red" id="no-cat-chip">—</span>
     </div>
     <div id="no-cat-message"></div>
@@ -711,7 +711,7 @@ footer {
 <!-- ===================== TAB 4: TVA ===================== -->
 <section class="tab-pane" id="tab-tva">
   <div style="background:var(--warning-light);border:1px solid var(--warning);border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13px;color:var(--fg2)">
-    ⚠️ <strong>Note importante :</strong> Ces montants sont des estimations : la TVA sur marge est calculée sur toutes les ventes avec une marge supposée de 35 % tant que les prix d'achat ne sont pas rapprochés, et la TVA normale (neuf, réparations) n'est pas encore séparée. Pour une déclaration CA3 exacte, les factures Drive constituent la référence officielle.
+    ⚠️ <strong>Note importante :</strong> Chaque vente est classée d'après les articles saisis dans Square. Téléphones, tablettes et ordinateurs sont des occasions (TVA sur marge), sauf si le nom de l'article contient « neuf ». Les accessoires, les réparations et les ventes en montant libre sont à la TVA normale de 20 %. La TVA sur marge reste une estimation (marge supposée de 35 %) tant que les prix d'achat ne sont pas rapprochés. Pour une déclaration CA3 exacte, les factures Drive constituent la référence officielle.
   </div>
 
   <!-- Totaux TVA -->
@@ -759,8 +759,10 @@ footer {
           <tr>
             <th>Mois</th>
             <th class="num">CA TTC (€)</th>
-            <th class="num">TVA marge est. (€)</th>
-            <th class="num">TVA marge réelle (€)</th>
+            <th class="num">dont occasion (€)</th>
+            <th class="num">dont TVA 20 % (€)</th>
+            <th class="num">TVA sur marge (€)</th>
+            <th class="num">TVA normale (€)</th>
             <th class="num">TVA collectée tot.</th>
             <th class="num">Statut</th>
           </tr>
@@ -802,6 +804,7 @@ const fmt = (n, dec=0) => {
   if (n == null || isNaN(n)) return '—';
   return new Intl.NumberFormat('fr-FR', {minimumFractionDigits: dec, maximumFractionDigits: dec}).format(n);
 };
+const esc = t => String(t == null ? '' : t).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const fmtEur = (n, dec=0) => {
   if (n == null || isNaN(n)) return '—';
   return new Intl.NumberFormat('fr-FR', {style:'currency', currency:'EUR', minimumFractionDigits: dec, maximumFractionDigits: dec}).format(n);
@@ -1202,7 +1205,7 @@ function renderCA(d) {
       <td class="num">${fmt(m.transactions)}</td>
       <td class="num">${fmtEur(m.avg_ticket, 2)}</td>
       <td class="num" style="color:${vsColor};font-weight:700">${vsSign}${fmtEur(vsTarget)}</td>
-      <td class="num">${fmtEur(m.tva_marge_estimated_eur, 2)}</td>
+      <td class="num">${fmtEur(m.tva_collectee_total_eur != null ? m.tva_collectee_total_eur : m.tva_marge_estimated_eur, 2)}</td>
     </tr>`;
   }).join('');
 }
@@ -1213,10 +1216,23 @@ function renderCA(d) {
 function renderCatalogue(d) {
   const c = chartColors();
 
-  // CA par tranche de prix (tranches réelles du pipeline)
+  const k = d.kpis || {};
+  const cats = Array.isArray(d.by_category) ? d.by_category : [];
+  const topItems = Array.isArray(d.top_items) ? d.top_items : [];
+  const hasItems = (k.payments_with_items || 0) > 0;
   const td = ticketList(d);
-  const rangeColors = [c.success, c.success, c.accent2, c.accent2, '#a78bfa', c.accent];
-  const catData = td.map((x, i) => ({ label: x.range, value: x.ca_eur || 0, color: rangeColors[i % rangeColors.length] }));
+  const palette = [c.accent, c.accent2, c.success, '#a78bfa', c.warning, c.danger];
+
+  // CA par catégorie Square (si les articles sont disponibles), sinon par tranche de prix
+  let catData;
+  if (hasItems && cats.length) {
+    document.getElementById('cat-chart-title').textContent = 'CA par catégorie Square';
+    document.getElementById('cat-chart-chip').style.display = 'none';
+    catData = cats.slice(0, 10).map((x, i) => ({ label: x.category, value: x.ca_eur || 0, color: palette[i % palette.length] }));
+  } else {
+    const rangeColors = [c.success, c.success, c.accent2, c.accent2, '#a78bfa', c.accent];
+    catData = td.map((x, i) => ({ label: x.range, value: x.ca_eur || 0, color: rangeColors[i % rangeColors.length] }));
+  }
 
   const ctx1 = document.getElementById('chart-categories').getContext('2d');
   new Chart(ctx1, {
@@ -1240,26 +1256,44 @@ function renderCatalogue(d) {
     }
   });
 
-  // Gauge cleanliness — items are empty → 0%
-  buildGauge(0);
-  document.getElementById('cleanliness-label').innerHTML = `
-    <strong style="color:var(--danger)">0% — Aucune catégorie</strong><br>
-    <span style="color:var(--fg3)">Les ${fmt(d.kpis ? d.kpis.total_transactions : 0)} transactions n'ont pas de données produit dans Square (API Payments).
-    Activez l'API Orders dans Square pour obtenir les catégories réelles.</span>`;
+  // Propreté du catalogue : part des ventes dont au moins un article a une catégorie Square
+  const totalTx = k.total_transactions || 0;
+  const withCat = k.payments_with_category || 0;
+  const cleanPct = totalTx ? Math.round(withCat / totalTx * 100) : 0;
+  buildGauge(cleanPct);
+  document.getElementById('cleanliness-label').innerHTML = hasItems
+    ? `<strong>${fmt(withCat)} ventes sur ${fmt(totalTx)} ont une catégorie Square</strong><br>
+       <span style="color:var(--fg3)">${fmt(k.payments_with_items || 0)} ventes ont des articles saisis ; les autres sont des montants libres.</span>`
+    : `<strong style="color:var(--danger)">0% — Aucune catégorie</strong><br>
+       <span style="color:var(--fg3)">Les articles vendus ne sont pas encore récupérés depuis Square.</span>`;
 
-  // Top prices
+  // Meilleurs articles (ou, à défaut, ventes par tranche de prix)
   const topPrices = document.getElementById('top-prices-list');
-  const maxVal = Math.max(0, ...td.map(x => x.count || 0));
-  topPrices.innerHTML = [...td]
-    .sort((a,b)=>(b.count||0)-(a.count||0))
-    .map(({range, count}) => {
-      const w = maxVal > 0 ? (count/maxVal*100) : 0;
+  const classLabel = { occasion: 'Occasion', neuf: 'Neuf', accessoire_reparation: 'Accessoire / réparation', libre: 'Montant libre' };
+  if (hasItems && topItems.length) {
+    document.getElementById('top-list-title').textContent = 'Articles qui rapportent le plus';
+    const maxCa = Math.max(0, ...topItems.map(x => x.ca_eur || 0));
+    topPrices.innerHTML = topItems.slice(0, 10).map(x => {
+      const w = maxCa > 0 ? (x.ca_eur / maxCa * 100) : 0;
       return `<div class="month-rank">
-        <div style="font-size:13px;font-weight:600;min-width:80px">${range}</div>
+        <div style="font-size:12px;font-weight:600;min-width:150px;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(x.name)} — ${classLabel[x.tva_class] || ''}">${esc(x.name)}</div>
         <div class="rank-bar-wrap"><div class="rank-bar" style="width:${w}%"></div></div>
-        <div style="font-size:13px;font-weight:700;color:var(--fg);min-width:60px;text-align:right">${fmt(count)} ventes</div>
+        <div style="font-size:13px;font-weight:700;color:var(--fg);min-width:70px;text-align:right">${fmtEur(x.ca_eur)}</div>
       </div>`;
     }).join('');
+  } else {
+    const maxVal = Math.max(0, ...td.map(x => x.count || 0));
+    topPrices.innerHTML = [...td]
+      .sort((a,b)=>(b.count||0)-(a.count||0))
+      .map(({range, count}) => {
+        const w = maxVal > 0 ? (count/maxVal*100) : 0;
+        return `<div class="month-rank">
+          <div style="font-size:13px;font-weight:600;min-width:80px">${range}</div>
+          <div class="rank-bar-wrap"><div class="rank-bar" style="width:${w}%"></div></div>
+          <div style="font-size:13px;font-weight:700;color:var(--fg);min-width:60px;text-align:right">${fmt(count)} ventes</div>
+        </div>`;
+      }).join('');
+  }
 
   // Hourly chart — le pipeline ne fournit pas encore by_hour : message plutôt qu'un graphique vide
   const hourlyCanvas = document.getElementById('chart-hourly');
@@ -1298,30 +1332,23 @@ function renderCatalogue(d) {
   }
 
   // No categories chip
-  const total = d.kpis ? (d.kpis.total_transactions || 0) : 0;
+  const total = k.total_transactions || 0;
+  if (hasItems) {
+    const noCat = total - (k.payments_with_category || 0);
+    document.getElementById('no-cat-title').textContent = 'Ventes sans catégorie Square';
+    document.getElementById('no-cat-chip').textContent = fmt(noCat) + ' ventes sans catégorie';
+    document.getElementById('no-cat-chip').className = noCat > 0 ? 'chip yellow' : 'chip green';
+    document.getElementById('no-cat-message').innerHTML = `
+      <div style="font-size:13px;color:var(--fg2);line-height:1.8;padding:8px 0">
+        <p>Les articles vendus sont maintenant lus dans Square. Montant libre (vente saisie sans article) : <strong>${fmtEur(k.total_ca_libre_eur || 0)}</strong>, compté en TVA normale 20 %.
+        Pour un suivi plus fin, donnez une catégorie à chaque produit dans Square → Catalogue, et préférez un article du catalogue au montant libre en caisse.</p>
+      </div>`;
+    return;
+  }
   document.getElementById('no-cat-chip').textContent = fmt(total) + ' transactions sans catégorie';
   document.getElementById('no-cat-message').innerHTML = `
     <div style="font-size:13px;color:var(--fg2);line-height:1.8;padding:8px 0">
-      <p style="margin-bottom:12px">Square Payment API ne retourne pas les données produits (<code>items: []</code> sur toutes les transactions).
-      Pour obtenir les catégories réelles, il faut migrer vers l'<strong>Orders API</strong>.</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-        <div style="padding:12px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">
-          <div style="font-weight:700;margin-bottom:6px;color:var(--fg)">📋 Étape 1 — Square Dashboard</div>
-          <div>Allez dans Square → Catalogue → Assigner une catégorie à chaque produit</div>
-        </div>
-        <div style="padding:12px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">
-          <div style="font-weight:700;margin-bottom:6px;color:var(--fg)">⚙️ Étape 2 — Pipeline</div>
-          <div>Migrer <code>fetch_square.py</code> vers Orders API pour récupérer les line items</div>
-        </div>
-        <div style="padding:12px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">
-          <div style="font-weight:700;margin-bottom:6px;color:var(--fg)">🏷️ Catégories suggérées</div>
-          <div>Occasions, Accessoires Neufs, Réparations, Câbles, Coques, Chargeurs</div>
-        </div>
-        <div style="padding:12px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">
-          <div style="font-weight:700;margin-bottom:6px;color:var(--fg)">📈 Impact business</div>
-          <div>Analyser quel type de produit génère le plus de CA et de marge</div>
-        </div>
-      </div>
+      <p style="margin-bottom:12px">Les articles vendus ne sont pas encore récupérés depuis Square (API Orders).</p>
     </div>`;
 }
 
@@ -1352,27 +1379,32 @@ function renderTVA(d) {
   const months = [...(d.monthly||[])].sort((a,b)=>a.month.localeCompare(b.month));
 
   // TVA computations
-  // Le pipeline calcule la TVA sur marge sur TOUTES les ventes (marge estimée à 35 % faute de factures).
-  // Il ne sépare pas encore occasion / neuf : on n'ajoute donc pas de TVA normale, qui compterait deux fois les mêmes ventes.
+  // Chaque vente est découpée une seule fois par le pipeline entre occasion (TVA sur marge)
+  // et neuf / accessoires / réparations / montant libre (TVA normale) : pas de double comptage.
   const tvaMarge = k.total_tva_marge_eur || 0;
+  const tvaNormale = k.total_tva_normale_estimated_eur || 0;
   const matchRate = k.tva_match_rate_pct || 0;
+  const caOcc = k.total_ca_occasion_eur || 0;
+  const caNeuf = k.total_ca_neuf_eur || 0;
+  const caAccRep = k.total_ca_accessoire_reparation_eur || 0;
+  const caLibre = k.total_ca_libre_eur || 0;
 
   // TVA déductible : uniquement si le pipeline la fournit
   const tvaDed = k.total_tva_deductible_eur || (k.total_cost_eur ? k.total_cost_eur / 1.2 * 0.2 : 0);
-  const tvaTotale = tvaMarge;
+  const tvaTotale = tvaMarge + tvaNormale;
   const tvaNet = tvaTotale - tvaDed;
 
   // Render synthèse
   document.getElementById('tva-synthese').innerHTML = `
     <div class="tva-regime-block marge">
-      <div class="tva-regime-title" style="color:var(--accent)">TVA sur marge — Estimation toutes ventes</div>
+      <div class="tva-regime-title" style="color:var(--accent)">TVA sur marge — Occasion</div>
       <div class="tva-regime-amount" style="color:var(--accent)">${fmtEur(tvaMarge, 2)}</div>
-      <div class="tva-regime-sub">${matchRate > 0 ? fmt(matchRate, 1) + '% des ventes calculées avec le prix d\'achat réel, le reste estimé' : 'Marge estimée à 35 % du prix de vente (aucun prix d\'achat rapproché)'}</div>
+      <div class="tva-regime-sub">Sur ${fmtEur(caOcc)} de ventes d'occasion (téléphones, tablettes, ordinateurs) — ${matchRate > 0 ? fmt(matchRate, 1) + '% calculées avec le prix d\'achat réel, le reste estimé' : 'marge estimée à 35 % du prix de vente'}</div>
     </div>
     <div class="tva-regime-block normale">
-      <div class="tva-regime-title" style="color:var(--accent2)">TVA normale collectée — Neuf & réparations</div>
-      <div class="tva-regime-amount" style="color:var(--fg3)">Non calculée</div>
-      <div class="tva-regime-sub">Les données ne séparent pas encore occasion et neuf : toutes les ventes sont comptées en TVA sur marge ci-dessus</div>
+      <div class="tva-regime-title" style="color:var(--accent2)">TVA normale 20 % — Neuf, accessoires, réparations</div>
+      <div class="tva-regime-amount" style="color:var(--accent2)">${fmtEur(tvaNormale, 2)}</div>
+      <div class="tva-regime-sub">Sur ${fmtEur(caNeuf + caAccRep + caLibre)} TTC : neuf ${fmtEur(caNeuf)} · accessoires et réparations ${fmtEur(caAccRep)} · montant libre ${fmtEur(caLibre)}</div>
     </div>
     <div class="tva-regime-block deductible">
       <div class="tva-regime-title" style="color:var(--success)">TVA déductible — Achats fournisseurs</div>
@@ -1403,6 +1435,12 @@ function renderTVA(d) {
           data: months.map(m => m.tva_marge_real_eur || 0),
           backgroundColor: getCSS('--success') + '99',
           borderColor: getCSS('--success'), borderWidth: 1, borderRadius: 3,
+        },
+        {
+          label: 'TVA normale 20 %',
+          data: months.map(m => m.tva_normale_estimated_eur || 0),
+          backgroundColor: getCSS('--accent2') + '99',
+          borderColor: getCSS('--accent2'), borderWidth: 1, borderRadius: 3,
         }
       ]
     },
@@ -1423,17 +1461,19 @@ function renderTVA(d) {
   const tbody = document.getElementById('tva-table-body');
   tbody.innerHTML = [...months].reverse().map(m => {
     const [y,mo] = m.month.split('-');
-    const tvaMgMonth = m.tva_marge_estimated_eur || 0;
-    const tvaRealMonth = m.tva_marge_real_eur || 0;
-    const tvaTotMonth = m.tva_marge_total_eur != null ? m.tva_marge_total_eur : tvaMgMonth + tvaRealMonth;
+    const tvaMargeMonth = m.tva_marge_total_eur != null ? m.tva_marge_total_eur : (m.tva_marge_estimated_eur || 0) + (m.tva_marge_real_eur || 0);
+    const tvaNormMonth = m.tva_normale_estimated_eur || 0;
+    const tvaTotMonth = m.tva_collectee_total_eur != null ? m.tva_collectee_total_eur : tvaMargeMonth + tvaNormMonth;
     const chip = m.ca_eur >= MONTHLY_TARGET
       ? '<span class="chip green">✓ Objectif</span>'
       : '<span class="chip red">En dessous</span>';
     return `<tr>
       <td><strong>${MONTH_FR[parseInt(mo)-1]} ${y}</strong></td>
       <td class="num">${fmtEur(m.ca_eur)}</td>
-      <td class="num">${fmtEur(tvaMgMonth, 2)}</td>
-      <td class="num">${fmtEur(tvaRealMonth, 2)}</td>
+      <td class="num">${fmtEur(m.ca_occasion_eur || 0)}</td>
+      <td class="num">${fmtEur(m.ca_tva_normale_eur || 0)}</td>
+      <td class="num">${fmtEur(tvaMargeMonth, 2)}</td>
+      <td class="num">${fmtEur(tvaNormMonth, 2)}</td>
       <td class="num" style="font-weight:700">${fmtEur(tvaTotMonth, 2)}</td>
       <td class="num">${chip}</td>
     </tr>`;
@@ -1590,7 +1630,7 @@ function renderInsights(d) {
     { title: 'Meilleur jour de la semaine', value: dayLabels[maxDayIdx], sub: fmtEur(dayCA[maxDayIdx]) + ' de CA total', color: 'var(--success)' },
     { title: 'CA mensuel moyen', value: fmtEur(avgMonthly), sub: 'Objectif : ' + fmtEur(MONTHLY_TARGET) + '/mois', color: 'var(--accent2)' },
     { title: 'Tx/mois moyenne', value: fmt(k.total_transactions / Math.max(1, months.length), 0), sub: fmt(k.total_transactions / Math.max(1, months.length) / 22, 1) + ' par jour ouvré', color: 'var(--warning)' },
-    { title: 'TVA totale estimée', value: fmtEur(k.total_tva_marge_eur), sub: 'TVA sur marge (estimation)', color: 'var(--danger)' },
+    { title: 'TVA totale estimée', value: fmtEur(k.total_tva_collectee_eur != null ? k.total_tva_collectee_eur : k.total_tva_marge_eur), sub: 'TVA sur marge + TVA normale 20 %', color: 'var(--danger)' },
     { title: 'Boutique(s) active(s)', value: '1', sub: 'MGP — Multi-boutique prêt', color: 'var(--success)' },
   ];
 

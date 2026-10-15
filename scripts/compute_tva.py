@@ -1,6 +1,7 @@
 """
-compute_tva.py — Calcule la TVA sur marge en croisant ventes Square
-et coûts d'achat extraits des factures Drive.
+compute_tva.py — Calcule la TVA sur marge (occasion) et la TVA normale 20 % (neuf,
+accessoires, réparations, montant libre) à partir des ventes Square et des coûts
+d'achat extraits des factures Drive.
 Produit data/analytics.json utilisé par le dashboard.
 """
 
@@ -8,6 +9,8 @@ import json
 import re
 from datetime import datetime, timezone
 from collections import defaultdict
+
+TVA_CLASSES = ("occasion", "neuf", "accessoire_reparation", "libre")
 
 
 def load_json(path):
@@ -53,23 +56,12 @@ def find_purchase_cost(item_name, purchase_items):
     return best_price
 
 
-def calculate_tva_marge(sale_price_ttc, purchase_price_ht):
+def payment_split(p):
     """
-    Calcule la TVA sur marge.
-    Formule : TVA = (PV TTC - PA TTC) × 20/120
-    Note : on considère que le prix d'achat HT ≈ TTC pour articles d'occasion
-    (fournisseurs souvent non assujettis ou marge régime)
+    Part du paiement dans chaque classe TVA (calculée par fetch_square.py au prorata
+    des articles). Sans détail d'articles, la vente est un « montant libre ».
     """
-    if purchase_price_ht is None or purchase_price_ht <= 0:
-        return None
-
-    # Approximation : PA TTC ≈ PA HT pour achats à particuliers/petits fournisseurs
-    marge_ttc = sale_price_ttc - purchase_price_ht
-    if marge_ttc <= 0:
-        return 0.0
-
-    tva = marge_ttc * 20 / 120
-    return round(tva, 4)
+    return p.get("split_eur") or {"libre": p["amount_eur"]}
 
 
 def compute_analytics(transactions, purchase_costs):
@@ -78,85 +70,128 @@ def compute_analytics(transactions, purchase_costs):
     purchase_items = purchase_costs.get("items", [])
     payments = [p for p in transactions.get("payments", []) if p.get("status") == "COMPLETED"]
 
-    # ---- TVA sur marge ----
+    # ---- TVA par vente ----
+    # Chaque paiement est découpé une seule fois entre les classes : aucune vente comptée deux fois.
+    # - occasion (téléphones, tablettes, ordinateurs sans « neuf ») → TVA sur marge
+    # - neuf, accessoires/réparations, montant libre → TVA normale 20 % = TTC / 1,2 × 0,2
     tva_data = []
     tva_matched = 0
-    tva_unmatched = 0
 
     for p in payments:
-        payment_tva = 0
-        has_cost = False
+        split = payment_split(p)
+        ca_occ = split.get("occasion", 0)
+        ca_normale = sum(split.get(c, 0) for c in TVA_CLASSES if c != "occasion")
 
-        for item in p.get("items", []):
+        # TVA sur marge : prix d'achat réel si connu pour tous les articles d'occasion
+        occ_items = [i for i in p.get("items", []) if i.get("tva_class") == "occasion"]
+        cost_occ = 0.0
+        has_cost = bool(occ_items)
+        for item in occ_items:
             cost = find_purchase_cost(item["name"], purchase_items)
-            if cost is not None:
-                sale_price = item["unit_price_cents"] / 100
-                tva = calculate_tva_marge(sale_price, cost)
-                if tva is not None:
-                    payment_tva += tva * item.get("qty", 1)
-                    has_cost = True
+            if cost is None and item.get("unit_cost_cents"):
+                cost = item["unit_cost_cents"] / 100
+            if cost is None:
+                has_cost = False
+                break
+            cost_occ += cost * item.get("qty", 1)
 
-        # Si pas d'articles détaillés mais coût dispo via Square catalogue
-        if not p.get("items") and p.get("cost_eur", 0) > 0:
-            tva_calc = calculate_tva_marge(p["amount_eur"], p["cost_eur"])
-            if tva_calc:
-                payment_tva = tva_calc
-                has_cost = True
-
-        # Fallback : estimation TVA sur marge (35% de marge hypothétique)
-        if not has_cost:
-            estimated_margin = p["amount_eur"] * 0.35
-            payment_tva = estimated_margin * 20 / 120
-            tva_unmatched += 1
-        else:
+        if ca_occ <= 0:
+            tva_marge, is_estimated = 0.0, False
+        elif has_cost:
+            # PA TTC ≈ PA HT pour les achats à des particuliers / régime de la marge
+            tva_marge, is_estimated = max(ca_occ - cost_occ, 0) * 20 / 120, False
             tva_matched += 1
+        else:
+            # Estimation : marge supposée de 35 % du prix de vente
+            tva_marge, is_estimated = ca_occ * 0.35 * 20 / 120, True
 
         tva_data.append({
             "date": p["date"],
             "payment_id": p["id"],
             "amount_eur": p["amount_eur"],
-            "tva_marge_eur": round(payment_tva, 4),
-            "is_estimated": not has_cost
+            "ca_occasion_eur": round(ca_occ, 2),
+            "ca_tva_normale_eur": round(ca_normale, 2),
+            "tva_marge_eur": round(tva_marge, 4),
+            "tva_normale_eur": round(ca_normale / 1.2 * 0.2, 4),
+            "is_estimated": is_estimated
         })
 
+    occasion_sales = sum(1 for t in tva_data if t["ca_occasion_eur"] > 0)
+
     # ---- CA mensuel ----
-    monthly_ca = defaultdict(float)
-    monthly_tva = defaultdict(float)
-    monthly_tva_estimated = defaultdict(float)
+    monthly = defaultdict(lambda: defaultdict(float))
     monthly_transactions = defaultdict(int)
 
     for p, t in zip(payments, tva_data):
         month = p["date"][:7]  # YYYY-MM
-        monthly_ca[month] += p["amount_eur"]
+        m = monthly[month]
+        m["ca"] += p["amount_eur"]
+        for cls, v in payment_split(p).items():
+            m[cls] += v
+        m["tva_est" if t["is_estimated"] else "tva_real"] += t["tva_marge_eur"]
         monthly_transactions[month] += 1
-        if t["is_estimated"]:
-            monthly_tva_estimated[month] += t["tva_marge_eur"]
-        else:
-            monthly_tva[month] += t["tva_marge_eur"]
 
-    months_sorted = sorted(set(list(monthly_ca.keys())))
+    months_sorted = sorted(monthly.keys())
 
     monthly_summary = []
-    for m in months_sorted:
-        ca = round(monthly_ca[m], 2)
-        tva_real = round(monthly_tva[m], 2)
-        tva_est = round(monthly_tva_estimated[m], 2)
+    for mo in months_sorted:
+        m = monthly[mo]
+        ca = round(m["ca"], 2)
+        ca_normale = m["neuf"] + m["accessoire_reparation"] + m["libre"]
+        tva_real = round(m["tva_real"], 2)
+        tva_est = round(m["tva_est"], 2)
+        tva_normale = round(ca_normale / 1.2 * 0.2, 2)
         monthly_summary.append({
-            "month": m,
+            "month": mo,
             "ca_eur": ca,
-            "transactions": monthly_transactions[m],
-            "avg_ticket": round(ca / monthly_transactions[m], 2) if monthly_transactions[m] else 0,
+            "transactions": monthly_transactions[mo],
+            "avg_ticket": round(ca / monthly_transactions[mo], 2) if monthly_transactions[mo] else 0,
+            "ca_occasion_eur": round(m["occasion"], 2),
+            "ca_neuf_eur": round(m["neuf"], 2),
+            "ca_accessoire_reparation_eur": round(m["accessoire_reparation"], 2),
+            "ca_libre_eur": round(m["libre"], 2),
+            "ca_tva_normale_eur": round(ca_normale, 2),
             "tva_marge_real_eur": tva_real,
             "tva_marge_estimated_eur": tva_est,
             "tva_marge_total_eur": round(tva_real + tva_est, 2),
-            "tva_match_rate": round(tva_matched / len(payments) * 100, 1) if payments else 0
+            "tva_normale_estimated_eur": tva_normale,
+            "tva_collectee_total_eur": round(tva_real + tva_est + tva_normale, 2)
         })
 
     # ---- KPIs globaux ----
     total_ca = sum(p["amount_eur"] for p in payments)
     total_tva = sum(t["tva_marge_eur"] for t in tva_data)
+    total_by_class = {
+        cls: round(sum(payment_split(p).get(cls, 0) for p in payments), 2)
+        for cls in TVA_CLASSES
+    }
+    total_ca_normale = total_by_class["neuf"] + total_by_class["accessoire_reparation"] + total_by_class["libre"]
+    total_tva_normale = total_ca_normale / 1.2 * 0.2
     total_transactions = len(payments)
     avg_ticket = round(total_ca / total_transactions, 2) if total_transactions else 0
+
+    # ---- Catalogue : CA par catégorie Square et meilleurs articles ----
+    # Montant de chaque article tel qu'enregistré dans la commande (après remises).
+    cat_totals = defaultdict(float)
+    item_totals = defaultdict(lambda: {"ca_eur": 0.0, "qty": 0.0, "tva_class": ""})
+    for p in payments:
+        for item in p.get("items", []):
+            ca_item = max(item.get("total_cents", 0), 0) / 100
+            cat_totals[item.get("category") or "Sans catégorie"] += ca_item
+            it = item_totals[item.get("name") or "Montant libre"]
+            it["ca_eur"] += ca_item
+            it["qty"] += item.get("qty", 1)
+            it["tva_class"] = item.get("tva_class", "")
+    by_category = [
+        {"category": k, "ca_eur": round(v, 2)}
+        for k, v in sorted(cat_totals.items(), key=lambda x: -x[1])
+    ]
+    top_items = [
+        {"name": k, "ca_eur": round(v["ca_eur"], 2), "qty": round(v["qty"], 2), "tva_class": v["tva_class"]}
+        for k, v in sorted(item_totals.items(), key=lambda x: -x[1]["ca_eur"])[:20]
+    ]
+    payments_with_items = sum(1 for p in payments if p.get("items"))
+    payments_with_category = sum(1 for p in payments if any(i.get("category") for i in p.get("items", [])))
 
     # Jour de la semaine
     day_totals = defaultdict(float)
@@ -208,7 +243,7 @@ def compute_analytics(transactions, purchase_costs):
     # Projection
     if months_sorted:
         last_month = months_sorted[-1]
-        last_ca = monthly_ca[last_month]
+        last_ca = monthly[last_month]["ca"]
         today = datetime.now()
         days_elapsed = today.day
         days_in_month = 31 if today.month in [1, 3, 5, 7, 8, 10, 12] else 30
@@ -227,7 +262,16 @@ def compute_analytics(transactions, purchase_costs):
             "total_transactions": total_transactions,
             "avg_ticket_eur": avg_ticket,
             "total_tva_marge_eur": round(total_tva, 2),
-            "tva_match_rate_pct": round(tva_matched / total_transactions * 100, 1) if total_transactions else 0,
+            "total_tva_normale_estimated_eur": round(total_tva_normale, 2),
+            "total_tva_collectee_eur": round(total_tva + total_tva_normale, 2),
+            "total_ca_occasion_eur": total_by_class["occasion"],
+            "total_ca_neuf_eur": total_by_class["neuf"],
+            "total_ca_accessoire_reparation_eur": total_by_class["accessoire_reparation"],
+            "total_ca_libre_eur": total_by_class["libre"],
+            "total_ca_tva_normale_eur": round(total_ca_normale, 2),
+            "tva_match_rate_pct": round(tva_matched / occasion_sales * 100, 1) if occasion_sales else 0,
+            "payments_with_items": payments_with_items,
+            "payments_with_category": payments_with_category,
             "target_annual_eur": target_annual,
             "gap_eur": round(target_annual - total_ca, 2),
             "progress_pct": round(total_ca / target_annual * 100, 1),
@@ -239,6 +283,8 @@ def compute_analytics(transactions, purchase_costs):
         "by_day": by_day,
         "by_method": by_method,
         "ticket_distribution": ticket_dist,
+        "by_category": by_category,
+        "top_items": top_items,
         "tva_detail": tva_data[-100:],  # 100 dernières transactions pour le détail
         "purchase_costs_loaded": len(purchase_items)
     }
@@ -257,7 +303,8 @@ def main():
 
     kpis = analytics["kpis"]
     print(f"✅ CA Total : {kpis['total_ca_eur']:,.2f} €")
-    print(f"✅ TVA sur marge : {kpis['total_tva_marge_eur']:,.2f} €")
+    print(f"✅ CA occasion : {kpis['total_ca_occasion_eur']:,.2f} € | CA TVA normale : {kpis['total_ca_tva_normale_eur']:,.2f} €")
+    print(f"✅ TVA sur marge : {kpis['total_tva_marge_eur']:,.2f} € | TVA normale : {kpis['total_tva_normale_estimated_eur']:,.2f} €")
     print(f"✅ Taux matching : {kpis['tva_match_rate_pct']}%")
     print(f"💾 Sauvegardé dans data/analytics.json")
 
