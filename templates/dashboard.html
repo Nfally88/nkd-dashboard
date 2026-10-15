@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>NKD TECH Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+  :root {
+    --bg:#0d0f14; --bg2:#13161e; --bg3:#1a1e2a; --bg4:#232839;
+    --fg:#e8ecf4; --fg2:#9aa3b8; --fg3:#5c6478;
+    --accent:#6366f1; --accent2:#818cf8;
+    --green:#22c55e; --red:#ef4444; --amber:#f59e0b; --blue:#3b82f6;
+    --border:rgba(255,255,255,0.07);
+    color-scheme: dark;
+  }
+  * { box-sizing:border-box; margin:0; padding:0 }
+  body {
+    background:var(--bg); color:var(--fg);
+    font-family:'Inter',system-ui,sans-serif; font-size:14px; line-height:1.5;
+    padding: env(safe-area-inset-top,0px) max(16px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(16px,env(safe-area-inset-left,0px));
+  }
+  .header { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; padding:18px 20px; background:var(--bg2); border-radius:14px; border:1px solid var(--border); margin:16px 0 18px; }
+  .logo { width:40px; height:40px; background:linear-gradient(135deg,var(--accent),#a855f7); border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14px; color:#fff; flex-shrink:0 }
+  .header h1 { font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:700 }
+  .header p { font-size:11px; color:var(--fg2); margin-top:2px }
+  .live-badge { display:flex; align-items:center; gap:6px; background:rgba(34,197,94,0.12); border:1px solid rgba(34,197,94,0.3); padding:5px 12px; border-radius:20px; font-size:11px; font-weight:600; color:var(--green) }
+  .live-dot { width:7px; height:7px; background:var(--green); border-radius:50%; animation:pulse 2s infinite }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .tabs { display:flex; gap:5px; background:var(--bg2); padding:5px; border-radius:10px; margin-bottom:18px; overflow-x:auto; border:1px solid var(--border); scrollbar-width:none }
+  .tabs::-webkit-scrollbar { display:none }
+  .tab { flex-shrink:0; padding:7px 14px; border-radius:7px; font-size:12px; font-weight:500; color:var(--fg2); cursor:pointer; border:none; background:transparent; transition:all .15s; white-space:nowrap }
+  .tab:hover { color:var(--fg); background:var(--bg3) }
+  .tab.active { background:var(--accent); color:#fff; font-weight:600 }
+  .panel { display:none }
+  .panel.active { display:block }
+  .kpi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-bottom:16px }
+  .kpi { background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:16px 18px; position:relative; overflow:hidden }
+  .kpi::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--kpi-color,var(--accent)); border-radius:12px 12px 0 0 }
+  .kpi-label { font-size:10px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--fg3); margin-bottom:6px }
+  .kpi-value { font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:var(--fg); line-height:1; margin-bottom:4px }
+  .kpi-sub { font-size:11px; color:var(--fg2) }
+  .card { background:var(--bg2); border:1px solid var(--border); border-radius:14px; padding:20px; margin-bottom:14px }
+  .card-title { font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; margin-bottom:3px }
+  .card-sub { font-size:11px; color:var(--fg2); margin-bottom:16px }
+  .chart-wrap { position:relative; width:100%; min-width:0 }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px }
+  @media(max-width:600px) { .two-col { grid-template-columns:1fr } }
+  .tva-row { display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--border); font-size:13px }
+  .tva-row:last-child { border-bottom:none }
+  .tva-row .lbl { color:var(--fg2) }
+  .tva-row .val { font-weight:600; font-family:'Space Grotesk',sans-serif }
+  .obj-track { height:12px; background:var(--bg4); border-radius:6px; overflow:hidden; margin:10px 0 4px }
+  .obj-fill { height:100%; border-radius:6px; background:linear-gradient(90deg,var(--accent),#a855f7,#ec4899); transition:width 1s cubic-bezier(.4,0,.2,1) }
+  .obj-pct { font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:800; background:linear-gradient(135deg,var(--accent2),#a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text }
+  .last-update { font-size:11px; color:var(--fg3); text-align:center; padding:12px 0 4px }
+  .day-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:6px }
+  @media(max-width:480px) { .day-grid { grid-template-columns:repeat(4,1fr) } }
+  .day-cell { padding:10px 6px; border-radius:8px; text-align:center; background:var(--bg3); border:1px solid var(--border) }
+  .day-cell.hot { background:rgba(99,102,241,.12); border-color:rgba(99,102,241,.3) }
+  .day-name { font-size:9px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--fg3); margin-bottom:5px }
+  .day-val { font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:700 }
+  .day-cell.hot .day-val { color:var(--accent2) }
+  .day-pct { font-size:9px; color:var(--fg2); margin-top:2px }
+  .loading { display:flex; align-items:center; justify-content:center; padding:40px; color:var(--fg3); font-size:13px; gap:10px }
+  .spinner { width:18px; height:18px; border:2px solid var(--border); border-top-color:var(--accent); border-radius:50%; animation:spin .7s linear infinite }
+  @keyframes spin { to { transform:rotate(360deg) } }
+  .warn-box { background:rgba(245,158,11,.08); border:1px solid rgba(245,158,11,.25); border-radius:10px; padding:12px 14px; font-size:12px; color:var(--fg2); margin-bottom:14px }
+  .warn-box strong { color:var(--amber) }
+  table { width:100%; border-collapse:collapse }
+  th { font-size:10px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--fg3); padding:7px 8px; text-align:left; border-bottom:1px solid var(--border) }
+  td { padding:9px 8px; font-size:12px; border-bottom:1px solid rgba(255,255,255,.03) }
+  tr:last-child td { border-bottom:none }
+  .pill { display:inline-block; padding:2px 7px; border-radius:5px; font-size:10px; font-weight:600 }
+  .pg { background:rgba(34,197,94,.12); color:var(--green) }
+  .pa { background:rgba(245,158,11,.12); color:var(--amber) }
+  .pb { background:rgba(59,130,246,.12); color:var(--blue) }
+  .pp { background:rgba(168,85,247,.12); color:#c084fc }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div style="display:flex;align-items:center;gap:12px">
+    <div class="logo">NKD</div>
+    <div>
+      <h1>NKD TECH — Dashboard Exécutif</h1>
+      <p id="subtitle">Chargement des données...</p>
+    </div>
+  </div>
+  <div class="live-badge"><div class="live-dot"></div>LIVE</div>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('vue',this)">📊 Vue Générale</button>
+  <button class="tab" onclick="showTab('ca',this)">📈 CA & Projection</button>
+  <button class="tab" onclick="showTab('tva',this)">🧾 TVA sur Marge</button>
+  <button class="tab" onclick="showTab('ops',this)">⚡ Ops</button>
+</div>
+
+<!-- VUE GÉNÉRALE -->
+<div class="panel active" id="panel-vue">
+  <div class="loading" id="loading-vue"><div class="spinner"></div>Chargement...</div>
+  <div id="content-vue" style="display:none"></div>
+</div>
+
+<!-- CA -->
+<div class="panel" id="panel-ca">
+  <div class="loading" id="loading-ca" style="display:none"><div class="spinner"></div>Chargement...</div>
+  <div id="content-ca"></div>
+</div>
+
+<!-- TVA -->
+<div class="panel" id="panel-tva">
+  <div id="content-tva"></div>
+</div>
+
+<!-- OPS -->
+<div class="panel" id="panel-ops">
+  <div id="content-ops"></div>
+</div>
+
+<script>
+let DATA = null;
+const MONTHS_FR = {
+  '01':'Jan','02':'Fév','03':'Mar','04':'Avr','05':'Mai','06':'Juin',
+  '07':'Juil','08':'Aoû','09':'Sep','10':'Oct','11':'Nov','12':'Déc'
+};
+function mfr(m) { // "2026-03" → "Mar 26"
+  const [y,mo] = m.split('-');
+  return (MONTHS_FR[mo]||mo)+' '+y.slice(2);
+}
+function eur(n) { return n.toLocaleString('fr-FR',{minimumFractionDigits:0,maximumFractionDigits:0})+'€' }
+function eurc(n) { return n.toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2})+'€' }
+
+function showTab(name, btn) {
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-'+name).classList.add('active');
+  if (DATA) renderTab(name);
+}
+
+async function loadData() {
+  try {
+    const r = await fetch('/api/analytics');
+    DATA = await r.json();
+    if (DATA.error) throw new Error(DATA.error);
+    const k = DATA.kpis;
+    document.getElementById('subtitle').textContent =
+      `${k.total_transactions.toLocaleString()} transactions • Mis à jour : ${new Date(DATA.last_updated).toLocaleString('fr-FR')}`;
+    renderTab('vue');
+  } catch(e) {
+    document.getElementById('loading-vue').innerHTML =
+      `<div style="color:var(--red);text-align:center">❌ Erreur : ${e.message}<br><small style="color:var(--fg3)">Le pipeline doit être exécuté une première fois.</small></div>`;
+  }
+}
+
+function renderTab(name) {
+  if (name==='vue') renderVue();
+  if (name==='ca') renderCA();
+  if (name==='tva') renderTVA();
+  if (name==='ops') renderOps();
+}
+
+function renderVue() {
+  const k = DATA.kpis;
+  document.getElementById('loading-vue').style.display='none';
+  const el = document.getElementById('content-vue');
+  el.style.display='block';
+
+  el.innerHTML = `
+    <div class="kpi-grid">
+      <div class="kpi" style="--kpi-color:#6366f1">
+        <div class="kpi-label">CA Total</div>
+        <div class="kpi-value">${eur(k.total_ca_eur)}</div>
+        <div class="kpi-sub">${k.total_transactions.toLocaleString()} transactions</div>
+      </div>
+      <div class="kpi" style="--kpi-color:#22c55e">
+        <div class="kpi-label">Ticket Moyen</div>
+        <div class="kpi-value">${eurc(k.avg_ticket_eur)}</div>
+        <div class="kpi-sub">Cible : 45–50€</div>
+      </div>
+      <div class="kpi" style="--kpi-color:#f59e0b">
+        <div class="kpi-label">TVA sur Marge</div>
+        <div class="kpi-value">${eur(k.total_tva_marge_eur)}</div>
+        <div class="kpi-sub">Taux match : ${k.tva_match_rate_pct}%</div>
+      </div>
+      <div class="kpi" style="--kpi-color:#ef4444">
+        <div class="kpi-label">Écart Objectif 300K</div>
+        <div class="kpi-value">–${eur(k.gap_eur)}</div>
+        <div class="kpi-sub">Besoin : ${eur(k.needed_monthly_eur)}/mois</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Progression vers 300 000 €</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+        <div>
+          <div style="font-size:13px;color:var(--fg2)">CA réalisé : <strong style="color:var(--fg)">${eur(k.total_ca_eur)}</strong> sur 300 000 €</div>
+          <div style="font-size:12px;color:var(--fg3);margin-top:2px">Projection octobre : <strong style="color:var(--accent2)">${eur(k.current_month_projection_eur)}</strong></div>
+        </div>
+        <div class="obj-pct">${k.progress_pct}%</div>
+      </div>
+      <div class="obj-track"><div class="obj-fill" id="objbar" style="width:0%"></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--fg3)">
+        <span>0</span><span>150 000€</span><span style="color:var(--amber)">🎯 300 000€</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Performance par Jour</div>
+      <div class="card-sub">CA cumulé • Samedi = jour roi</div>
+      <div class="day-grid" id="dayGrid"></div>
+    </div>
+  `;
+
+  // Barre objectif
+  setTimeout(() => {
+    const bar = document.getElementById('objbar');
+    if (bar) bar.style.width = Math.min(k.progress_pct, 100) + '%';
+  }, 200);
+
+  // Grille jours
+  const total = DATA.by_day.reduce((s,d)=>s+d.ca_eur,0);
+  const grid = document.getElementById('dayGrid');
+  if (grid) {
+    grid.innerHTML = DATA.by_day.map(d => {
+      const pct = total>0 ? (d.ca_eur/total*100).toFixed(0) : 0;
+      const hot = d.ca_eur === Math.max(...DATA.by_day.map(x=>x.ca_eur));
+      return `<div class="day-cell ${hot?'hot':''}">
+        <div class="day-name">${d.day.slice(0,3)}</div>
+        <div class="day-val">${eur(d.ca_eur)}</div>
+        <div class="day-pct">${pct}%${hot?' 🔥':''}</div>
+      </div>`;
+    }).join('');
+  }
+}
+
+function renderCA() {
+  const el = document.getElementById('content-ca');
+  const months = DATA.monthly;
+
+  el.innerHTML = `
+    <div class="card">
+      <div class="card-title">Évolution CA Mensuel</div>
+      <div class="card-sub">NKD TECH MGP • Ligne rouge = cible 25 000€/mois</div>
+      <div class="chart-wrap"><canvas id="caChart" height="260"></canvas></div>
+    </div>
+    <div class="two-col">
+      <div class="card" style="margin-bottom:0">
+        <div class="card-title">Détail Mensuel</div>
+        <div class="card-sub" style="margin-bottom:12px">CA + TVA estimée</div>
+        <div style="overflow-x:auto">
+          <table>
+            <thead><tr><th>Mois</th><th>CA</th><th>Tx</th><th>Moy.</th></tr></thead>
+            <tbody>${months.map(m=>`
+              <tr>
+                <td>${mfr(m.month)}</td>
+                <td style="font-weight:600">${eur(m.ca_eur)}</td>
+                <td style="color:var(--fg2)">${m.transactions}</td>
+                <td style="color:var(--fg2)">${eurc(m.avg_ticket)}</td>
+              </tr>`).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:0">
+        <div class="card-title">Indicateurs Clés</div>
+        <div class="card-sub" style="margin-bottom:12px">Levers vers 300K€</div>
+        <div>${[
+          ['Moy. mensuelle actuelle', eur(DATA.kpis.total_ca_eur / DATA.kpis.months_analyzed)],
+          ['Cible mensuelle requise', eur(DATA.kpis.needed_monthly_eur)],
+          ['Ticket moyen actuel', eurc(DATA.kpis.avg_ticket_eur)],
+          ['Ticket cible (×1.7)', '45 – 50€'],
+          ['Transactions/jour', Math.round(DATA.kpis.total_transactions / (DATA.kpis.months_analyzed * 30))],
+          ['Transactions/jour cibles', '~34'],
+        ].map(([l,v])=>`<div class="tva-row"><span class="lbl">${l}</span><span class="val">${v}</span></div>`).join('')}</div>
+      </div>
+    </div>
+  `;
+
+  // Chart
+  new Chart(document.getElementById('caChart'), {
+    type: 'bar',
+    data: {
+      labels: months.map(m=>mfr(m.month)),
+      datasets: [
+        {
+          label: 'CA (€)',
+          data: months.map(m=>m.ca_eur),
+          backgroundColor: months.map(m=>m.ca_eur>=20000?'rgba(34,197,94,.85)':m.ca_eur>=15000?'rgba(99,102,241,.85)':'rgba(245,158,11,.85)'),
+          borderRadius:5, borderSkipped:false
+        },
+        {
+          label: 'Cible 25 000€',
+          data: months.map(()=>25000),
+          type:'line', borderColor:'rgba(239,68,68,.6)', borderDash:[5,4],
+          borderWidth:2, pointRadius:0, fill:false
+        }
+      ]
+    },
+    options: {
+      responsive:true, maintainAspectRatio:true,
+      plugins:{
+        legend:{labels:{color:'#9aa3b8',font:{size:11}}},
+        tooltip:{callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.raw.toLocaleString('fr-FR')}€`}}
+      },
+      scales:{
+        x:{ticks:{color:'#5c6478',font:{size:10}},grid:{color:'rgba(255,255,255,.04)'}},
+        y:{ticks:{color:'#5c6478',callback:v=>v.toLocaleString('fr-FR')+'€'},grid:{color:'rgba(255,255,255,.04)'}}
+      }
+    }
+  });
+}
+
+function renderTVA() {
+  const el = document.getElementById('content-tva');
+  const k = DATA.kpis;
+  const months = DATA.monthly;
+
+  el.innerHTML = `
+    <div class="warn-box">
+      ⚠️ <strong>Régime TVA sur Marge</strong> — Square affiche 0€ de TVA.
+      La TVA est calculée sur (Prix vente – Prix achat) × 20/120.
+      Taux de matching avec vos factures Drive : <strong style="color:var(--accent2)">${k.tva_match_rate_pct}%</strong>
+      — les non-matchés utilisent une marge estimée de 35%.
+    </div>
+    <div class="two-col">
+      <div class="card" style="margin-bottom:0">
+        <div class="card-title">TVA sur Marge — Synthèse</div>
+        <div class="card-sub" style="margin-bottom:12px">Sur ${k.months_analyzed} mois</div>
+        <div>${[
+          ['CA Total TTC', eur(k.total_ca_eur)],
+          ['TVA sur marge calculée', eurc(k.total_tva_marge_eur)],
+          ['Taux effectif moyen', ((k.total_tva_marge_eur/k.total_ca_eur)*100).toFixed(2)+'%'],
+          ['Match Drive/Square', k.tva_match_rate_pct+'%'],
+          ['À provisionner/mois', eurc(k.total_tva_marge_eur/k.months_analyzed)],
+        ].map(([l,v])=>`<div class="tva-row"><span class="lbl">${l}</span><span class="val">${v}</span></div>`).join('')}</div>
+      </div>
+      <div class="card" style="margin-bottom:0">
+        <div class="card-title">Formule TVA sur Marge</div>
+        <div class="card-sub" style="margin-bottom:12px">Rappel réglementaire</div>
+        <div style="background:var(--bg3);border-radius:8px;padding:14px;font-size:12px;color:var(--fg2);line-height:1.7">
+          <code style="background:var(--bg4);padding:3px 8px;border-radius:4px;font-size:11px;display:block;margin-bottom:10px">TVA = (PV TTC – PA TTC) × 20/120</code>
+          PV = Prix vente TTC<br>
+          PA = Prix achat TTC<br><br>
+          <strong style="color:var(--amber)">⚠️ Déclaration CA3</strong> : reporter sur la ligne "Opérations imposables — TVA sur marge", pas sur les ventes ordinaires.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">TVA Mensuelle Estimée</div>
+      <div class="card-sub">Matchée (factures Drive) + Estimée (35% marge)</div>
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>Mois</th><th>CA</th><th>TVA réelle</th><th>TVA estimée</th><th>Total TVA</th></tr></thead>
+          <tbody>${months.map(m=>`
+            <tr>
+              <td>${mfr(m.month)}</td>
+              <td>${eur(m.ca_eur)}</td>
+              <td style="color:var(--green)">${eurc(m.tva_marge_real_eur)}</td>
+              <td style="color:var(--amber)">${eurc(m.tva_marge_estimated_eur)}</td>
+              <td style="font-weight:600">${eurc(m.tva_marge_total_eur)}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function renderOps() {
+  const el = document.getElementById('content-ops');
+  const k = DATA.kpis;
+
+  el.innerHTML = `
+    <div class="kpi-grid">
+      <div class="kpi" style="--kpi-color:#3b82f6">
+        <div class="kpi-label">Transactions</div>
+        <div class="kpi-value">${k.total_transactions.toLocaleString()}</div>
+        <div class="kpi-sub">Complétées</div>
+      </div>
+      ${DATA.by_method.slice(0,3).map((m,i)=>`
+        <div class="kpi" style="--kpi-color:${['#6366f1','#22c55e','#f59e0b'][i]}">
+          <div class="kpi-label">${m.method}</div>
+          <div class="kpi-value">${m.pct}%</div>
+          <div class="kpi-sub">${eur(m.ca_eur)}</div>
+        </div>`).join('')}
+    </div>
+    <div class="two-col">
+      <div class="card" style="margin-bottom:0">
+        <div class="card-title">Moyens de Paiement</div>
+        <div class="card-sub" style="margin-bottom:12px">En % du CA</div>
+        <div class="chart-wrap"><canvas id="payChart" height="200"></canvas></div>
+      </div>
+      <div class="card" style="margin-bottom:0">
+        <div class="card-title">Distribution des Tickets</div>
+        <div class="card-sub" style="margin-bottom:12px">Nombre de transactions</div>
+        <div class="chart-wrap"><canvas id="tickChart" height="200"></canvas></div>
+      </div>
+    </div>
+    <div class="last-update">Dernière mise à jour : ${new Date(DATA.last_updated).toLocaleString('fr-FR')}</div>
+  `;
+
+  new Chart(document.getElementById('payChart'), {
+    type:'doughnut',
+    data:{
+      labels: DATA.by_method.map(m=>m.method),
+      datasets:[{data:DATA.by_method.map(m=>m.pct),backgroundColor:['#6366f1','#22c55e','#3b82f6','#f59e0b','#a855f7'],borderWidth:0,hoverOffset:6}]
+    },
+    options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:'#9aa3b8',font:{size:11},padding:10}},tooltip:{callbacks:{label:ctx=>` ${ctx.label}: ${ctx.raw}%`}}},cutout:'62%'}
+  });
+
+  const td = DATA.ticket_distribution;
+  new Chart(document.getElementById('tickChart'), {
+    type:'bar',
+    data:{
+      labels:td.map(t=>t.range),
+      datasets:[{label:'Transactions',data:td.map(t=>t.count),backgroundColor:['#5c6478','#6366f1','#818cf8','#22c55e','#f59e0b','#a855f7'],borderRadius:5,borderSkipped:false}]
+    },
+    options:{
+      indexAxis:'y',responsive:true,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.raw.toLocaleString()} tx`}}},
+      scales:{x:{ticks:{color:'#5c6478',font:{size:10}},grid:{color:'rgba(255,255,255,.04)'}},y:{ticks:{color:'#9aa3b8',font:{size:11}},grid:{display:false}}}
+    }
+  });
+}
+
+// Démarrage
+loadData();
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+name: NKD Dashboard — Pipeline Nightly
+
+on:
+  schedule:
+    # Tous les jours à 2h du matin (heure Paris = UTC+1/+2)
+    - cron: '0 1 * * *'
+  workflow_dispatch:  # Permet aussi de déclencher manuellement depuis GitHub
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Create Google credentials file
+        run: echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}' > google-credentials.json
+
+      - name: Create data directory
+        run: mkdir -p data
+
+      - name: Run pipeline (Square + Drive + TVA)
+        env:
+          SQUARE_ACCESS_TOKEN: ${{ secrets.SQUARE_ACCESS_TOKEN }}
+          GOOGLE_SERVICE_ACCOUNT_FILE: google-credentials.json
+          DRIVE_FOLDER_ID: ${{ secrets.DRIVE_FOLDER_ID }}
+        run: python scripts/run_pipeline.py
+
+      - name: Commit and push updated data
+        run: |
+          git config --global user.name "NKD Dashboard Bot"
+          git config --global user.email "bot@nkd-dashboard.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "📊 Données mises à jour — $(date +'%Y-%m-%d %H:%M')"
+          git push
+
+      - name: Notify Render to redeploy
+        run: |
+          curl -s -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}" || echo "Deploy hook optionnel"
