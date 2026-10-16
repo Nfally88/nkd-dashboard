@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-15T16:30:00.696101+00:00",
+  "last_updated": "2026-10-16T05:42:47.320583+00:00",
   "kpis": {
     "total_ca_eur": 180623.1,
     "total_transactions": 6137,
@@ -18,7 +18,7 @@
     "target_annual_eur": 250000,
     "gap_eur": 69376.9,
     "progress_pct": 72.2,
-    "current_month_projection_eur": 17687.36,
+    "current_month_projection_eur": 16581.9,
     "needed_monthly_eur": 69376.9,
     "months_analyzed": 11
   },
