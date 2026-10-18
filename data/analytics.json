@@ -1,25 +1,25 @@
 {
-  "last_updated": "2026-10-17T05:28:22.950640+00:00",
+  "last_updated": "2026-10-18T05:40:14.458989+00:00",
   "kpis": {
-    "total_ca_eur": 180916.38,
-    "total_transactions": 6151,
-    "avg_ticket_eur": 29.41,
+    "total_ca_eur": 181990.87,
+    "total_transactions": 6184,
+    "avg_ticket_eur": 29.43,
     "total_tva_marge_eur": 898.51,
-    "total_tva_normale_estimated_eur": 27585.56,
-    "total_tva_collectee_eur": 28484.07,
+    "total_tva_normale_estimated_eur": 27764.65,
+    "total_tva_collectee_eur": 28663.15,
     "total_ca_occasion_eur": 15403.0,
     "total_ca_neuf_eur": 0.0,
-    "total_ca_accessoire_reparation_eur": 164365.1,
+    "total_ca_accessoire_reparation_eur": 165439.59,
     "total_ca_libre_eur": 1148.28,
-    "total_ca_tva_normale_eur": 165513.38,
+    "total_ca_tva_normale_eur": 166587.87,
     "tva_match_rate_pct": 0.0,
-    "payments_with_items": 6151,
-    "payments_with_category": 5854,
+    "payments_with_items": 6184,
+    "payments_with_category": 5890,
     "target_annual_eur": 250000,
-    "gap_eur": 69083.62,
-    "progress_pct": 72.4,
-    "current_month_projection_eur": 16141.3,
-    "needed_monthly_eur": 69083.62,
+    "gap_eur": 68009.13,
+    "progress_pct": 72.8,
+    "current_month_projection_eur": 17095.07,
+    "needed_monthly_eur": 68009.13,
     "months_analyzed": 11
   },
   "monthly": [
@@ -185,19 +185,19 @@
     },
     {
       "month": "2026-10",
-      "ca_eur": 8851.68,
-      "transactions": 350,
-      "avg_ticket": 25.29,
+      "ca_eur": 9926.17,
+      "transactions": 383,
+      "avg_ticket": 25.92,
       "ca_occasion_eur": 826.0,
       "ca_neuf_eur": 0.0,
-      "ca_accessoire_reparation_eur": 8016.68,
+      "ca_accessoire_reparation_eur": 9091.17,
       "ca_libre_eur": 9.0,
-      "ca_tva_normale_eur": 8025.68,
+      "ca_tva_normale_eur": 9100.17,
       "tva_marge_real_eur": 0.0,
       "tva_marge_estimated_eur": 48.18,
       "tva_marge_total_eur": 48.18,
-      "tva_normale_estimated_eur": 1337.61,
-      "tva_collectee_total_eur": 1385.79
+      "tva_normale_estimated_eur": 1516.69,
+      "tva_collectee_total_eur": 1564.87
     }
   ],
   "by_day": [
@@ -233,9 +233,9 @@
     },
     {
       "day": "Samedi",
-      "ca_eur": 37879.63,
-      "transactions": 1320,
-      "avg_ticket": 28.7
+      "ca_eur": 38954.12,
+      "transactions": 1353,
+      "avg_ticket": 28.79
     },
     {
       "day": "Dimanche",
@@ -247,13 +247,13 @@
   "by_method": [
     {
       "method": "CARD",
-      "ca_eur": 150296.1,
-      "pct": 83.1
+      "ca_eur": 150828.74,
+      "pct": 82.9
     },
     {
       "method": "CASH",
-      "ca_eur": 30620.28,
-      "pct": 16.9
+      "ca_eur": 31162.13,
+      "pct": 17.1
     }
   ],
   "ticket_distribution": [
@@ -264,18 +264,18 @@
     },
     {
       "range": "10-25€",
-      "count": 3557,
-      "ca_eur": 54880.38
+      "count": 3578,
+      "ca_eur": 55225.88
     },
     {
       "range": "25-50€",
-      "count": 1353,
-      "ca_eur": 45521.08
+      "count": 1360,
+      "ca_eur": 45753.37
     },
     {
       "range": "50-100€",
-      "count": 410,
-      "ca_eur": 30440.75
+      "count": 414,
+      "ca_eur": 30723.45
     },
     {
       "range": "100-200€",
@@ -284,30 +284,30 @@
     },
     {
       "range": "200€+",
-      "count": 55,
-      "ca_eur": 17864.13
+      "count": 56,
+      "ca_eur": 18078.13
     }
   ],
   "by_category": [
     {
       "category": "NKD REPARATION",
-      "ca_eur": 44385.43
+      "ca_eur": 44678.13
     },
     {
       "category": "PALM",
-      "ca_eur": 38345.7
+      "ca_eur": 38595.59
     },
     {
       "category": "NKD ACCESSOIRES",
-      "ca_eur": 27186.39
+      "ca_eur": 27280.19
     },
     {
       "category": "COQUES",
-      "ca_eur": 14603.39
+      "ca_eur": 14705.79
     },
     {
       "category": "Sans catégorie",
-      "ca_eur": 13177.91
+      "ca_eur": 13040.11
     },
     {
       "category": "TELEPHONE OCCASION",
@@ -315,11 +315,11 @@
     },
     {
       "category": "ARRIERE TELPEHONE",
-      "ca_eur": 7989.4
+      "ca_eur": 8079.4
     },
     {
       "category": "BATTERIE TELEPHONE",
-      "ca_eur": 6716.31
+      "ca_eur": 6795.31
     },
     {
       "category": "ACHAT VENTE TELEPHONE",
@@ -339,19 +339,19 @@
     },
     {
       "category": "CABLES",
-      "ca_eur": 3151.83
+      "ca_eur": 3164.73
     },
     {
       "category": "NETTOYAGE",
-      "ca_eur": 1313.7
+      "ca_eur": 1323.7
     },
     {
       "category": "COQUE SAMSUNG",
-      "ca_eur": 996.54
+      "ca_eur": 1012.44
     },
     {
       "category": "REPARATION TELEPHONE",
-      "ca_eur": 492.91
+      "ca_eur": 552.81
     },
     {
       "category": "ECRAN TELEPHONE",
@@ -368,6 +368,10 @@
     {
       "category": "ACHAT VENTE TABLETTE",
       "ca_eur": 248.9
+    },
+    {
+      "category": "CAMERA TELEPHONE",
+      "ca_eur": 205.8
     }
   ],
   "top_items": [
@@ -379,14 +383,14 @@
     },
     {
       "name": "PALM ANTI ESPION MATE 1 FACE",
-      "ca_eur": 9600.25,
-      "qty": 408.0,
+      "ca_eur": 9622.24,
+      "qty": 409.0,
       "tva_class": "accessoire_reparation"
     },
     {
       "name": "VERRE TREMPE IPHONE CLAIR",
-      "ca_eur": 3439.9,
-      "qty": 345.0,
+      "ca_eur": 3459.9,
+      "qty": 347.0,
       "tva_class": "accessoire_reparation"
     },
     {
@@ -421,8 +425,8 @@
     },
     {
       "name": "PALM ORIGINAL CLAIR 1 FACE",
-      "ca_eur": 1989.0,
-      "qty": 101.0,
+      "ca_eur": 2088.95,
+      "qty": 106.0,
       "tva_class": "accessoire_reparation"
     },
     {
@@ -469,8 +473,14 @@
     },
     {
       "name": "VERRE TREMPE IPHONE ANTI-ESPION",
-      "ca_eur": 1623.5,
-      "qty": 160.0,
+      "ca_eur": 1647.5,
+      "qty": 162.0,
+      "tva_class": "accessoire_reparation"
+    },
+    {
+      "name": "ECRAN IPHONE 15 PRO OLED",
+      "ca_eur": 1602.0,
+      "qty": 8.0,
       "tva_class": "accessoire_reparation"
     },
     {
@@ -484,12 +494,6 @@
       "ca_eur": 1475.25,
       "qty": 58.0,
       "tva_class": "accessoire_reparation"
-    },
-    {
-      "name": "IPHONE 13 PRO 128G SILVER",
-      "ca_eur": 1437.0,
-      "qty": 3.0,
-      "tva_class": "occasion"
     }
   ],
   "tva_detail": [
