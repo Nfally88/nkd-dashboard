@@ -1,25 +1,25 @@
 {
-  "last_updated": "2026-10-20T05:50:56.739265+00:00",
+  "last_updated": "2026-10-21T05:53:24.431573+00:00",
   "kpis": {
-    "total_ca_eur": 182851.12,
-    "total_transactions": 6212,
-    "avg_ticket_eur": 29.44,
+    "total_ca_eur": 183002.79,
+    "total_transactions": 6221,
+    "avg_ticket_eur": 29.42,
     "total_tva_marge_eur": 898.51,
-    "total_tva_normale_estimated_eur": 27908.02,
-    "total_tva_collectee_eur": 28806.53,
+    "total_tva_normale_estimated_eur": 27933.3,
+    "total_tva_collectee_eur": 28831.81,
     "total_ca_occasion_eur": 15403.0,
     "total_ca_neuf_eur": 0.0,
-    "total_ca_accessoire_reparation_eur": 166294.84,
+    "total_ca_accessoire_reparation_eur": 166446.51,
     "total_ca_libre_eur": 1153.28,
-    "total_ca_tva_normale_eur": 167448.12,
+    "total_ca_tva_normale_eur": 167599.79,
     "tva_match_rate_pct": 0.0,
-    "payments_with_items": 6212,
-    "payments_with_category": 5918,
+    "payments_with_items": 6221,
+    "payments_with_category": 5927,
     "target_annual_eur": 250000,
-    "gap_eur": 67148.88,
-    "progress_pct": 73.1,
-    "current_month_projection_eur": 16718.95,
-    "needed_monthly_eur": 67148.88,
+    "gap_eur": 66997.21,
+    "progress_pct": 73.2,
+    "current_month_projection_eur": 16146.7,
+    "needed_monthly_eur": 66997.21,
     "months_analyzed": 11
   },
   "monthly": [
@@ -185,19 +185,19 @@
     },
     {
       "month": "2026-10",
-      "ca_eur": 10786.42,
-      "transactions": 411,
-      "avg_ticket": 26.24,
+      "ca_eur": 10938.09,
+      "transactions": 420,
+      "avg_ticket": 26.04,
       "ca_occasion_eur": 826.0,
       "ca_neuf_eur": 0.0,
-      "ca_accessoire_reparation_eur": 9946.42,
+      "ca_accessoire_reparation_eur": 10098.09,
       "ca_libre_eur": 14.0,
-      "ca_tva_normale_eur": 9960.42,
+      "ca_tva_normale_eur": 10112.09,
       "tva_marge_real_eur": 0.0,
       "tva_marge_estimated_eur": 48.18,
       "tva_marge_total_eur": 48.18,
-      "tva_normale_estimated_eur": 1660.07,
-      "tva_collectee_total_eur": 1708.25
+      "tva_normale_estimated_eur": 1685.35,
+      "tva_collectee_total_eur": 1733.53
     }
   ],
   "by_day": [
@@ -209,9 +209,9 @@
     },
     {
       "day": "Mardi",
-      "ca_eur": 20925.83,
-      "transactions": 727,
-      "avg_ticket": 28.78
+      "ca_eur": 21077.5,
+      "transactions": 736,
+      "avg_ticket": 28.64
     },
     {
       "day": "Mercredi",
@@ -247,30 +247,30 @@
   "by_method": [
     {
       "method": "CARD",
-      "ca_eur": 151638.1,
+      "ca_eur": 151764.78,
       "pct": 82.9
     },
     {
       "method": "CASH",
-      "ca_eur": 31213.02,
+      "ca_eur": 31238.01,
       "pct": 17.1
     }
   ],
   "ticket_distribution": [
     {
       "range": "< 10€",
-      "count": 576,
-      "ca_eur": 2996.51
+      "count": 577,
+      "ca_eur": 3001.51
     },
     {
       "range": "10-25€",
-      "count": 3590,
-      "ca_eur": 55416.44
+      "count": 3597,
+      "ca_eur": 55538.11
     },
     {
       "range": "25-50€",
-      "count": 1368,
-      "ca_eur": 45979.06
+      "count": 1369,
+      "ca_eur": 46004.06
     },
     {
       "range": "50-100€",
@@ -295,15 +295,15 @@
     },
     {
       "category": "PALM",
-      "ca_eur": 38707.54
+      "ca_eur": 38776.51
     },
     {
       "category": "NKD ACCESSOIRES",
-      "ca_eur": 27435.19
+      "ca_eur": 27486.09
     },
     {
       "category": "COQUES",
-      "ca_eur": 14802.19
+      "ca_eur": 14833.99
     },
     {
       "category": "Sans catégorie",
@@ -419,8 +419,8 @@
     },
     {
       "name": "PALM ORIGINAL CLAIR 1 FACE",
-      "ca_eur": 2183.91,
-      "qty": 111.0,
+      "ca_eur": 2242.88,
+      "qty": 114.0,
       "tva_class": "accessoire_reparation"
     },
     {
@@ -491,8 +491,8 @@
     },
     {
       "name": "CHARGEUR COMPLET 20W",
-      "ca_eur": 1525.25,
-      "qty": 60.0,
+      "ca_eur": 1550.25,
+      "qty": 61.0,
       "tva_class": "accessoire_reparation"
     }
   ],

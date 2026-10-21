@@ -1,7 +1,286 @@
 {
-  "last_updated": "2026-10-20T05:50:55.351773+00:00",
-  "total_transactions": 6212,
+  "last_updated": "2026-10-21T05:53:23.280036+00:00",
+  "total_transactions": 6221,
   "payments": [
+    {
+      "id": "CMOIcx6ekO18cCbpg9m8oinDC7XZY",
+      "order_id": "1QiQk010QNFgtp4mY2PW0kll9f9YY",
+      "date": "2026-10-20",
+      "datetime": "2026-10-20T16:10:45.433Z",
+      "amount_cents": 1000,
+      "amount_eur": 10.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 10.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "CORDON TELEPHONE LONG LONG 01",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1000,
+          "total_cents": 1000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "OWEmkix7zbhqq2uxRZahrAmzuvVZY",
+      "order_id": "Va1hp18casdfSUqOLGR8OdKRLmNZY",
+      "date": "2026-10-20",
+      "datetime": "2026-10-20T15:23:20.982Z",
+      "amount_cents": 1999,
+      "amount_eur": 19.99,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 19.99,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL CLAIR 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 1999,
+          "total_cents": 1999,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "YLwCfZDayNaqvV9a4qys0dz1wQSZY",
+      "order_id": "JKgXGgEhj4NC9OQfqqPPVi2WuF9YY",
+      "date": "2026-10-20",
+      "datetime": "2026-10-20T15:21:07.252Z",
+      "amount_cents": 500,
+      "amount_eur": 5.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 5.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL CLAIR GARANTIE A VIE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 500,
+          "total_cents": 500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "Ejtc7u5N9Rm0wGsq0hR9OCQERNXZY",
+      "order_id": "PXvIMQhic9le7OgyOLZEXmxrkx8YY",
+      "date": "2026-10-20",
+      "datetime": "2026-10-20T14:37:14.268Z",
+      "amount_cents": 1590,
+      "amount_eur": 15.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 15.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 14 PRO MAX PREMIUM",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "WSahxnkOhdIqlLigAlApv7aKcwAZY",
+      "order_id": "dIWrJUy5J40gMeE7Sp7IohHSmhRZY",
+      "date": "2026-10-20",
+      "datetime": "2026-10-20T14:18:46.574Z",
+      "amount_cents": 1590,
+      "amount_eur": 15.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 15.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 16 PREMIUM",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "GGo5JLKY1PRkrTJhVsvBf8Ua39UZY",
+      "order_id": "Jm6NS6wNR0Fyp6C5ux5xFHhIE8SZY",
+      "date": "2026-10-20",
+      "datetime": "2026-10-20T13:38:11.814Z",
+      "amount_cents": 1899,
+      "amount_eur": 18.99,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 18.99,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL CLAIR 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 1999,
+          "total_cents": 1899,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "GAX8YaD5QHiRed1k3hJWgRW3BmRZY",
+      "order_id": "vHD60sZSNcCnGCc2U8Iqo5yFfSdZY",
+      "date": "2026-10-20",
+      "datetime": "2026-10-20T11:22:21.018Z",
+      "amount_cents": 2499,
+      "amount_eur": 24.99,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 24.99,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL CLAIR GARANTIE A VIE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 500,
+          "total_cents": 500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "PALM ORIGINAL CLAIR 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 1999,
+          "total_cents": 1999,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "wDOankt5HYtrypFUXtLje1v1yj8YY",
+      "order_id": "711x25ek5D0DeZpEmE7E5vRz0jUZY",
+      "date": "2026-10-20",
+      "datetime": "2026-10-20T09:46:31.610Z",
+      "amount_cents": 2500,
+      "amount_eur": 25.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 25.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "CHARGEUR COMPLET 20W",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 2500,
+          "total_cents": 2500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "ot9QivPbb0iUoLDfzOlLa2DPAXPZY",
+      "order_id": "v5IqP1GzA97feGwXpAjAFbicyk7YY",
+      "date": "2026-10-20",
+      "datetime": "2026-10-20T08:27:28.462Z",
+      "amount_cents": 1590,
+      "amount_eur": 15.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 15.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ADAPTATEUR COMPATIBLE TYPE C 20 W",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
     {
       "id": "y0mWrjsUMcSegEKZe0Uk7Lc2CjCZY",
       "order_id": "pgPFwTk1A4sfMpOiCOv8PytNFfGZY",
