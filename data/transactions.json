@@ -1,7 +1,316 @@
 {
-  "last_updated": "2026-10-21T05:53:23.280036+00:00",
-  "total_transactions": 6221,
+  "last_updated": "2026-10-22T05:57:13.353319+00:00",
+  "total_transactions": 6231,
   "payments": [
+    {
+      "id": "muSQBpGtnL3AKpd5Az0E3aRNAaWZY",
+      "order_id": "ROmc3syJ6LCwFqKOIMKUtMKFTjBZY",
+      "date": "2026-10-21",
+      "datetime": "2026-10-21T17:39:07.990Z",
+      "amount_cents": 1200,
+      "amount_eur": 12.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 12.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "CORDON TELEPHONE LONG LONG 02",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1200,
+          "total_cents": 1200,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "k5o8hqAPwJ7MDvvtpOs0jxHbHmIZY",
+      "order_id": "7JF4qstArCGaaljbatinZ07I6WFZY",
+      "date": "2026-10-21",
+      "datetime": "2026-10-21T14:00:45.569Z",
+      "amount_cents": 4130,
+      "amount_eur": 41.3,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 41.3,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "BATTERIE COMPATIBLE SAMSUNG M34",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 4130,
+          "total_cents": 4130,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "An2xsilNPXg5VEtRdqAOLYbAZQRZY",
+      "order_id": "f5I4hqiftQ3c46I3RkQ9FvRjD7KZY",
+      "date": "2026-10-21",
+      "datetime": "2026-10-21T13:56:22.420Z",
+      "amount_cents": 6000,
+      "amount_eur": 60.0,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 60.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ACOMPTE NON REMBOURSABLE 30% APPAREIL NON DEPOSE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 6000,
+          "total_cents": 6000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "gzsH7nxUZs7qEZcpCFFVFnJXApJZY",
+      "order_id": "RCoYLweZTvc5XmPdUaklomyvc4aZY",
+      "date": "2026-10-21",
+      "datetime": "2026-10-21T12:38:54.822Z",
+      "amount_cents": 4470,
+      "amount_eur": 44.7,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 44.7,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ACOMPTE NON REMBOURSABLE 30% APPAREIL NON DEPOSE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 4470,
+          "total_cents": 4470,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "KKplvxLNhZXcKPiG6WMvS0EzUkQZY",
+      "order_id": "xEbbA1cQGhnnbXQQWDWFySswRTAZY",
+      "date": "2026-10-21",
+      "datetime": "2026-10-21T12:16:28.653Z",
+      "amount_cents": 1999,
+      "amount_eur": 19.99,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 19.99,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL CLAIR 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 1999,
+          "total_cents": 1999,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "89cycznYlRWEVM9kJjYzqmucpcEZY",
+      "order_id": "fBwaBCcifIKyCswaDcT7s0hpMe9YY",
+      "date": "2026-10-21",
+      "datetime": "2026-10-21T11:48:42.382Z",
+      "amount_cents": 1000,
+      "amount_eur": 10.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 10.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "NETTOYAGE EXTERNE CONNECTEUR",
+          "category": "NETTOYAGE",
+          "qty": 1.0,
+          "unit_price_cents": 1000,
+          "total_cents": 1000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "EjN0vE2gOGikNMw0aa9I4JblGtMZY",
+      "order_id": "hKoUrnVVAWVUROytHa5LBmzqx0EZY",
+      "date": "2026-10-21",
+      "datetime": "2026-10-21T11:18:30.079Z",
+      "amount_cents": 1000,
+      "amount_eur": 10.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 10.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "SUPPORT VOITURE SUPPORT 001",
+          "category": "",
+          "qty": 1.0,
+          "unit_price_cents": 1000,
+          "total_cents": 1000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "mYnYTilOWQdFeR4iyJ6lDNHhVJ8YY",
+      "order_id": "xKkOG4yTgXFiSjVqrsbkoe47E99YY",
+      "date": "2026-10-21",
+      "datetime": "2026-10-21T11:12:55.873Z",
+      "amount_cents": 1350,
+      "amount_eur": 13.5,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 13.5,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ACOMPTE NON REMBOURSABLE 30% APPAREIL NON DEPOSE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 1350,
+          "total_cents": 1350,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "w3qROK5Tv5mIHcZjqi3Csh2B2UZZY",
+      "order_id": "JQVIayLU0KM12yovb6N0LExDzgXZY",
+      "date": "2026-10-21",
+      "datetime": "2026-10-21T09:45:01.413Z",
+      "amount_cents": 6930,
+      "amount_eur": 69.3,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 69.3,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ECRAN POCO X6 ",
+          "category": "",
+          "qty": 1.0,
+          "unit_price_cents": 6930,
+          "total_cents": 6930,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "EfNJZSFga2VCc8EYanVOpFNDSyPZY",
+      "order_id": "f9OKhkl9ISgLaaVBtf1Dgb0JzpYZY",
+      "date": "2026-10-21",
+      "datetime": "2026-10-21T09:25:40.246Z",
+      "amount_cents": 7900,
+      "amount_eur": 79.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 79.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ECRAN IPHONE X INCELL",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 6900,
+          "total_cents": 6900,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "VERRE TREMPE IPHONE CLAIR",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1000,
+          "total_cents": 1000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
     {
       "id": "CMOIcx6ekO18cCbpg9m8oinDC7XZY",
       "order_id": "1QiQk010QNFgtp4mY2PW0kll9f9YY",
