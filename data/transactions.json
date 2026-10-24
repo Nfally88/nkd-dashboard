@@ -1,7 +1,505 @@
 {
-  "last_updated": "2026-10-23T05:54:22.923883+00:00",
-  "total_transactions": 6240,
+  "last_updated": "2026-10-24T05:38:15.886360+00:00",
+  "total_transactions": 6256,
   "payments": [
+    {
+      "id": "wTUX4HMCGM33oK17tRXILYzqvCdZY",
+      "order_id": "Ju678fkKMPpL5nmHx9ok0sl5uJDZY",
+      "date": "2026-10-23",
+      "datetime": "2026-10-23T17:12:16.366Z",
+      "amount_cents": 6900,
+      "amount_eur": 69.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 69.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ECRAN IPHONE XR INCELL",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 6900,
+          "total_cents": 6900,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "GaqBXhfOUHSSJkCZhVWjqaZ17sXZY",
+      "order_id": "14oFU152GVgjIJ2ftGiFetpN7lNZY",
+      "date": "2026-10-23",
+      "datetime": "2026-10-23T16:47:04.617Z",
+      "amount_cents": 1000,
+      "amount_eur": 10.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 10.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "NETTOYAGE EXTERNE CONNECTEUR",
+          "category": "NETTOYAGE",
+          "qty": 1.0,
+          "unit_price_cents": 1000,
+          "total_cents": 1000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "26c03kIkS91bHyfMiwefvcVHlDMZY",
+      "order_id": "DXWGwlMIK1APpvGFPApoDsevY6GZY",
+      "date": "2026-10-23",
+      "datetime": "2026-10-23T16:43:14.581Z",
+      "amount_cents": 1590,
+      "amount_eur": 15.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 15.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 17 AIR PREMIUM",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "WCSjcGJIE9UgQYKgGnlq15Dc8vCZY",
+      "order_id": "jvasH7MzefssEonjniCgWT0pScBZY",
+      "date": "2026-10-23",
+      "datetime": "2026-10-23T15:49:09.314Z",
+      "amount_cents": 8900,
+      "amount_eur": 89.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 89.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "VITRE ARRIERE IPHONE 12 12",
+          "category": "ARRIERE TELPEHONE",
+          "qty": 1.0,
+          "unit_price_cents": 8900,
+          "total_cents": 8900,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "GGA38KNhKYTwV8ev48U4A9P28wTZY",
+      "order_id": "rPoWkP0kyewulpOWNuzgX2eKkX9YY",
+      "date": "2026-10-23",
+      "datetime": "2026-10-23T15:15:49.486Z",
+      "amount_cents": 1000,
+      "amount_eur": 10.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 10.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PROTECTION CAMERA IPHONE VENDU SEUL",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1000,
+          "total_cents": 1000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "Sky41ZardACrAkD0Du2JwP3wMwKZY",
+      "order_id": "h8HVg0kJH3X0BRxjLZNzIrDHDqEZY",
+      "date": "2026-10-23",
+      "datetime": "2026-10-23T14:47:18.753Z",
+      "amount_cents": 1590,
+      "amount_eur": 15.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 15.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 17 AIR PREMIUM",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "gHCJLQZP8sxQpmD5Ol1WqJRsx2MZY",
+      "order_id": "vnLEn4I8fphR9geKY1ioIIl4TKIZY",
+      "date": "2026-10-23",
+      "datetime": "2026-10-23T14:30:52.862Z",
+      "amount_cents": 1590,
+      "amount_eur": 15.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 15.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 16 PRO MAX PREMIUM",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "qWTTPZW5CWfXtwkl1JvOKZBrVBHZY",
+      "order_id": "bRDVAw8ZvCTBNJBUr8mRbejlw1BZY",
+      "date": "2026-10-23",
+      "datetime": "2026-10-23T14:26:35.068Z",
+      "amount_cents": 1290,
+      "amount_eur": 12.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 12.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 17 AIR SILICONE",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1290,
+          "total_cents": 1290,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "YhT6RT9tnuswyEITkPdonB4kPkSZY",
+      "order_id": "DD2LWWz3vwycA8KNx80PpfrqVmZZY",
+      "date": "2026-10-23",
+      "datetime": "2026-10-23T13:44:27.293Z",
+      "amount_cents": 1990,
+      "amount_eur": 19.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 19.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "POWER BANK TELEPHONE 5000 MAH",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1990,
+          "total_cents": 1990,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "cb9htJHAmXNSYjvmKZjI6UeRaKAZY",
+      "order_id": "7j2eut7tJG0RuA7taTt8ft8X0KQZY",
+      "date": "2026-10-23",
+      "datetime": "2026-10-23T13:22:44.060Z",
+      "amount_cents": 1000,
+      "amount_eur": 10.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 10.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "NETTOYAGE EXTERNE CONNECTEUR",
+          "category": "NETTOYAGE",
+          "qty": 1.0,
+          "unit_price_cents": 1000,
+          "total_cents": 1000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "6eVKEgzt1gCP2LLKdSVPwD6hn3GZY",
+      "order_id": "jvQx22zj0DAWtNM0HjiSHLWwXNWZY",
+      "date": "2026-10-23",
+      "datetime": "2026-10-23T13:22:25.381Z",
+      "amount_cents": 1000,
+      "amount_eur": 10.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 10.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "NETTOYAGE EXTERNE CONNECTEUR",
+          "category": "NETTOYAGE",
+          "qty": 1.0,
+          "unit_price_cents": 1000,
+          "total_cents": 1000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "sdsAi2NXpIS6XSDxRv5R2mXyV5QZY",
+      "order_id": "NSl2tubuUn8vOcJ66JfQV7TH5XNZY",
+      "date": "2026-10-23",
+      "datetime": "2026-10-23T12:58:56.830Z",
+      "amount_cents": 1290,
+      "amount_eur": 12.9,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 12.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 12 MINI / 13 MINI SILICONE",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1290,
+          "total_cents": 1290,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "qGbhqPh84KjL7zxzESFluqywb5PZY",
+      "order_id": "9KbFfe6xwahshUYRfWTgvbWjZBGZY",
+      "date": "2026-10-23",
+      "datetime": "2026-10-23T11:56:03.386Z",
+      "amount_cents": 500,
+      "amount_eur": 5.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 5.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "DECOUPE CARTE SIM 2EN1",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 500,
+          "total_cents": 500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "WGkrwoHPSsY5J1bMYEGoGG6WerUZY",
+      "order_id": "ROekFEUH7VQm1GN67R3wYtWOepCZY",
+      "date": "2026-10-23",
+      "datetime": "2026-10-23T10:25:37.211Z",
+      "amount_cents": 3990,
+      "amount_eur": 39.9,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 39.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 17 AIR SUPPORT",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1990,
+          "total_cents": 1990,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "PROTECTION CAMERA IPHONE VENDU SEUL",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1000,
+          "total_cents": 1000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "ADAPTATEUR COMPATIBLE USB A 20W",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1000,
+          "total_cents": 1000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "gZvnNu3vZ1JnwylQKdgqSVvTUxeZY",
+      "order_id": "BExEW7k18lUFDfgLi0UUtj95oPIZY",
+      "date": "2026-10-23",
+      "datetime": "2026-10-23T09:54:40.160Z",
+      "amount_cents": 1290,
+      "amount_eur": 12.9,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 12.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 15 SILICONE",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1290,
+          "total_cents": 1290,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "qSdTgRfWRThRGfDN2b5kgU7d148YY",
+      "order_id": "BcvVWbxYg7eVmnjnsPDbghcMA2CZY",
+      "date": "2026-10-23",
+      "datetime": "2026-10-23T09:54:15.225Z",
+      "amount_cents": 500,
+      "amount_eur": 5.0,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 5.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "VENTOUSE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 500,
+          "total_cents": 500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
     {
       "id": "4nekaduN0blDCOiSX7eD7VccNHJZY",
       "order_id": "zxPiuY4CG14gvUTFbFA9M1SLKecZY",
