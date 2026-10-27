@@ -1,7 +1,316 @@
 {
-  "last_updated": "2026-10-26T05:56:49.696259+00:00",
-  "total_transactions": 6317,
+  "last_updated": "2026-10-27T06:09:27.979596+00:00",
+  "total_transactions": 6327,
   "payments": [
+    {
+      "id": "U317Ssg25ROVPRQfr2D9ijsIV6XZY",
+      "order_id": "HVens081DO2CqHbKyY51F7tjfIKZY",
+      "date": "2026-10-26",
+      "datetime": "2026-10-26T15:58:10.609Z",
+      "amount_cents": 1000,
+      "amount_eur": 10.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 10.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE SAMSUNG A41 SILICONE",
+          "category": "COQUE SAMSUNG",
+          "qty": 1.0,
+          "unit_price_cents": 1000,
+          "total_cents": 1000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "k9iqOcCkiOjuGiLez6I3GRxpCIbZY",
+      "order_id": "dmdHlmYIEXv5Trkg428dxGj9H5KZY",
+      "date": "2026-10-26",
+      "datetime": "2026-10-26T15:25:27.945Z",
+      "amount_cents": 5900,
+      "amount_eur": 59.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 59.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ECRAN SAMSUNG A07 4G",
+          "category": "",
+          "qty": 1.0,
+          "unit_price_cents": 5900,
+          "total_cents": 5900,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "Q7aUW6xD3kFzgToqI1XO1Br9Ro6YY",
+      "order_id": "TpjkBzq1jYEPe0tWTw0ISm6h2NaZY",
+      "date": "2026-10-26",
+      "datetime": "2026-10-26T15:01:30.235Z",
+      "amount_cents": 500,
+      "amount_eur": 5.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 5.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "VENTOUSE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 500,
+          "total_cents": 500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "eKYRoTeWCkQRzoPrpyiELAnv1mMZY",
+      "order_id": "zZNTW7pAL9QXEt5dRolobC5KqG6YY",
+      "date": "2026-10-26",
+      "datetime": "2026-10-26T14:56:14.357Z",
+      "amount_cents": 1000,
+      "amount_eur": 10.0,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 10.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ACOMPTE NON REMBOURSABLE 30% APPAREIL NON DEPOSE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 1000,
+          "total_cents": 1000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "mgFBZ0MGpxkrc0XqvSyPs1lcXZBZY",
+      "order_id": "P3BNS42dVPuwZJbimNbGbkMn0JRZY",
+      "date": "2026-10-26",
+      "datetime": "2026-10-26T14:49:29.215Z",
+      "amount_cents": 500,
+      "amount_eur": 5.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 5.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "SERVICE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 500,
+          "total_cents": 500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "uAlkKQtrB83ZKEBas27zs43z1dLZY",
+      "order_id": "P7XlPnAznOl0yylm1OhHL3MWyibZY",
+      "date": "2026-10-26",
+      "datetime": "2026-10-26T14:23:40.515Z",
+      "amount_cents": 2089,
+      "amount_eur": 20.89,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 20.89,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ANTI ESPION MATE 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 2199,
+          "total_cents": 2089,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "AR5smSxiiem7Lk5B7taTG2caqmZZY",
+      "order_id": "JEFrsdX9lOJJWQdm5YorrGZ2JQeZY",
+      "date": "2026-10-26",
+      "datetime": "2026-10-26T14:02:00.428Z",
+      "amount_cents": 1590,
+      "amount_eur": 15.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 15.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 17 PRO / 18 PRO PREMIUM",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "2UtufGUVXOGx3MOFNOawoBqyFJGZY",
+      "order_id": "tQEQckVsBFEPFPomg4sFXZVLXj6YY",
+      "date": "2026-10-26",
+      "datetime": "2026-10-26T14:00:28.574Z",
+      "amount_cents": 2090,
+      "amount_eur": 20.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 20.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "SUPPORT VOITURE SUPPORT 001",
+          "category": "",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "VENTOUSE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 500,
+          "total_cents": 500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "eAduKuKl7pckO40fwx3vkMHIAUHZY",
+      "order_id": "P9spCgf0qLwMU7J1hgye7oKqz9EZY",
+      "date": "2026-10-26",
+      "datetime": "2026-10-26T13:03:20.992Z",
+      "amount_cents": 4000,
+      "amount_eur": 40.0,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 40.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ACOMPTE NON REMBOURSABLE 30% APPAREIL NON DEPOSE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 4000,
+          "total_cents": 4000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "QfcAUIBL3ZBzyS4BcRyAazyuxlEZY",
+      "order_id": "PdInMZGWeniXauFkkHaV1DeC7rLZY",
+      "date": "2026-10-26",
+      "datetime": "2026-10-26T12:06:51.695Z",
+      "amount_cents": 500,
+      "amount_eur": 5.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 5.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "SERVICE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 500,
+          "total_cents": 500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
     {
       "id": "Q76AMmhddGfhlu7PseMio8pdOkAZY",
       "order_id": "5eyXTjzkHH5H1c9AzcZMJfyozcHZY",
