@@ -1,7 +1,493 @@
 {
-  "last_updated": "2026-10-27T06:09:27.979596+00:00",
-  "total_transactions": 6327,
+  "last_updated": "2026-10-28T06:46:50.802116+00:00",
+  "total_transactions": 6342,
   "payments": [
+    {
+      "id": "u66e3TBXQ0o1x0QTFkpv89FhgXQZY",
+      "order_id": "VObZMAXH7XeYJ7pEJokD0Q5LoNXZY",
+      "date": "2026-10-27",
+      "datetime": "2026-10-27T18:06:56.418Z",
+      "amount_cents": 3789,
+      "amount_eur": 37.89,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 37.89,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 17 PRO MAX / 18 PRO MAX PREMIUM",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "PALM ANTI ESPION MATE 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 2199,
+          "total_cents": 2199,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "OornnhO8LjUg6tHez7KA4YT3JrAZY",
+      "order_id": "nblftWRV7ubPrxLl2SWlI7DUMFaZY",
+      "date": "2026-10-27",
+      "datetime": "2026-10-27T17:51:40.653Z",
+      "amount_cents": 5890,
+      "amount_eur": 58.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 58.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "VITRE ARRIERE SAMSUNG A55 ",
+          "category": "",
+          "qty": 1.0,
+          "unit_price_cents": 2900,
+          "total_cents": 2900,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "LENTILLE CAMERA TELEPHONE 1 LENTILLE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 2990,
+          "total_cents": 2990,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "uq0H7p4XjQptAdPyte2ghsyD56NZY",
+      "order_id": "Pr1wBUroQz6jqjtmcvEWazSr7zJZY",
+      "date": "2026-10-27",
+      "datetime": "2026-10-27T17:29:54.692Z",
+      "amount_cents": 1500,
+      "amount_eur": 15.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 15.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "VERRE TREMPE IPHONE CLAIR AVEC POSE",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1500,
+          "total_cents": 1500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "G8B2ugRspOcmA8SQLqonSoV4Jz6YY",
+      "order_id": "PHnylmJdKyTNLErXSBe1RDXlmrRZY",
+      "date": "2026-10-27",
+      "datetime": "2026-10-27T17:11:00.726Z",
+      "amount_cents": 2199,
+      "amount_eur": 21.99,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 21.99,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL MATE 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 2199,
+          "total_cents": 2199,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "KAsP2rzi3VrZxQaRtXvfVQwx3iRZY",
+      "order_id": "fHN5Wqlfx7brlW8vKhc6TnUxOqQZY",
+      "date": "2026-10-27",
+      "datetime": "2026-10-27T16:45:26.068Z",
+      "amount_cents": 500,
+      "amount_eur": 5.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 5.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "SERVICE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 500,
+          "total_cents": 500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "WQV5QUM2vbWX665DnpPWMpkt3SfZY",
+      "order_id": "h8rD6GsUglJD7lgOUmv9yfkSgoDZY",
+      "date": "2026-10-27",
+      "datetime": "2026-10-27T15:11:33.737Z",
+      "amount_cents": 1590,
+      "amount_eur": 15.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 15.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 15 PRO PREMIUM",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "c9I2dpatYI8SACZ55RziVPkFReMZY",
+      "order_id": "hUvR3eZeRLOnoIETB0YcZg2ARZ6YY",
+      "date": "2026-10-27",
+      "datetime": "2026-10-27T14:00:07.876Z",
+      "amount_cents": 500,
+      "amount_eur": 5.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 5.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "VENTOUSE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 500,
+          "total_cents": 500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "aKXogRCC2opjYQN9F0UMxyHs4IRZY",
+      "order_id": "pWAYmIcMafE6GTdChAi6iZMIcTdZY",
+      "date": "2026-10-27",
+      "datetime": "2026-10-27T13:50:42.707Z",
+      "amount_cents": 7900,
+      "amount_eur": 79.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 79.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "BATTERIE IPHONE 13 13 PRO",
+          "category": "BATTERIE TELEPHONE",
+          "qty": 1.0,
+          "unit_price_cents": 7900,
+          "total_cents": 7900,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "QL4tzzwA0fR8Uvgug6KRupaPIWfZY",
+      "order_id": "PdaG7dfOrYrPTvPESavPrnnUdgTZY",
+      "date": "2026-10-27",
+      "datetime": "2026-10-27T13:11:45.641Z",
+      "amount_cents": 2580,
+      "amount_eur": 25.8,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 25.8,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 17 PRO MAX / 18 PRO MAX SILICONE",
+          "category": "COQUES",
+          "qty": 2.0,
+          "unit_price_cents": 1290,
+          "total_cents": 2580,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "chQTmL9K4KxDbn64D2fcBQyazaaZY",
+      "order_id": "njLsLYU46Z1WZ8AeJvkOZXJhtIfZY",
+      "date": "2026-10-27",
+      "datetime": "2026-10-27T12:51:32.258Z",
+      "amount_cents": 1200,
+      "amount_eur": 12.0,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 12.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "CORDON TELEPHONE LONG LONG 02",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1200,
+          "total_cents": 1200,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "SaJKftuOI6PuSRcI3oJ02aU5MQVZY",
+      "order_id": "fb5CIzeeAO7zxk38rRs6zSx9ck7YY",
+      "date": "2026-10-27",
+      "datetime": "2026-10-27T12:36:22.602Z",
+      "amount_cents": 1500,
+      "amount_eur": 15.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 15.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "VENTOUSE",
+          "category": "NKD REPARATION",
+          "qty": 3.0,
+          "unit_price_cents": 500,
+          "total_cents": 1500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "YfsH97gB3y3eWokseQKJBd0fe3VZY",
+      "order_id": "HNceb64e160CFwapjJTb53ebOyeZY",
+      "date": "2026-10-27",
+      "datetime": "2026-10-27T11:41:24.114Z",
+      "amount_cents": 3569,
+      "amount_eur": 35.69,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 35.69,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL MATE 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 2199,
+          "total_cents": 1979,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "COQUE IPHONE 15 PRO MAX PREMIUM",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "CEUFuC3zZeiV7pCkROGqmQYWc1OZY",
+      "order_id": "35mGXQNWZkuTwdrpneODxZd4yEBZY",
+      "date": "2026-10-27",
+      "datetime": "2026-10-27T11:15:46.526Z",
+      "amount_cents": 1490,
+      "amount_eur": 14.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 14.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 13 / 14 SILICONE",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1290,
+          "total_cents": 1290,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "ATTACHE CORDON TELEPHONE TISSU",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 200,
+          "total_cents": 200,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "KqVhal4LlL60PT0ii7rA8tpHlIDZY",
+      "order_id": "xADiZdKJdm2RQvL5eaTtYL8FbAdZY",
+      "date": "2026-10-27",
+      "datetime": "2026-10-27T10:41:43.562Z",
+      "amount_cents": 2000,
+      "amount_eur": 20.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 20.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ACOMPTE NON REMBOURSABLE 30% APPAREIL NON DEPOSE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 2000,
+          "total_cents": 2000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "ovcdhLtImONj8ZoXKcIcfKvkmhDZY",
+      "order_id": "xIHsy7aGAHcCRC9HJhl6tcvofRbZY",
+      "date": "2026-10-27",
+      "datetime": "2026-10-27T10:21:02.387Z",
+      "amount_cents": 6900,
+      "amount_eur": 69.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 69.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ECRAN SAMSUNG A07 4G",
+          "category": "",
+          "qty": 1.0,
+          "unit_price_cents": 6900,
+          "total_cents": 6900,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
     {
       "id": "U317Ssg25ROVPRQfr2D9ijsIV6XZY",
       "order_id": "HVens081DO2CqHbKyY51F7tjfIKZY",
