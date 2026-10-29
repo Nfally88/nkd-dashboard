@@ -1,7 +1,733 @@
 {
-  "last_updated": "2026-10-28T06:46:50.802116+00:00",
-  "total_transactions": 6342,
+  "last_updated": "2026-10-29T06:54:50.543055+00:00",
+  "total_transactions": 6365,
   "payments": [
+    {
+      "id": "WQTORBRS3NcfogzfB71uQoHz0o6YY",
+      "order_id": "dSNyOrmKZd52O9ILODGGVE4SOGRZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T18:43:04.899Z",
+      "amount_cents": 2199,
+      "amount_eur": 21.99,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 21.99,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL MATE 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 2199,
+          "total_cents": 2199,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "0TjhjadLTiXdxddGJh7j1s6E46JZY",
+      "order_id": "Zkx5VS5Q04a9VACIsf5HLM16OQcZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T18:37:31.202Z",
+      "amount_cents": 2199,
+      "amount_eur": 21.99,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 21.99,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL MATE 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 2199,
+          "total_cents": 2199,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "iufOPIhvRsavzoZjWFVhhxjOByXZY",
+      "order_id": "tYkUJRND1QLg5sb3Ue28ltnerDNZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T17:25:30.384Z",
+      "amount_cents": 2199,
+      "amount_eur": 21.99,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 21.99,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ANTI ESPION MATE 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 2199,
+          "total_cents": 2199,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "Q7SkUqeecq3kZBZt3zwBR8J7PwUZY",
+      "order_id": "lKPg3DVUOUqhUKZYSdOlCeRWbYSZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T17:24:03.973Z",
+      "amount_cents": 1290,
+      "amount_eur": 12.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 12.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 17 PRO / 18 PRO SILICONE",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1290,
+          "total_cents": 1290,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "W8bn341DIMIscLbhuXaRaKNMMxKZY",
+      "order_id": "Pvp1ppFU4nmF8vsbQ4e9MxKyTxNZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T17:22:17.677Z",
+      "amount_cents": 1000,
+      "amount_eur": 10.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 10.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "CABLE USB A - USB C",
+          "category": "CABLES",
+          "qty": 1.0,
+          "unit_price_cents": 1000,
+          "total_cents": 1000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "kNCM5kUQpTjgmx52Unw3Sfl1bkBZY",
+      "order_id": "HdwUZZUPUI9HNG4kCVrfir7pwx7YY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T17:00:02.417Z",
+      "amount_cents": 1290,
+      "amount_eur": 12.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 12.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 11 SILICONE",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1290,
+          "total_cents": 1290,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "UFg5GP6kC4NsdhNcM5YZh0zxmiKZY",
+      "order_id": "1AiOxofa0ZKxdtfpvuVDif57uSTZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T16:37:14.944Z",
+      "amount_cents": 10400,
+      "amount_eur": 104.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 104.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ECRAN HUAWEI MATE 10 PRO",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 10400,
+          "total_cents": 10400,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "SM4NrVySCkV9B0XyZ2M6JFswn1bZY",
+      "order_id": "pw9ql5E9dAUvrM3M5Rkpmcwl1xHZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T16:25:07.600Z",
+      "amount_cents": 10900,
+      "amount_eur": 109.0,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 109.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ECRAN HONOR MAGIC 8 LITE ",
+          "category": "",
+          "qty": 1.0,
+          "unit_price_cents": 10900,
+          "total_cents": 10900,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "qiXY0cBu4hmpCXkXyEQ7STnXl6eZY",
+      "order_id": "NKT9IkZYkAtPRpLPZBa5k0e4eHcZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T15:51:27.188Z",
+      "amount_cents": 3789,
+      "amount_eur": 37.89,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 37.89,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL MATE 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 2199,
+          "total_cents": 2199,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "COQUE IPHONE 15 PRO MAX PREMIUM",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "sL7k6G47b3jkvw1MzvNT4xl8l3YZY",
+      "order_id": "JkxdCRAF3hOsqxQbQtyKOUflNKaZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T15:41:08.406Z",
+      "amount_cents": 8900,
+      "amount_eur": 89.0,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 89.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "CONSOLE PRISE HDMI",
+          "category": "REPARATION CONSOLE",
+          "qty": 1.0,
+          "unit_price_cents": 8900,
+          "total_cents": 8900,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "YH6Mhrmp8tvTlt9lYFuM6cHRrOLZY",
+      "order_id": "RO0f9G7MLoYrECKljUkf0WzSvYZZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T14:46:14.212Z",
+      "amount_cents": 3589,
+      "amount_eur": 35.89,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 35.89,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 17 PRO MAX / 18 PRO MAX PREMIUM",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "PALM ORIGINAL CLAIR 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 1999,
+          "total_cents": 1999,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "IDGzsWvSxfA7kC1ICnVqo0OlvtZZY",
+      "order_id": "bhXj6JdESUF7JOk41RqIZhE0gDgZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T14:33:52.370Z",
+      "amount_cents": 1590,
+      "amount_eur": 15.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 15.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 17 / 18 PREMIUM",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "a0UGZdbNpj25WBXaPnIxGj6p8w8YY",
+      "order_id": "BY19whqU9wz5BUoZIAMaiJnpnM9YY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T14:19:25.879Z",
+      "amount_cents": 2000,
+      "amount_eur": 20.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 20.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "CABLE USB A - USB C",
+          "category": "CABLES",
+          "qty": 1.0,
+          "unit_price_cents": 1000,
+          "total_cents": 1000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "ADAPTATEUR COMPATIBLE USB A 20W",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1000,
+          "total_cents": 1000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "MViPLjqGUId3iGYoWjNvvy4MXvEZY",
+      "order_id": "xWMLizi3mtwUjIB4jeGSFGCVqAOZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T14:14:20.785Z",
+      "amount_cents": 2199,
+      "amount_eur": 21.99,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 21.99,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL MATE 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 2199,
+          "total_cents": 2199,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "8lcuV63WBYFuaVzvyc1czVNn15cZY",
+      "order_id": "LVtrodnMskucqqTgIdDW3FWOr6aZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T14:12:45.841Z",
+      "amount_cents": 2199,
+      "amount_eur": 21.99,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 21.99,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ANTI ESPION MATE 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 2199,
+          "total_cents": 2199,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "gfyVunJq0Ofvv0v4SgcEL5haHANZY",
+      "order_id": "9658fjvnHRjzDgcnJnRVNQGCYcAZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T13:39:46.921Z",
+      "amount_cents": 4900,
+      "amount_eur": 49.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 49.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "BATTERIE GOOGLE PIXEL 7A COMPATIBLE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 4900,
+          "total_cents": 4900,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "wxvRAo1Booma5RWNmTSFeK033zfZY",
+      "order_id": "JAfPfTuyHmdzlHbK5IyZjna4lgTZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T13:21:17.542Z",
+      "amount_cents": 1999,
+      "amount_eur": 19.99,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 19.99,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL CLAIR 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 1999,
+          "total_cents": 1999,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "QRR0xvaRtxQ2LqSNP1xO9M1bdYAZY",
+      "order_id": "7pr9zShq0vvamLMtn5MKGeHEz1LZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T12:43:23.458Z",
+      "amount_cents": 2505,
+      "amount_eur": 25.05,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 25.05,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "CONNECTEUR CHARGE SAMSUNG TAB A9 PLUS",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 2505,
+          "total_cents": 2505,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "2YBFy4aRkjtnuSUe8X22Buje9dNZY",
+      "order_id": "x8Zwws40tStn6mDAiZM9E4SGu0QZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T11:31:43.439Z",
+      "amount_cents": 2500,
+      "amount_eur": 25.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 25.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "CHARGEUR COMPLET 20W",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 2500,
+          "total_cents": 2500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "2WqKuKoRbivkEynPOhWASdH1lK8YY",
+      "order_id": "FS3sC7gVsYzaBPDIajAStXB0MPAZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T11:19:21.050Z",
+      "amount_cents": 2199,
+      "amount_eur": 21.99,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 21.99,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ANTI ESPION MATE 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 2199,
+          "total_cents": 2199,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "s5YbqbFGa1K2bp1O20P2K36aPKJZY",
+      "order_id": "rZDBeyB8p9WNIO4P8ArKEvXMOwKZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T10:41:09.792Z",
+      "amount_cents": 3080,
+      "amount_eur": 30.8,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 30.8,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 14 PRO SILICONE",
+          "category": "COQUES",
+          "qty": 2.0,
+          "unit_price_cents": 1290,
+          "total_cents": 2580,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "PROTECTION CAMERA IPHONE VENDU AVEC UN ARTCILE",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 500,
+          "total_cents": 500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "Ef7QtaOQSvLaQdKZ4FWIfX11lXLZY",
+      "order_id": "v3Rv5QLLalDIRwHBmz6Ddu8jCxCZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T10:07:57.356Z",
+      "amount_cents": 1590,
+      "amount_eur": 15.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 15.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 13 / 14 PREMIUM",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "ELlcaMc7dg6Drvhkolr5uZt7pXHZY",
+      "order_id": "BK02DdahPNI5hdNklPd4vsdcyGUZY",
+      "date": "2026-10-28",
+      "datetime": "2026-10-28T10:00:41.400Z",
+      "amount_cents": 8900,
+      "amount_eur": 89.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 89.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "BATTERIE IPHONE 14 14",
+          "category": "BATTERIE TELEPHONE",
+          "qty": 1.0,
+          "unit_price_cents": 8900,
+          "total_cents": 8900,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
     {
       "id": "u66e3TBXQ0o1x0QTFkpv89FhgXQZY",
       "order_id": "VObZMAXH7XeYJ7pEJokD0Q5LoNXZY",
