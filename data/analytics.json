@@ -1,25 +1,25 @@
 {
-  "last_updated": "2026-10-29T06:54:51.588942+00:00",
+  "last_updated": "2026-10-30T06:58:02.547351+00:00",
   "kpis": {
-    "total_ca_eur": 187639.42,
-    "total_transactions": 6365,
-    "avg_ticket_eur": 29.48,
+    "total_ca_eur": 188127.29,
+    "total_transactions": 6390,
+    "avg_ticket_eur": 29.44,
     "total_tva_marge_eur": 898.51,
-    "total_tva_normale_estimated_eur": 28706.07,
-    "total_tva_collectee_eur": 29604.58,
+    "total_tva_normale_estimated_eur": 28787.38,
+    "total_tva_collectee_eur": 29685.89,
     "total_ca_occasion_eur": 15403.0,
     "total_ca_neuf_eur": 0.0,
-    "total_ca_accessoire_reparation_eur": 171083.14,
+    "total_ca_accessoire_reparation_eur": 171571.01,
     "total_ca_libre_eur": 1153.28,
-    "total_ca_tva_normale_eur": 172236.42,
+    "total_ca_tva_normale_eur": 172724.29,
     "tva_match_rate_pct": 0.0,
-    "payments_with_items": 6365,
-    "payments_with_category": 6065,
+    "payments_with_items": 6390,
+    "payments_with_category": 6090,
     "target_annual_eur": 250000,
-    "gap_eur": 62360.58,
-    "progress_pct": 75.1,
-    "current_month_projection_eur": 16648.84,
-    "needed_monthly_eur": 62360.58,
+    "gap_eur": 61872.71,
+    "progress_pct": 75.3,
+    "current_month_projection_eur": 16598.01,
+    "needed_monthly_eur": 61872.71,
     "months_analyzed": 11
   },
   "monthly": [
@@ -185,19 +185,19 @@
     },
     {
       "month": "2026-10",
-      "ca_eur": 15574.72,
-      "transactions": 564,
-      "avg_ticket": 27.61,
+      "ca_eur": 16062.59,
+      "transactions": 589,
+      "avg_ticket": 27.27,
       "ca_occasion_eur": 826.0,
       "ca_neuf_eur": 0.0,
-      "ca_accessoire_reparation_eur": 14734.72,
+      "ca_accessoire_reparation_eur": 15222.59,
       "ca_libre_eur": 14.0,
-      "ca_tva_normale_eur": 14748.72,
+      "ca_tva_normale_eur": 15236.59,
       "tva_marge_real_eur": 0.0,
       "tva_marge_estimated_eur": 48.18,
       "tva_marge_total_eur": 48.18,
-      "tva_normale_estimated_eur": 2458.12,
-      "tva_collectee_total_eur": 2506.3
+      "tva_normale_estimated_eur": 2539.43,
+      "tva_collectee_total_eur": 2587.61
     }
   ],
   "by_day": [
@@ -221,9 +221,9 @@
     },
     {
       "day": "Jeudi",
-      "ca_eur": 23252.9,
-      "transactions": 772,
-      "avg_ticket": 30.12
+      "ca_eur": 23740.77,
+      "transactions": 797,
+      "avg_ticket": 29.79
     },
     {
       "day": "Vendredi",
@@ -247,35 +247,35 @@
   "by_method": [
     {
       "method": "CARD",
-      "ca_eur": 155603.46,
+      "ca_eur": 155959.45,
       "pct": 82.9
     },
     {
       "method": "CASH",
-      "ca_eur": 32035.96,
+      "ca_eur": 32167.84,
       "pct": 17.1
     }
   ],
   "ticket_distribution": [
     {
       "range": "< 10€",
-      "count": 592,
-      "ca_eur": 3077.41
+      "count": 599,
+      "ca_eur": 3112.41
     },
     {
       "range": "10-25€",
-      "count": 3677,
-      "ca_eur": 56815.37
+      "count": 3690,
+      "ca_eur": 57035.81
     },
     {
       "range": "25-50€",
-      "count": 1394,
-      "ca_eur": 46869.03
+      "count": 1397,
+      "ca_eur": 46966.91
     },
     {
       "range": "50-100€",
-      "count": 431,
-      "ca_eur": 32000.65
+      "count": 433,
+      "ca_eur": 32135.2
     },
     {
       "range": "100-200€",
@@ -291,19 +291,19 @@
   "by_category": [
     {
       "category": "NKD REPARATION",
-      "ca_eur": 46741.58
+      "ca_eur": 46812.13
     },
     {
       "category": "PALM",
-      "ca_eur": 39474.61
+      "ca_eur": 39661.33
     },
     {
       "category": "NKD ACCESSOIRES",
-      "ca_eur": 27935.59
+      "ca_eur": 27975.59
     },
     {
       "category": "COQUES",
-      "ca_eur": 15432.46
+      "ca_eur": 15474.16
     },
     {
       "category": "Sans catégorie",
@@ -319,7 +319,7 @@
     },
     {
       "category": "BATTERIE TELEPHONE",
-      "ca_eur": 7012.31
+      "ca_eur": 7081.31
     },
     {
       "category": "ACHAT VENTE TELEPHONE",
@@ -339,7 +339,7 @@
     },
     {
       "category": "CABLES",
-      "ca_eur": 3207.63
+      "ca_eur": 3267.63
     },
     {
       "category": "NETTOYAGE",
@@ -371,7 +371,7 @@
     },
     {
       "category": "CAMERA TELEPHONE",
-      "ca_eur": 205.8
+      "ca_eur": 225.7
     }
   ],
   "top_items": [
@@ -389,8 +389,8 @@
     },
     {
       "name": "VERRE TREMPE IPHONE CLAIR",
-      "ca_eur": 3546.9,
-      "qty": 356.0,
+      "ca_eur": 3556.9,
+      "qty": 357.0,
       "tva_class": "accessoire_reparation"
     },
     {
@@ -412,15 +412,15 @@
       "tva_class": "accessoire_reparation"
     },
     {
-      "name": "ECRAN IPHONE 13 INCELL",
-      "ca_eur": 2472.8,
-      "qty": 26.0,
+      "name": "PALM ORIGINAL CLAIR 1 FACE",
+      "ca_eur": 2541.73,
+      "qty": 129.0,
       "tva_class": "accessoire_reparation"
     },
     {
-      "name": "PALM ORIGINAL CLAIR 1 FACE",
-      "ca_eur": 2441.78,
-      "qty": 124.0,
+      "name": "ECRAN IPHONE 13 INCELL",
+      "ca_eur": 2472.8,
+      "qty": 26.0,
       "tva_class": "accessoire_reparation"
     },
     {
@@ -460,15 +460,15 @@
       "tva_class": "accessoire_reparation"
     },
     {
-      "name": "PALM ORIGINAL 2 FACES",
-      "ca_eur": 1768.65,
-      "qty": 43.0,
+      "name": "VENTOUSE",
+      "ca_eur": 1771.04,
+      "qty": 359.0,
       "tva_class": "accessoire_reparation"
     },
     {
-      "name": "VENTOUSE",
-      "ca_eur": 1766.04,
-      "qty": 358.0,
+      "name": "PALM ORIGINAL 2 FACES",
+      "ca_eur": 1768.65,
+      "qty": 43.0,
       "tva_class": "accessoire_reparation"
     },
     {
@@ -478,15 +478,15 @@
       "tva_class": "accessoire_reparation"
     },
     {
-      "name": "ECRAN IPHONE 15 PRO OLED",
-      "ca_eur": 1602.0,
-      "qty": 8.0,
+      "name": "CHARGEUR COMPLET 20W",
+      "ca_eur": 1625.25,
+      "qty": 64.0,
       "tva_class": "accessoire_reparation"
     },
     {
-      "name": "CHARGEUR COMPLET 20W",
-      "ca_eur": 1600.25,
-      "qty": 63.0,
+      "name": "ECRAN IPHONE 15 PRO OLED",
+      "ca_eur": 1602.0,
+      "qty": 8.0,
       "tva_class": "accessoire_reparation"
     },
     {
