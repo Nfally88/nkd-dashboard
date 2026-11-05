@@ -1,25 +1,25 @@
 {
-  "last_updated": "2026-11-04T07:25:50.031934+00:00",
+  "last_updated": "2026-11-05T07:51:19.934873+00:00",
   "kpis": {
-    "total_ca_eur": 190945.52,
-    "total_transactions": 6505,
-    "avg_ticket_eur": 29.35,
+    "total_ca_eur": 191207.7,
+    "total_transactions": 6516,
+    "avg_ticket_eur": 29.34,
     "total_tva_marge_eur": 898.51,
-    "total_tva_normale_estimated_eur": 29257.09,
-    "total_tva_collectee_eur": 30155.59,
+    "total_tva_normale_estimated_eur": 29300.78,
+    "total_tva_collectee_eur": 30199.29,
     "total_ca_occasion_eur": 15403.0,
     "total_ca_neuf_eur": 0.0,
-    "total_ca_accessoire_reparation_eur": 174389.24,
+    "total_ca_accessoire_reparation_eur": 174651.42,
     "total_ca_libre_eur": 1153.28,
-    "total_ca_tva_normale_eur": 175542.52,
+    "total_ca_tva_normale_eur": 175804.7,
     "tva_match_rate_pct": 0.0,
-    "payments_with_items": 6505,
-    "payments_with_category": 6205,
+    "payments_with_items": 6516,
+    "payments_with_category": 6216,
     "target_annual_eur": 250000,
-    "gap_eur": 59054.48,
-    "progress_pct": 76.4,
-    "current_month_projection_eur": 11776.13,
-    "needed_monthly_eur": 59054.48,
+    "gap_eur": 58792.3,
+    "progress_pct": 76.5,
+    "current_month_projection_eur": 10993.98,
+    "needed_monthly_eur": 58792.3,
     "months_analyzed": 12
   },
   "monthly": [
@@ -201,19 +201,19 @@
     },
     {
       "month": "2026-11",
-      "ca_eur": 1570.15,
-      "transactions": 54,
-      "avg_ticket": 29.08,
+      "ca_eur": 1832.33,
+      "transactions": 65,
+      "avg_ticket": 28.19,
       "ca_occasion_eur": 0.0,
       "ca_neuf_eur": 0.0,
-      "ca_accessoire_reparation_eur": 1570.15,
+      "ca_accessoire_reparation_eur": 1832.33,
       "ca_libre_eur": 0.0,
-      "ca_tva_normale_eur": 1570.15,
+      "ca_tva_normale_eur": 1832.33,
       "tva_marge_real_eur": 0.0,
       "tva_marge_estimated_eur": 0.0,
       "tva_marge_total_eur": 0.0,
-      "tva_normale_estimated_eur": 261.69,
-      "tva_collectee_total_eur": 261.69
+      "tva_normale_estimated_eur": 305.39,
+      "tva_collectee_total_eur": 305.39
     }
   ],
   "by_day": [
@@ -231,9 +231,9 @@
     },
     {
       "day": "Mercredi",
-      "ca_eur": 24927.91,
-      "transactions": 786,
-      "avg_ticket": 31.71
+      "ca_eur": 25190.09,
+      "transactions": 797,
+      "avg_ticket": 31.61
     },
     {
       "day": "Jeudi",
@@ -263,7 +263,7 @@
   "by_method": [
     {
       "method": "CARD",
-      "ca_eur": 158243.16,
+      "ca_eur": 158505.34,
       "pct": 82.9
     },
     {
@@ -275,18 +275,18 @@
   "ticket_distribution": [
     {
       "range": "< 10€",
-      "count": 609,
-      "ca_eur": 3168.31
+      "count": 610,
+      "ca_eur": 3173.31
     },
     {
       "range": "10-25€",
-      "count": 3770,
-      "ca_eur": 58306.52
+      "count": 3775,
+      "ca_eur": 58386.51
     },
     {
       "range": "25-50€",
-      "count": 1415,
-      "ca_eur": 47554.74
+      "count": 1420,
+      "ca_eur": 47731.93
     },
     {
       "range": "50-100€",
@@ -307,19 +307,19 @@
   "by_category": [
     {
       "category": "NKD REPARATION",
-      "ca_eur": 47249.03
+      "ca_eur": 47312.43
     },
     {
       "category": "PALM",
-      "ca_eur": 40372.84
+      "ca_eur": 40420.72
     },
     {
       "category": "NKD ACCESSOIRES",
-      "ca_eur": 28417.49
+      "ca_eur": 28498.29
     },
     {
       "category": "COQUES",
-      "ca_eur": 16036.78
+      "ca_eur": 16097.38
     },
     {
       "category": "Sans catégorie",
@@ -351,7 +351,7 @@
     },
     {
       "category": "CABLES",
-      "ca_eur": 3349.23
+      "ca_eur": 3358.73
     },
     {
       "category": "COQUE SUPPORT",
@@ -399,8 +399,8 @@
     },
     {
       "name": "PALM ANTI ESPION MATE 1 FACE",
-      "ca_eur": 9989.47,
-      "qty": 426.0,
+      "ca_eur": 10010.36,
+      "qty": 427.0,
       "tva_class": "accessoire_reparation"
     },
     {
@@ -429,8 +429,8 @@
     },
     {
       "name": "VERRE TREMPE IPHONE ANTI-ESPION AVCE POSE",
-      "ca_eur": 2709.75,
-      "qty": 181.0,
+      "ca_eur": 2724.75,
+      "qty": 182.0,
       "tva_class": "accessoire_reparation"
     },
     {
@@ -489,8 +489,8 @@
     },
     {
       "name": "VERRE TREMPE IPHONE ANTI-ESPION",
-      "ca_eur": 1731.5,
-      "qty": 169.0,
+      "ca_eur": 1742.9,
+      "qty": 170.0,
       "tva_class": "accessoire_reparation"
     },
     {
