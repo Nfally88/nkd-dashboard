@@ -1,7 +1,703 @@
 {
-  "last_updated": "2026-11-06T07:52:21.922159+00:00",
-  "total_transactions": 6535,
+  "last_updated": "2026-11-07T06:59:22.868240+00:00",
+  "total_transactions": 6557,
   "payments": [
+    {
+      "id": "I5721DeRyKo0HsIKBUCBlwT3qOHZY",
+      "order_id": "3p8DoPuYzmSRhrhTlD9Bk0HPG1cZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T18:58:28.016Z",
+      "amount_cents": 1500,
+      "amount_eur": 15.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 15.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "VERRE TREMPE IPHONE ANTI-ESPION AVCE POSE",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1500,
+          "total_cents": 1500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "oLIyuWeknGeTd9E2AthP2PUCLweZY",
+      "order_id": "b7ExVFmKGM27ZBy6Pz0Ot9zdNuZZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T18:26:20.497Z",
+      "amount_cents": 8900,
+      "amount_eur": 89.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 89.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ECRAN IPHONE 12 / 12 PRO INCELL",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 8900,
+          "total_cents": 8900,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "wb0NGsGvVGyhumMopaxQeLwzNB7YY",
+      "order_id": "ZM9fSseW6J81e7QdA8OmdnH3gxPZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T18:15:01.685Z",
+      "amount_cents": 2990,
+      "amount_eur": 29.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 29.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "FLASH TELEPHONE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 2990,
+          "total_cents": 2990,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "GqwiyOLMSQyvU9TL14adNQTCPJBZY",
+      "order_id": "RO2MLS7cUzprjB68W3RX3Q82Nr6YY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T18:11:08.983Z",
+      "amount_cents": 1290,
+      "amount_eur": 12.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 12.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "CABLE USB C - LIGHTNING",
+          "category": "CABLES",
+          "qty": 1.0,
+          "unit_price_cents": 1290,
+          "total_cents": 1290,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "g5lKzBVjURtrAXNxttnYl3JOWrcZY",
+      "order_id": "xqSzxY4eqVzzewyWo7AQ5aBKJR6YY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T18:05:49.435Z",
+      "amount_cents": 3789,
+      "amount_eur": 37.89,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 37.89,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ANTI ESPION MATE 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 2199,
+          "total_cents": 2199,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "COQUE IPHONE 16 PRO MAX PREMIUM",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "EZCtfr9LGLLDCnFqdAekn4nff3OZY",
+      "order_id": "l6FvlehjRG5tTPymsXSJdNwYLy6YY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T17:54:32.920Z",
+      "amount_cents": 2199,
+      "amount_eur": 21.99,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 21.99,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL MATE 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 2199,
+          "total_cents": 2199,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "euGzc4g3uHvv6sXuOIMIdsWGtKZZY",
+      "order_id": "jZFVKVsdtW5F1HTib9bMvgaqzVWZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T17:49:34.966Z",
+      "amount_cents": 4189,
+      "amount_eur": 41.89,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 41.89,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL MATE 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 2199,
+          "total_cents": 2199,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "COQUE IPHONE 13 PRO SUPPORT",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1990,
+          "total_cents": 1990,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "8din5FYpk7SHWHa5BAE00edg48RZY",
+      "order_id": "tGN9l1k5JKeG5DLe8SUkMc0JSkYZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T17:10:15.229Z",
+      "amount_cents": 2199,
+      "amount_eur": 21.99,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 21.99,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ANTI ESPION MATE 1 FACE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 2199,
+          "total_cents": 2199,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "4RZ34qZ9Jrmy3g6MLe5RVkqBauaZY",
+      "order_id": "3D9vtZm7dBQ3Nyhy8JaIRfm50QfZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T16:58:17.139Z",
+      "amount_cents": 500,
+      "amount_eur": 5.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 5.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL MATE GARANTIE A VIE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 500,
+          "total_cents": 500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "ucpv2Uci3yt8uaJvEaWvtQfjaYEZY",
+      "order_id": "N6dsTG2GOHvO0zZaXksxiQ7WleAZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T16:42:14.442Z",
+      "amount_cents": 2490,
+      "amount_eur": 24.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 24.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL MATE GARANTIE A VIE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 500,
+          "total_cents": 500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "COQUE IPHONE 17 PRO / 18 PRO SUPPORT",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1990,
+          "total_cents": 1990,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "OU3yt6Hps6FIDpCLXp2GsGXt09eZY",
+      "order_id": "Dh3kusSv6dVSn132GrExyCAdYa8YY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T16:23:00.996Z",
+      "amount_cents": 8900,
+      "amount_eur": 89.0,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 89.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "VITRE ARRIERE IPHONE 11 11",
+          "category": "ARRIERE TELPEHONE",
+          "qty": 1.0,
+          "unit_price_cents": 8900,
+          "total_cents": 8900,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "45vergSUwpEqbzto5qV0LZW8hpEZY",
+      "order_id": "LD0ziAizDhh2FNECDLm4onypHdOZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T16:21:19.229Z",
+      "amount_cents": 3990,
+      "amount_eur": 39.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 39.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "BATTERIE GOOGLE PIXEL 6A COMPATIBLE",
+          "category": "REPARATION TELEPHONE",
+          "qty": 1.0,
+          "unit_price_cents": 3990,
+          "total_cents": 3990,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "I3QLipDOX0wQQsvBTRTLWd7EWDSZY",
+      "order_id": "NQASKTWKNRR3mBc6g6VnP4VcLrWZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T16:11:38.155Z",
+      "amount_cents": 3390,
+      "amount_eur": 33.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 33.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "TRANSFERT TELEPHONE",
+          "category": "NKD REPARATION",
+          "qty": 1.0,
+          "unit_price_cents": 2000,
+          "total_cents": 2000,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        },
+        {
+          "name": "COQUE SAMSUNG A17 5G PREMIUM",
+          "category": "COQUE SAMSUNG",
+          "qty": 1.0,
+          "unit_price_cents": 1390,
+          "total_cents": 1390,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "4t1iMJcLB3n54aREGrhsrictEkVZY",
+      "order_id": "pItkth3SlH1EMSefm10EnfZO8pCZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T15:33:20.747Z",
+      "amount_cents": 1590,
+      "amount_eur": 15.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 15.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ECOUTEURS FILAIRE USB-C",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "KsAUBFwjk0iZLeyVt3KV2gM44G8YY",
+      "order_id": "9C1aaaO3BLeGfsBaybQwcMwKc9DZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T15:09:18.461Z",
+      "amount_cents": 700,
+      "amount_eur": 7.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 7.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PROTECTION CAMERA IPHONE VENDU AVEC UN ARTCILE",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 700,
+          "total_cents": 700,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "2YZJsHgUaXwne9vitHYFKAUb5p5YY",
+      "order_id": "tyfbpRZb2NrYOoIcUIe8MU3REeYZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T15:04:35.914Z",
+      "amount_cents": 1590,
+      "amount_eur": 15.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 15.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "COQUE IPHONE 17 PRO / 18 PRO PREMIUM",
+          "category": "COQUES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "Qv6b4OXutEqYNy8s4sZJNhkvZfAZY",
+      "order_id": "Zg5MwIjclb720f3wJgzayO5T0edZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T14:02:48.305Z",
+      "amount_cents": 500,
+      "amount_eur": 5.0,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 5.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "PALM ORIGINAL MATE GARANTIE A VIE",
+          "category": "PALM",
+          "qty": 1.0,
+          "unit_price_cents": 500,
+          "total_cents": 500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "am9WhJULZqGI0JpcFWAqziFIeVFZY",
+      "order_id": "7D6aLRmwgb4sRfb9pyfLdG8MBV8YY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T13:10:51.367Z",
+      "amount_cents": 1500,
+      "amount_eur": 15.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 15.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "VERRE TREMPE IPHONE ANTI-ESPION AVCE POSE",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1500,
+          "total_cents": 1500,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "qYCsSsNtrDPPAsKHAztG0oFOMhMZY",
+      "order_id": "1EsSrbEhIIHxGksNM1e9ZVFJPxeZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T12:12:39.506Z",
+      "amount_cents": 1200,
+      "amount_eur": 12.0,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 12.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "CORDON TELEPHONE LONG LONG 02",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1200,
+          "total_cents": 1200,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "U1Swv1GhlM22zp0W7eMe4ZUT65fZY",
+      "order_id": "d4a1PgroOKnLs5H58kCbw5M2ezDZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T12:11:25.220Z",
+      "amount_cents": 590,
+      "amount_eur": 5.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 5.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ECOUTEURS FILAIRE USB-C",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "YnqI9sFnwKuDrs7B4TL3J8XFffLZY",
+      "order_id": "d4a1PgroOKnLs5H58kCbw5M2ezDZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T12:11:04.550Z",
+      "amount_cents": 1000,
+      "amount_eur": 10.0,
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 10.0,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "ECOUTEURS FILAIRE USB-C",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1590,
+          "total_cents": 1590,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
+    {
+      "id": "AnMCxLdL5kNlELPjBAoltBxwzZGZY",
+      "order_id": "LT49MuQt0Ki08j2rR5T0jDECnrWZY",
+      "date": "2026-11-06",
+      "datetime": "2026-11-06T11:50:25.975Z",
+      "amount_cents": 1990,
+      "amount_eur": 19.9,
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "location_id": "LRJ3WYA1SQ9TS",
+      "cost_cents": 0.0,
+      "cost_eur": 0.0,
+      "split_eur": {
+        "occasion": 0.0,
+        "neuf": 0.0,
+        "accessoire_reparation": 19.9,
+        "libre": 0.0
+      },
+      "items": [
+        {
+          "name": "POWER BANK TELEPHONE 5000 MAH",
+          "category": "NKD ACCESSOIRES",
+          "qty": 1.0,
+          "unit_price_cents": 1990,
+          "total_cents": 1990,
+          "unit_cost_cents": 0,
+          "tva_class": "accessoire_reparation"
+        }
+      ]
+    },
     {
       "id": "g5Xzd0GpBqdtcLOYvnnMqcX6WiDZY",
       "order_id": "ftSIJehO0uPVSBLLHpE8u4lxoMVZY",
@@ -143,7 +839,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -2297,7 +2993,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -2684,7 +3380,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE SUPPORT 001",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1590,
           "total_cents": 1590,
@@ -3278,7 +3974,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -3953,7 +4649,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -4322,7 +5018,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -4382,7 +5078,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -5657,7 +6353,7 @@
       "items": [
         {
           "name": "ECRAN HONOR MAGIC 8 LITE ",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 10900,
           "total_cents": 10900,
@@ -6212,7 +6908,7 @@
       "items": [
         {
           "name": "VITRE ARRIERE SAMSUNG A55 ",
-          "category": "",
+          "category": "ARRIERE TELPEHONE",
           "qty": 1.0,
           "unit_price_cents": 2900,
           "total_cents": 2900,
@@ -6629,7 +7325,7 @@
       "items": [
         {
           "name": "ECRAN SAMSUNG A07 4G",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 6900,
           "total_cents": 6900,
@@ -6689,7 +7385,7 @@
       "items": [
         {
           "name": "ECRAN SAMSUNG A07 4G",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 5900,
           "total_cents": 5900,
@@ -6869,7 +7565,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE SUPPORT 001",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1590,
           "total_cents": 1590,
@@ -6968,7 +7664,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE COMPLET",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -8003,7 +8699,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE SUPPORT 001",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1590,
           "total_cents": 1590,
@@ -8072,7 +8768,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -8900,7 +9596,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -9140,7 +9836,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -9170,7 +9866,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -9842,7 +10538,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -9872,7 +10568,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE SUPPORT 001",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -9932,7 +10628,7 @@
       "items": [
         {
           "name": "ECRAN POCO X6 ",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 6930,
           "total_cents": 6930,
@@ -11054,7 +11750,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -11339,7 +12035,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -11519,7 +12215,7 @@
       "items": [
         {
           "name": "HAUT-PARLEUR (BAS) SAMSUNG A05",
-          "category": "",
+          "category": "MICRO - HAUT PARLEUR - ECOUTEUR INTERNE TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 2900,
           "total_cents": 2900,
@@ -14498,7 +15194,7 @@
       "items": [
         {
           "name": "PLAYSTATION PS5 PS4655 TVA sur la marge (art. 297 A du CGI)",
-          "category": "",
+          "category": "GAMING",
           "qty": 1.0,
           "unit_price_cents": 38900,
           "total_cents": 38900,
@@ -15938,7 +16634,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -16136,7 +16832,7 @@
       "items": [
         {
           "name": "VITRE ARRIÈRE SAMSUNG S23 FE",
-          "category": "",
+          "category": "ARRIERE TELPEHONE",
           "qty": 1.0,
           "unit_price_cents": 7900,
           "total_cents": 7900,
@@ -16961,7 +17657,7 @@
       "items": [
         {
           "name": "NAPPE ECRAN SAMSUNG A34 4G ",
-          "category": "",
+          "category": "MICRO - HAUT PARLEUR - ECOUTEUR INTERNE TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 3900,
           "total_cents": 3900,
@@ -17498,7 +18194,7 @@
         },
         {
           "name": "SUPPORT VOITURE SUPPORT 002",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -18125,7 +18821,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -18434,7 +19130,7 @@
       "items": [
         {
           "name": "NETTOYAGE INTERNE TOUT SMARTPHONE",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 3900,
           "total_cents": 3900,
@@ -20837,7 +21533,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -21056,7 +21752,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -21536,7 +22232,7 @@
       "items": [
         {
           "name": "ECRAN ORIGINAL REALME NOTE 60 ",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 5900,
           "total_cents": 5900,
@@ -21545,7 +22241,7 @@
         },
         {
           "name": "ECRAN ZTE BLADE A35",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 2900,
           "total_cents": 2900,
@@ -23147,7 +23843,7 @@
       "items": [
         {
           "name": "ECRAN GOOGLE PIXEL 7A",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 22900,
           "total_cents": 22900,
@@ -24980,7 +25676,7 @@
       "items": [
         {
           "name": "ECRAN NINTENDO SWITCH LITE ",
-          "category": "",
+          "category": "NKD REPARATION",
           "qty": 1.0,
           "unit_price_cents": 3900,
           "total_cents": 3900,
@@ -25040,7 +25736,7 @@
       "items": [
         {
           "name": "ECRAN IPAD A1822",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 7900,
           "total_cents": 7900,
@@ -25049,7 +25745,7 @@
         },
         {
           "name": "VITRE TACTILE IPAD A 1822",
-          "category": "",
+          "category": "NKD REPARATION",
           "qty": 1.0,
           "unit_price_cents": 3400,
           "total_cents": 3400,
@@ -25673,7 +26369,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE SUPPORT 001",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1590,
           "total_cents": 1590,
@@ -26528,7 +27224,7 @@
         },
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -27035,7 +27731,7 @@
       "items": [
         {
           "name": "connecteur de charge a05s",
-          "category": "",
+          "category": "CONNECTEUR CHARGE TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 3000,
           "total_cents": 3000,
@@ -27044,7 +27740,7 @@
         },
         {
           "name": "SUPPORT VOITURE SUPPORT 001",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1590,
           "total_cents": 1590,
@@ -27233,7 +27929,7 @@
       "items": [
         {
           "name": "BATTERIE IPAD A1822",
-          "category": "",
+          "category": "NKD REPARATION",
           "qty": 1.0,
           "unit_price_cents": 4000,
           "total_cents": 4000,
@@ -27962,7 +28658,7 @@
       "items": [
         {
           "name": "ECRAN RECONDITIONNE HONOR 90 SMART",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 4900,
           "total_cents": 4900,
@@ -28625,7 +29321,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE CONNECTEUR",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -28685,7 +29381,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE COMPLET",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -31409,7 +32105,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -32465,7 +33161,7 @@
         },
         {
           "name": "SUPPORT VOITURE SUPPORT 002",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -32555,7 +33251,7 @@
       "items": [
         {
           "name": "OPPO A98 5G 256G",
-          "category": "",
+          "category": "TELEPHONE OCCASION",
           "qty": 1.0,
           "unit_price_cents": 17900,
           "total_cents": 17900,
@@ -32585,7 +33281,7 @@
       "items": [
         {
           "name": "OPPO A98 5G 256G",
-          "category": "",
+          "category": "TELEPHONE OCCASION",
           "qty": 1.0,
           "unit_price_cents": 17900,
           "total_cents": 17900,
@@ -36869,7 +37565,7 @@
       "items": [
         {
           "name": "ECRAN REDMI NOTE 9",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 4633,
           "total_cents": 4633,
@@ -36998,7 +37694,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -37598,7 +38294,7 @@
       "items": [
         {
           "name": "ECRAN SAMSUNG S23 ULTRA ",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 28900,
           "total_cents": 28900,
@@ -37607,7 +38303,7 @@
         },
         {
           "name": "VITRE ARRIERE SAMSUNG S23 ULTRA ",
-          "category": "",
+          "category": "ARRIERE TELPEHONE",
           "qty": 1.0,
           "unit_price_cents": 1100,
           "total_cents": 1100,
@@ -40028,7 +40724,7 @@
         },
         {
           "name": "SUPPORT VOITURE SUPPORT 002",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -42251,7 +42947,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE COMPLET",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -42470,7 +43166,7 @@
       "items": [
         {
           "name": "CONNECTEUR DE CHARGE IPHONE SE 2022",
-          "category": "",
+          "category": "CONNECTEUR CHARGE TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 4900,
           "total_cents": 4900,
@@ -43322,7 +44018,7 @@
       "items": [
         {
           "name": "CONNECTEUR DE CHARGE LENOVO M10 PLUS 2GEN",
-          "category": "",
+          "category": "CONNECTEUR CHARGE TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 4410,
           "total_cents": 4410,
@@ -43478,7 +44174,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -44135,7 +44831,7 @@
       "items": [
         {
           "name": "CONNECTEUR DE CHARGE SAMSUNG A32 4G",
-          "category": "",
+          "category": "CONNECTEUR CHARGE TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 2900,
           "total_cents": 2900,
@@ -45443,7 +46139,7 @@
         },
         {
           "name": "BATTERIE SAMSUNG A35 5G",
-          "category": "",
+          "category": "BATTERIE TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 6900,
           "total_cents": 6900,
@@ -45473,7 +46169,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE COMPLET",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1500,
           "total_cents": 1500,
@@ -50684,7 +51380,7 @@
         },
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1590,
           "total_cents": 1590,
@@ -51311,7 +52007,7 @@
       "items": [
         {
           "name": "CONNECTEUR DE CHARGE IPHONE SE 2022",
-          "category": "",
+          "category": "CONNECTEUR CHARGE TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 3430,
           "total_cents": 3258,
@@ -52091,7 +52787,7 @@
         },
         {
           "name": "MANETTE PS5",
-          "category": "",
+          "category": "NKD REPARATION",
           "qty": 2.0,
           "unit_price_cents": 3000,
           "total_cents": 6000,
@@ -52130,7 +52826,7 @@
         },
         {
           "name": "MANETTE PS5",
-          "category": "",
+          "category": "NKD REPARATION",
           "qty": 2.0,
           "unit_price_cents": 3000,
           "total_cents": 6000,
@@ -52925,7 +53621,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -53264,7 +53960,7 @@
       "items": [
         {
           "name": "ECRAN ORIGINAL REALME NOTE 60 ",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 7630,
           "total_cents": 7630,
@@ -55442,7 +56138,7 @@
       "items": [
         {
           "name": "ECRAN ORIGINAL ONE PLUS NORD 2 5G",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 15400,
           "total_cents": 15400,
@@ -55472,7 +56168,7 @@
       "items": [
         {
           "name": "ECRAN ORIGINAL ONE PLUS NORD 2 5G",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 15400,
           "total_cents": 15400,
@@ -55931,7 +56627,7 @@
       "items": [
         {
           "name": "ECRAN HONOR 90 ",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 6930,
           "total_cents": 6930,
@@ -56081,7 +56777,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -56441,7 +57137,7 @@
       "items": [
         {
           "name": "ECOUTEUR BAS SAMSUNG A56 5G",
-          "category": "",
+          "category": "NKD REPARATION",
           "qty": 1.0,
           "unit_price_cents": 3900,
           "total_cents": 3900,
@@ -56621,7 +57317,7 @@
       "items": [
         {
           "name": "ECRAN ORIGINAL AVEC CHASSIS SAMSUNG A56 5G",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 10400,
           "total_cents": 10400,
@@ -57746,7 +58442,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -59426,7 +60122,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -59456,7 +60152,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -60434,7 +61130,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -60632,7 +61328,7 @@
       "items": [
         {
           "name": "BATTERIE XIAOMI 11 LITE 5G",
-          "category": "",
+          "category": "BATTERIE TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 5900,
           "total_cents": 5900,
@@ -60761,7 +61457,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE COMPLET",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -61526,7 +62222,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -61715,7 +62411,7 @@
         },
         {
           "name": "ECRAN SAMSUNG A26 5G",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 5900,
           "total_cents": 5900,
@@ -62945,7 +63641,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 500,
           "total_cents": 500,
@@ -63479,7 +64175,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -64076,7 +64772,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -64601,7 +65297,7 @@
       "items": [
         {
           "name": "BATTERIE SAMSUNG A23 5G",
-          "category": "",
+          "category": "BATTERIE TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 2990,
           "total_cents": 2990,
@@ -66203,7 +66899,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1490,
           "total_cents": 1490,
@@ -66959,7 +67655,7 @@
       "items": [
         {
           "name": "ECRAN SAMSUNG Z FOLD 3 ",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 48900,
           "total_cents": 48900,
@@ -67892,7 +68588,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -68321,7 +69017,7 @@
         },
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -69065,7 +69761,7 @@
         },
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -70484,7 +71180,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -70544,7 +71240,7 @@
       "items": [
         {
           "name": "ECRAN SAMSUNG A11",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 4900,
           "total_cents": 4900,
@@ -70604,7 +71300,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1200,
           "total_cents": 1200,
@@ -72035,7 +72731,7 @@
       "items": [
         {
           "name": "VITRE TACTILE IPAD 7 A2197",
-          "category": "",
+          "category": "NKD REPARATION",
           "qty": 1.0,
           "unit_price_cents": 6900,
           "total_cents": 6555,
@@ -73757,7 +74453,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -74075,7 +74771,7 @@
       "items": [
         {
           "name": "BATTERIE SAMSUNG Z FLIP 7",
-          "category": "",
+          "category": "BATTERIE TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 6900,
           "total_cents": 6900,
@@ -74135,7 +74831,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -75431,7 +76127,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -76412,7 +77108,7 @@
       "items": [
         {
           "name": "ECRAN MOTOROLA  E13",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 6900,
           "total_cents": 6900,
@@ -77309,7 +78005,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -77459,7 +78155,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1590,
           "total_cents": 1590,
@@ -78740,7 +79436,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -81542,7 +82238,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1590,
           "total_cents": 1590,
@@ -82760,7 +83456,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -83636,7 +84332,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1590,
           "total_cents": 1590,
@@ -83696,7 +84392,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -83783,7 +84479,7 @@
         },
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 500,
           "total_cents": 500,
@@ -83873,7 +84569,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -83981,7 +84677,7 @@
         },
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1590,
           "total_cents": 1590,
@@ -84050,7 +84746,7 @@
         },
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -84089,7 +84785,7 @@
         },
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -84398,7 +85094,7 @@
       "items": [
         {
           "name": "ECRAN GOOGLE PIXEL 7A",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 12900,
           "total_cents": 12900,
@@ -84428,7 +85124,7 @@
       "items": [
         {
           "name": "ECRAN GOOGLE PIXEL 7A",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 12900,
           "total_cents": 12900,
@@ -85757,7 +86453,7 @@
       "items": [
         {
           "name": "NETTOYAGE PS5  COMPLET INTERNE",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 6900,
           "total_cents": 6900,
@@ -86246,7 +86942,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -88028,7 +88724,7 @@
         },
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1590,
           "total_cents": 1590,
@@ -88634,7 +89330,7 @@
         },
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -89999,7 +90695,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -90188,7 +90884,7 @@
       "items": [
         {
           "name": "BATTERIE GOOGLE PIXEL 6A",
-          "category": "",
+          "category": "REPARATION TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -90257,7 +90953,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1590,
           "total_cents": 1590,
@@ -90467,7 +91163,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1791,
@@ -92972,7 +93668,7 @@
         },
         {
           "name": "PHONE POUCH",
-          "category": "",
+          "category": "NKD REPARATION",
           "qty": 1.0,
           "unit_price_cents": 1500,
           "total_cents": 1500,
@@ -94601,7 +95297,7 @@
       "items": [
         {
           "name": "ECRAN ONE PLUS NORD N20 SE",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 7900,
           "total_cents": 7900,
@@ -95567,7 +96263,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -96272,7 +96968,7 @@
       "items": [
         {
           "name": "NETTOYAGE PS4  COMPLET INTERNE",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 4990,
           "total_cents": 4990,
@@ -96758,7 +97454,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -97076,7 +97772,7 @@
         },
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -99362,7 +100058,7 @@
       "items": [
         {
           "name": "VITRE TACTILE IPAD 4 A1458",
-          "category": "",
+          "category": "NKD REPARATION",
           "qty": 1.0,
           "unit_price_cents": 5000,
           "total_cents": 5000,
@@ -99938,7 +100634,7 @@
       "items": [
         {
           "name": "ECRAN SAMSUNG A14 5G",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 9900,
           "total_cents": 9900,
@@ -100277,7 +100973,7 @@
       "items": [
         {
           "name": "PHONE POUCH",
-          "category": "",
+          "category": "NKD REPARATION",
           "qty": 1.0,
           "unit_price_cents": 1500,
           "total_cents": 1500,
@@ -101483,7 +102179,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -101642,7 +102338,7 @@
         },
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -101921,7 +102617,7 @@
       "items": [
         {
           "name": "VITRE TACTILE IPAD 7 A2197",
-          "category": "",
+          "category": "NKD REPARATION",
           "qty": 1.0,
           "unit_price_cents": 6900,
           "total_cents": 6900,
@@ -102335,7 +103031,7 @@
         },
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -102872,7 +103568,7 @@
       "items": [
         {
           "name": "LECTURE CD PS2",
-          "category": "",
+          "category": "NKD REPARATION",
           "qty": 1.0,
           "unit_price_cents": 4900,
           "total_cents": 4900,
@@ -104711,7 +105407,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -105737,7 +106433,7 @@
         },
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -106640,7 +107336,7 @@
         },
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -108239,7 +108935,7 @@
       "items": [
         {
           "name": "BATTERIE SAMSUNG A13 ",
-          "category": "",
+          "category": "BATTERIE TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 6900,
           "total_cents": 6900,
@@ -108608,7 +109304,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -108986,7 +109682,7 @@
       "items": [
         {
           "name": "ECRAN SAMSUNG A14 5G",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 5000,
           "total_cents": 5000,
@@ -109907,7 +110603,7 @@
       "items": [
         {
           "name": "PHONE POUCH",
-          "category": "",
+          "category": "NKD REPARATION",
           "qty": 1.0,
           "unit_price_cents": 1500,
           "total_cents": 1500,
@@ -110930,7 +111626,7 @@
         },
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -111833,7 +112529,7 @@
       "items": [
         {
           "name": "ECRAN OPPO A54 5G",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 8000,
           "total_cents": 8000,
@@ -112232,7 +112928,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -112727,7 +113423,7 @@
       "items": [
         {
           "name": "SUPPORT VOITURE ",
-          "category": "",
+          "category": "NKD ACCESSOIRES",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -114287,7 +114983,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -115634,7 +116330,7 @@
         },
         {
           "name": "NETTOYAGE INTERNE TOUT SMARTPHONE",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 2900,
           "total_cents": 2900,
@@ -117743,7 +118439,7 @@
         },
         {
           "name": "PHONE POUCH",
-          "category": "",
+          "category": "NKD REPARATION",
           "qty": 3.0,
           "unit_price_cents": 1500,
           "total_cents": 4500,
@@ -118103,7 +118799,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -123194,7 +123890,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE COMPLET",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -124973,7 +125669,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -125669,7 +126365,7 @@
       "items": [
         {
           "name": "ECRAN SAMSUNG S23 ULTRA ",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 28900,
           "total_cents": 28900,
@@ -125828,7 +126524,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -126365,7 +127061,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -127958,7 +128654,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -128927,7 +129623,7 @@
         },
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -133202,7 +133898,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -133322,7 +134018,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 900,
@@ -134720,7 +135416,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 500,
           "total_cents": 500,
@@ -137987,7 +138683,7 @@
         },
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 500,
           "total_cents": 500,
@@ -142376,7 +143072,7 @@
         },
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 990,
           "total_cents": 990,
@@ -144902,7 +145598,7 @@
       "items": [
         {
           "name": "ECRAN SAMSUNG A22 5G",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 6900,
           "total_cents": 6900,
@@ -144932,7 +145628,7 @@
       "items": [
         {
           "name": "MANETTE PS5",
-          "category": "",
+          "category": "NKD REPARATION",
           "qty": 1.0,
           "unit_price_cents": 4000,
           "total_cents": 4000,
@@ -145190,7 +145886,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 900,
           "total_cents": 900,
@@ -145415,7 +146111,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -145892,7 +146588,7 @@
       "items": [
         {
           "name": "ECRAN MOTOROLA G15 ",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 4900,
           "total_cents": 4900,
@@ -145922,7 +146618,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE COMPLET",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -146966,7 +147662,7 @@
       "items": [
         {
           "name": "NETTOYAGE INTERNE TOUT SMARTPHONE",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 2990,
           "total_cents": 2990,
@@ -148736,7 +149432,7 @@
       "items": [
         {
           "name": "ECRAN SAMSUNG S23 ULTRA ",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 18900,
           "total_cents": 18900,
@@ -148796,7 +149492,7 @@
       "items": [
         {
           "name": "ECRAN ORIGINAL AVEC CHASSIS SAMSUNG A56 5G",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 14900,
           "total_cents": 13410,
@@ -151571,7 +152267,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE COMPLET",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 2900,
           "total_cents": 2900,
@@ -152066,7 +152762,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE COMPLET",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -152126,7 +152822,7 @@
       "items": [
         {
           "name": "ECRAN OLED REDMI 9T",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 5900,
           "total_cents": 5900,
@@ -154022,7 +154718,7 @@
       "items": [
         {
           "name": "ECRAN SAMSUNG A71 ",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 11900,
           "total_cents": 11900,
@@ -156599,7 +157295,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 990,
           "total_cents": 990,
@@ -156917,7 +157613,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -159413,7 +160109,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -159473,7 +160169,7 @@
       "items": [
         {
           "name": "NETTOYAGE INTERNE MICRO HP",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -160334,7 +161030,7 @@
       "items": [
         {
           "name": "NETTOYAGE INTERNE MICRO HP",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1500,
           "total_cents": 1500,
@@ -160772,7 +161468,7 @@
         },
         {
           "name": "NETTOYAGE INTERNE MICRO HP",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -161000,7 +161696,7 @@
       "items": [
         {
           "name": "NETTOYAGE INTERNE MICRO HP",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -161507,7 +162203,7 @@
       "items": [
         {
           "name": "NETTOYAGE INTERNE MICRO HP",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -162227,7 +162923,7 @@
       "items": [
         {
           "name": "NETTOYAGE INTERNE MICRO HP",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 2490,
           "total_cents": 2490,
@@ -162752,7 +163448,7 @@
       "items": [
         {
           "name": "HAUT-PARLEUR ( HAUT) SAMSUNG A32 4G",
-          "category": "",
+          "category": "MICRO - HAUT PARLEUR - ECOUTEUR INTERNE TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 2490,
           "total_cents": 2490,
@@ -163388,7 +164084,7 @@
       "items": [
         {
           "name": "ECRAN ONE PLUS 7",
-          "category": "",
+          "category": "ECRAN TELEPHONE",
           "qty": 1.0,
           "unit_price_cents": 8900,
           "total_cents": 8900,
@@ -164942,7 +165638,7 @@
         },
         {
           "name": "NETTOYAGE INTERNE MICRO HP",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 900,
           "total_cents": 900,
@@ -165569,7 +166265,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -167759,7 +168455,7 @@
         },
         {
           "name": "NETTOYAGE INTERNE MICRO HP",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -168851,7 +169547,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -169061,7 +169757,7 @@
       "items": [
         {
           "name": "NETTOYAGE INTERNE MICRO HP",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -169310,7 +170006,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -172532,7 +173228,7 @@
       "items": [
         {
           "name": "NETTOYAGE INTERNE TOUT SMARTPHONE",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -174629,7 +175325,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -178430,7 +179126,7 @@
         },
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -179810,7 +180506,7 @@
       "items": [
         {
           "name": "NETTOYAGE INTERNE MICRO HP",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -181292,7 +181988,7 @@
       "items": [
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1300,
           "total_cents": 1300,
@@ -182147,7 +182843,7 @@
       "items": [
         {
           "name": "NETTOYAGE INTERNE MICRO HP",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -183695,7 +184391,7 @@
         },
         {
           "name": "NETTOYAGE INTERNE MICRO HP",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
@@ -187544,7 +188240,7 @@
         },
         {
           "name": "NETTOYAGE EXTERNE MICRO",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1000,
           "total_cents": 1000,
@@ -206834,7 +207530,7 @@
       "items": [
         {
           "name": "NETTOYAGE INTERNE MICRO HP",
-          "category": "NETTOYAGE",
+          "category": "MAINTENANCE",
           "qty": 1.0,
           "unit_price_cents": 1990,
           "total_cents": 1990,
