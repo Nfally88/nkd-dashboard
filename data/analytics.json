@@ -1,25 +1,25 @@
 {
-  "last_updated": "2026-11-13T07:44:59.339149+00:00",
+  "last_updated": "2026-11-14T07:30:55.450400+00:00",
   "kpis": {
-    "total_ca_eur": 195891.64,
-    "total_transactions": 6693,
-    "avg_ticket_eur": 29.27,
+    "total_ca_eur": 196187.63,
+    "total_transactions": 6708,
+    "avg_ticket_eur": 29.25,
     "total_tva_marge_eur": 898.51,
-    "total_tva_normale_estimated_eur": 30081.44,
-    "total_tva_collectee_eur": 30979.95,
+    "total_tva_normale_estimated_eur": 30130.77,
+    "total_tva_collectee_eur": 31029.28,
     "total_ca_occasion_eur": 15403.0,
     "total_ca_neuf_eur": 0.0,
-    "total_ca_accessoire_reparation_eur": 179335.36,
+    "total_ca_accessoire_reparation_eur": 179631.35,
     "total_ca_libre_eur": 1153.28,
-    "total_ca_tva_normale_eur": 180488.64,
+    "total_ca_tva_normale_eur": 180784.63,
     "tva_match_rate_pct": 0.0,
-    "payments_with_items": 6693,
-    "payments_with_category": 6459,
+    "payments_with_items": 6708,
+    "payments_with_category": 6474,
     "target_annual_eur": 250000,
-    "gap_eur": 54108.36,
-    "progress_pct": 78.4,
-    "current_month_projection_eur": 15037.55,
-    "needed_monthly_eur": 54108.36,
+    "gap_eur": 53812.37,
+    "progress_pct": 78.5,
+    "current_month_projection_eur": 14597.7,
+    "needed_monthly_eur": 53812.37,
     "months_analyzed": 12
   },
   "monthly": [
@@ -201,19 +201,19 @@
     },
     {
       "month": "2026-11",
-      "ca_eur": 6516.27,
-      "transactions": 242,
-      "avg_ticket": 26.93,
+      "ca_eur": 6812.26,
+      "transactions": 257,
+      "avg_ticket": 26.51,
       "ca_occasion_eur": 0.0,
       "ca_neuf_eur": 0.0,
-      "ca_accessoire_reparation_eur": 6516.27,
+      "ca_accessoire_reparation_eur": 6812.26,
       "ca_libre_eur": 0.0,
-      "ca_tva_normale_eur": 6516.27,
+      "ca_tva_normale_eur": 6812.26,
       "tva_marge_real_eur": 0.0,
       "tva_marge_estimated_eur": 0.0,
       "tva_marge_total_eur": 0.0,
-      "tva_normale_estimated_eur": 1086.04,
-      "tva_collectee_total_eur": 1086.04
+      "tva_normale_estimated_eur": 1135.38,
+      "tva_collectee_total_eur": 1135.38
     }
   ],
   "by_day": [
@@ -243,9 +243,9 @@
     },
     {
       "day": "Vendredi",
-      "ca_eur": 23471.08,
-      "transactions": 862,
-      "avg_ticket": 27.23
+      "ca_eur": 23767.07,
+      "transactions": 877,
+      "avg_ticket": 27.1
     },
     {
       "day": "Samedi",
@@ -263,7 +263,7 @@
   "by_method": [
     {
       "method": "CARD",
-      "ca_eur": 162366.29,
+      "ca_eur": 162662.28,
       "pct": 82.9
     },
     {
@@ -280,13 +280,13 @@
     },
     {
       "range": "10-25€",
-      "count": 3884,
-      "ca_eur": 60124.97
+      "count": 3894,
+      "ca_eur": 60277.27
     },
     {
       "range": "25-50€",
-      "count": 1454,
-      "ca_eur": 48911.47
+      "count": 1459,
+      "ca_eur": 49055.16
     },
     {
       "range": "50-100€",
@@ -307,19 +307,19 @@
   "by_category": [
     {
       "category": "NKD REPARATION",
-      "ca_eur": 49395.48
+      "ca_eur": 49435.38
     },
     {
       "category": "PALM",
-      "ca_eur": 41294.53
+      "ca_eur": 41314.52
     },
     {
       "category": "NKD ACCESSOIRES",
-      "ca_eur": 29841.8
+      "ca_eur": 29968.6
     },
     {
       "category": "COQUES",
-      "ca_eur": 16985.17
+      "ca_eur": 17078.57
     },
     {
       "category": "TELEPHONE OCCASION",
@@ -367,7 +367,7 @@
     },
     {
       "category": "COQUE SAMSUNG",
-      "ca_eur": 1099.94
+      "ca_eur": 1115.84
     },
     {
       "category": "REPARATION TELEPHONE",
@@ -413,8 +413,8 @@
     },
     {
       "name": "VERRE TREMPE IPHONE CLAIR AVEC POSE",
-      "ca_eur": 3728.0,
-      "qty": 250.0,
+      "ca_eur": 3773.0,
+      "qty": 253.0,
       "tva_class": "accessoire_reparation"
     },
     {
@@ -431,8 +431,8 @@
     },
     {
       "name": "PALM ORIGINAL CLAIR 1 FACE",
-      "ca_eur": 3037.48,
-      "qty": 154.0,
+      "ca_eur": 3057.47,
+      "qty": 155.0,
       "tva_class": "accessoire_reparation"
     },
     {
@@ -490,6 +490,12 @@
       "tva_class": "accessoire_reparation"
     },
     {
+      "name": "CHARGEUR COMPLET 20W",
+      "ca_eur": 1775.25,
+      "qty": 70.0,
+      "tva_class": "accessoire_reparation"
+    },
+    {
       "name": "PALM ORIGINAL 2 FACES",
       "ca_eur": 1768.65,
       "qty": 43.0,
@@ -499,12 +505,6 @@
       "name": "VERRE TREMPE IPHONE ANTI-ESPION",
       "ca_eur": 1754.9,
       "qty": 171.0,
-      "tva_class": "accessoire_reparation"
-    },
-    {
-      "name": "CHARGEUR COMPLET 20W",
-      "ca_eur": 1725.25,
-      "qty": 68.0,
       "tva_class": "accessoire_reparation"
     },
     {
