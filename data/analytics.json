@@ -1,25 +1,25 @@
 {
-  "last_updated": "2026-11-23T08:50:24.929377+00:00",
+  "last_updated": "2026-11-24T10:48:46.733760+00:00",
   "kpis": {
-    "total_ca_eur": 201057.59,
-    "total_transactions": 6881,
-    "avg_ticket_eur": 29.22,
+    "total_ca_eur": 201912.39,
+    "total_transactions": 6900,
+    "avg_ticket_eur": 29.26,
     "total_tva_marge_eur": 898.51,
-    "total_tva_normale_estimated_eur": 30942.43,
-    "total_tva_collectee_eur": 31840.94,
+    "total_tva_normale_estimated_eur": 31084.9,
+    "total_tva_collectee_eur": 31983.41,
     "total_ca_occasion_eur": 15403.0,
     "total_ca_neuf_eur": 0.0,
-    "total_ca_accessoire_reparation_eur": 184501.31,
+    "total_ca_accessoire_reparation_eur": 185356.11,
     "total_ca_libre_eur": 1153.28,
-    "total_ca_tva_normale_eur": 185654.59,
+    "total_ca_tva_normale_eur": 186509.39,
     "tva_match_rate_pct": 0.0,
-    "payments_with_items": 6881,
-    "payments_with_category": 6647,
+    "payments_with_items": 6900,
+    "payments_with_category": 6666,
     "target_annual_eur": 250000,
-    "gap_eur": 48942.41,
-    "progress_pct": 80.4,
-    "current_month_projection_eur": 15237.68,
-    "needed_monthly_eur": 48942.41,
+    "gap_eur": 48087.61,
+    "progress_pct": 80.8,
+    "current_month_projection_eur": 15671.27,
+    "needed_monthly_eur": 48087.61,
     "months_analyzed": 12
   },
   "monthly": [
@@ -201,32 +201,32 @@
     },
     {
       "month": "2026-11",
-      "ca_eur": 11682.22,
-      "transactions": 430,
-      "avg_ticket": 27.17,
+      "ca_eur": 12537.02,
+      "transactions": 449,
+      "avg_ticket": 27.92,
       "ca_occasion_eur": 0.0,
       "ca_neuf_eur": 0.0,
-      "ca_accessoire_reparation_eur": 11682.22,
+      "ca_accessoire_reparation_eur": 12537.02,
       "ca_libre_eur": 0.0,
-      "ca_tva_normale_eur": 11682.22,
+      "ca_tva_normale_eur": 12537.02,
       "tva_marge_real_eur": 0.0,
       "tva_marge_estimated_eur": 0.0,
       "tva_marge_total_eur": 0.0,
-      "tva_normale_estimated_eur": 1947.04,
-      "tva_collectee_total_eur": 1947.04
+      "tva_normale_estimated_eur": 2089.5,
+      "tva_collectee_total_eur": 2089.5
     }
   ],
   "by_day": [
     {
       "day": "Lundi",
-      "ca_eur": 24109.12,
-      "transactions": 793,
-      "avg_ticket": 30.4
+      "ca_eur": 24935.52,
+      "transactions": 811,
+      "avg_ticket": 30.75
     },
     {
       "day": "Mardi",
-      "ca_eur": 22761.86,
-      "transactions": 797,
+      "ca_eur": 22790.26,
+      "transactions": 798,
       "avg_ticket": 28.56
     },
     {
@@ -263,7 +263,7 @@
   "by_method": [
     {
       "method": "CARD",
-      "ca_eur": 165978.55,
+      "ca_eur": 166833.35,
       "pct": 82.6
     },
     {
@@ -280,46 +280,46 @@
     },
     {
       "range": "10-25€",
-      "count": 4003,
-      "ca_eur": 61992.87
+      "count": 4015,
+      "ca_eur": 62170.55
     },
     {
       "range": "25-50€",
-      "count": 1489,
-      "ca_eur": 50107.37
+      "count": 1492,
+      "ca_eur": 50210.65
     },
     {
       "range": "50-100€",
-      "count": 460,
-      "ca_eur": 34206.69
+      "count": 462,
+      "ca_eur": 34351.48
     },
     {
       "range": "100-200€",
-      "count": 224,
-      "ca_eur": 32099.71
+      "count": 225,
+      "ca_eur": 32269.76
     },
     {
       "range": "200€+",
-      "count": 61,
-      "ca_eur": 19302.93
+      "count": 62,
+      "ca_eur": 19561.93
     }
   ],
   "by_category": [
     {
       "category": "NKD REPARATION",
-      "ca_eur": 51135.49
+      "ca_eur": 51724.94
     },
     {
       "category": "PALM",
-      "ca_eur": 42316.71
+      "ca_eur": 42449.66
     },
     {
       "category": "NKD ACCESSOIRES",
-      "ca_eur": 30765.93
+      "ca_eur": 30792.93
     },
     {
       "category": "COQUES",
-      "ca_eur": 17729.9
+      "ca_eur": 17812.4
     },
     {
       "category": "TELEPHONE OCCASION",
@@ -351,7 +351,7 @@
     },
     {
       "category": "CABLES",
-      "ca_eur": 3596.43
+      "ca_eur": 3609.33
     },
     {
       "category": "COQUE SILICONE",
@@ -363,7 +363,7 @@
     },
     {
       "category": "MAINTENANCE",
-      "ca_eur": 1563.6
+      "ca_eur": 1573.6
     },
     {
       "category": "COQUE SAMSUNG",
@@ -437,8 +437,8 @@
     },
     {
       "name": "VERRE TREMPE IPHONE ANTI-ESPION AVCE POSE",
-      "ca_eur": 2889.75,
-      "qty": 193.0,
+      "ca_eur": 2904.75,
+      "qty": 194.0,
       "tva_class": "accessoire_reparation"
     },
     {
@@ -455,8 +455,8 @@
     },
     {
       "name": "PALM ANTI ESPION MATE 2 FACES",
-      "ca_eur": 2174.19,
-      "qty": 53.0,
+      "ca_eur": 2214.18,
+      "qty": 54.0,
       "tva_class": "accessoire_reparation"
     },
     {
@@ -509,8 +509,8 @@
     },
     {
       "name": "SERVICE",
-      "ca_eur": 1624.09,
-      "qty": 103.0,
+      "ca_eur": 1657.09,
+      "qty": 105.0,
       "tva_class": "accessoire_reparation"
     },
     {
